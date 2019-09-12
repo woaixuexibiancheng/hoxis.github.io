@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[这几款我私藏的Markdown编辑器，今天分享给你]]></title>
+    <url>%2Fmarkdown-editors.html</url>
+    <content type="text"><![CDATA[相信很多人都使用 Markdown 来编写文章，Markdown 语法简洁，使用起来很是方便，而且各大平台几乎都已支持 Markdown 语法 那么，如何选择一款趁手的 Markdown 编辑器，就是一个问题了，特别是对于我这样的强迫症来说。 市面上的各种 Markdown 编辑器，几乎都被我试用个遍，但是没有一款让我完全满意的，它们都各有优缺点。 我用过有道云笔记、为知笔记、Cmd Markdown、印象笔记、Typora、MarkdownPad、小书匠，等等。 强迫症的我，表示很纠结。 今天就给大家推荐几款我觉得还不错的 Markdown 编辑器，当然，还是 Windows 平台为例。 优雅大方–Typora 几近完美–Cmd Markdown 『平淡无奇』–印象笔记 瑞士军刀–小书匠 它们都涵盖了 Markdown 的基本功能，但是它们都各自有自己的亮点和不足。 优雅大方–Typora官网：https://typora.io Typora 是 Windows 端的 Markdown 新宠 若要人推荐 Windows 端的 Markdown 编辑器 Typora 肯定名列前茅 没办法，人家长得实在是好看啊！ 但是人家也不只是一个花瓶啊 页面风格简洁大方的同时 功能也是应有尽有 图片、表格、数学公式、代码高亮、PDF&amp;HTML 导出、流程图…… 另外，Typora 还支持代码模式编辑和预览模式编辑的切换，用快捷键 Ctrl+/ 即可切换 这个功能是 Typora 所特有的 在预览模式下进行编辑，所编辑即所见、所见即所得 比如，表格功能： 插入表格后 完全就可以像在 Excel 中操作表格一样 行、列操作、单元格操作等等 很显然，Typora 是一款颜值超高，功能完备的 Markdown 编辑器，另外还支持 Linux 版和 Mac 版。 但是，Typora 有以下几个不足： ① 无法集成图床，只能先上传到图床，然后手动插入外链 ② Markdown 文件无法进行云端同步，还需要借助其他同步工具才行。 几近完美–Cmd Markdown官网：https://www.zybuluo.com/mdeditor Cmd Markdown 我以为是一款可以媲美 Typora 的 Markdown 编辑器 页面同样简洁舒服 基础功能一个不少，公式、代码、流程图、甘特图、序列图、表格，等等 最重要的，Cmd Markdown 支持云端同步，这对于多平台写作的人来说，简直是一个福音！ 另外，Cmd Markdown还支持 Web 版、Linux 版、Windows 版、Mac 版 Cmd Markdown 还支持文章发布功能 发布后，第三者就可以通过你发布的外链来访问你的文章了 相当于一个博客系统了 但是，Cmd Markdown 以下功能是收费的： 导出PDF&amp;HTML、导出到印象笔记、上传图片附件等 而且，最近几次登录总是出现 而最近一次更新已经是 2017 年的事情了 也许是它的功能已经足够完备，无须其他更新了 但是，作为一款个人维护的软件，我使用起来还是有点担心的 不知道 Cmd Markdown 的未来会怎样发展 这么好的软件会一直做下去吗？ 存放在云端的文章和图片会一直在吗？ 总结一下 ① 功能丰富、页面简洁、支持云端同步 ② 图床要收费，不支持自定义图床（收费版也不支持自定义图床） ③ 导出等功能要收费 『平淡无奇』–印象笔记 大象是去年才开始支持 Markdown 的 为此，我感动涕零 还专门写了一篇文章：没想到它终于支持Markdown了…… 所以，这里就不再多说 Markdown 功能基本都支持，可以作为笔记进行云端同步 支持各种 Markdown 语法 一度，大象成了我的主力 Markdown 编辑器 因为我的笔记管理也是用的大象 但是，它还是有一些不完美： ① 不支持图床，需要借助第三方工具，如 PicGo ② 导出只能用打印变相支持 ③ 手机端不支持编辑 Markdown 编辑 ④ 页面相比于以上两个，着实有点『丑』了 瑞士军刀–小书匠官网：xiaoshujiang.com 小书匠，我想很多人都没有听过 我也是在网上搜索时看到的 以前有一段时间用其作为主力 Markdown 编辑器 今天就给小伙伴们主要介绍一下它 启动页面 不得不说，没有高大上的感觉 虽然长得一般，但是确实能干 小书匠，我用下来，下面几个功能是在其他平台没有见过的 1、图床绑定 市面上主流了的图床基本上都支持 这还不算完，绑定图床后 2、上传图片也变得非常简单 点击插入图片，或者使用快捷键 Ctrl+g 选择图片进行插入 或者，直接复制图片，然后在编辑器里直接粘贴 图片插入后，会自动上传到绑定的图床，并且生成外链地址 看图： 3、存储绑定 小书匠本身不支持云端同步，但是提供了绑定其他云端存储的功能 对一些主流云笔记和 Git 仓库都进行了支持 4、多平台支持 和 Cmd Markdown 一样，同样支持 Web 版、Linux 版、Windows 版、Mac 版 5、其他功能 6、导出 可选导出项非常之多 付费版竟然还支持导出为 epub 和 mobi 格式！ 7、免费VS付费 小书匠免费功能已经很丰富了，但是同样提供付费版本 只要 20 元/年！反正我自己已经买了 好了，小书匠就介绍到这了 功能很丰富、很齐全 但是我也要挑挑骨头 ① 页面没那么简洁好看 ② 功能越丰富，配置就显得有点繁琐，这点是无可避免的，存在一定的使用学习成本 ③ 要是支持自带云端同步就更好啦 总结总的来说，几个编辑器各有千秋，个人提供如下几个参考标准： 简洁+云端同步：Cmd Markdown 简洁+使用方便：Typora 功能丰富：小书匠 我现在的主流是小书匠+腾讯图床+坚果云同步 另外，今天介绍的几款在手机端表现都不怎样，手机端我一般用锤子便签 好了，今天就到这了]]></content>
+      <categories>
+        <category>好物分享</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[使用gogs搭建git私有仓库]]></title>
     <url>%2Fbuild-a-private-git-repository-with-gogs.html</url>
     <content type="text"><![CDATA[本来想在 Github 上建一个私仓，但是发现只能设置 3 个贡献者。 国内的码云也只能设置 5 个。 无意间看到了使用 gogs 可以搭建私服，正好手头有空闲的服务器，于是开干！ https://gogs.io/ 1、安装 git1yum install git 2、安装MySQL安装过程省略。 安装后登录 MySQL 进行如下配置： 12345create database gogs default character set utf8mb4 collate utf8mb4_unicode_ci;# 这里我新建了一个用户用来访问gogs数据库CREATE USER 'pig'@'%' IDENTIFIED BY 'xxxx';GRANT ALL ON gogs.* TO 'pig'@'%'; 3、安装gogs3.1 创建git用户建议使用 git 用户，因为 gogs 配置文件默认使用的 git 用户。 12useradd gitpasswd git设置密码 3.2 下载解压gogs123456su gitcd wget https://dl.gogs.io/0.11.29/linux_amd64.zip# unzip 命令不可用的话需先安装unzip linux_amd64.zip 3.3 配置gogsvim /home/git/gogs/scripts/init/debian/gogs 12345678910PATH=/sbin:/usr/sbin:/bin:/usr/binDESC="GoGs Git Service"NAME=gogsSERVICEVERBOSE=yesPIDFILE=/var/run/$NAME.pidSCRIPTNAME=/etc/init.d/$NAMEWORKINGDIR=/home/git/gogs #根据自己的目录修改DAEMON=$WORKINGDIR/$NAMEDAEMON_ARGS="web"USER=git #修改对应用户 3.4 切回root，拷贝文件和服务123456#拷贝到init.d下cp /home/git/gogs/scripts/init/debian/gogs /etc/init.d/#添加可执行权限chmod +x /etc/init.d/gogs#拷贝servicecp /home/git/gogs/scripts/systemd/gogs.service /etc/systemd/system/ 3.5 启动1systemctl start gogs.service 4、配置 gogs此时，使用 ip:3000 就可以访问了 P.S. 阿里云的坑阿里云的主机默认是无法访问 3000 端口的，解决方法 ① 登录到阿里云控制台，进入到自己的云主机管理页面 ② 点击『防火墙』 ③ 添加 3000 端口的访问规则 确定，然后就可以继续访问之前的页面了。 第一次访问 Gogs，浏览器进入安装页面，如图所示填写字段 点击 install gogs，安装成功以后会直接进入 gogs 首页，在这里可以注册或者登录，完全像是一个正常的网站。 若在安装页面没有配置管理员，那么第一个注册的用户默认自动变成管理员，之后注册的用户都是普通用户。 配置文件详解配置文件位于： /home/git/gogs/custom/conf/app.ini 其中参数的详细解释可以看官网：https://gogs.io/docs/advanced/configuration_cheat_sheet 禁止用户注册 为了系统安全性，考虑禁止用户注册，只能由管理员创建帐号。 将参数 DISABLE_REGISTRATION 设置为 true。 1DISABLE_REGISTRATION = true 此时需要在页面进行创建账号： 至此，基于 gogs 的 Git 私仓搭建基本完毕。 参考： https://www.jianshu.com/p/63206dad0afahttps://blog.csdn.net/qq_22638399/article/details/80658196https://zhuanlan.zhihu.com/p/30798837https://www.jianshu.com/p/28e8aa8f9ec4]]></content>
@@ -698,8 +709,8 @@
         <category>资源分享</category>
       </categories>
       <tags>
-        <tag>office</tag>
         <tag>资源</tag>
+        <tag>office</tag>
       </tags>
   </entry>
   <entry>
@@ -2254,18 +2265,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[我学设计模式：外观（Facade）模式]]></title>
-    <url>%2F%E6%88%91%E5%AD%A6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%A4%96%E8%A7%82%EF%BC%88Facade%EF%BC%89%E6%A8%A1%E5%BC%8F.html</url>
-    <content type="text"><![CDATA[定义：为子系统中的一组接口提供一个一致的界面，Facade模式定义了一个高层接口，这个接口使得这一子系统更加易用。 外观模式比较简单，两个字：封装！外观模式是为了解决类与类之间的依赖关系的，将类与类之间（比如A、B、C）的关系放在一个Facade类中，从外部看来只要调用Facade类中的方法，就可以自动调用A、B、C的功能，从而降低了类之间的耦合度。 认识外观模式：封装交互，简化调用 如图所示，外观模式减少了外部与子系统内多个模块的交互，松散耦合，从而让外部可以更简单地使用子系统。一个直观的例子就是电脑，外部来看我们面对的是电脑，只要对电脑上的按钮操作即可，但是电脑内部有很多子系统，如CPU、Memory、Disk等。当我们启动或关闭电脑时，只要对封装好的Computer操作即可，而不需对每个子系统启动。 外观模式的调用顺序 何时使用外观模式 希望为一个复杂的子系统提供一个简单的接口 想让客户端和抽象类的实现部分松散耦合 构建多层结构系统时，可以使用外观作为每层的入口 本文是《研磨设计模式》的读书笔记。]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>设计模式</tag>
-        <tag>外观模式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[我学设计模式：单例（Singleton）模式]]></title>
     <url>%2F%E6%88%91%E5%AD%A6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%8D%95%E4%BE%8B%EF%BC%88Singleton%EF%BC%89%E6%A8%A1%E5%BC%8F.html</url>
     <content type="text"><![CDATA[保证一个类仅有一个实例，并提供一个访问它的全局访问点。 要想控制一个类只被创建一个实例，那么首要的问题就是把创建实例的权限收回来，让类自己来负责创建自己类的实例，然后由这个类来提供外部可以访问这个类实例的方法，这就是单例模式的实现方法。 单例模式的结构和实现 Singleton:负责创建Singleton类自己的唯一实例，并提供一个getInstance的方法，来外部来访问这个类的唯一实例。 私有化构造方法 提供静态的获取实例的方法 定义存储实例的属性，因为要在静态方法中使用，因此要加上static修饰 实现控制实例的创建 示例代码懒汉模式所谓懒汉模式，既然懒，那么在创建对象实例时就不要着急，在马上要使用对象实例时才会创建，在装载对象时不会创建对象实例。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546package com.liuhao.designpattern.singleton;/** * 单例模式懒汉模式 * * @author liuhao * * 2015年7月17日 */public class SingletonLazy &#123; // 4. 定义一个变量来存储创建好的类实例 // 5. 因为要在静态方法中使用，因此要加上static修饰 private static SingletonLazy instance = null; // 1. 构造方法私有化，好在内部控制创建实例的数目 private SingletonLazy() &#123; &#125; // 2. 定义一个方法为客户端提供类实例 // 3. 这个方法需要定义成类方法，也就是 public static SingletonLazy getInstance() &#123; // 6. 判断存储实例的变量是否有值 if (instance == null) &#123; instance = new SingletonLazy(); &#125; return instance; &#125; private String singletonData;// 单例可以有自己的属性 /** * 获取属性的值 * * @return 属性的值 */ public String getSingletonData() &#123; return singletonData; &#125; /** * 单例可以有自己的操作方法 */ public void singletonOperation() &#123; &#125;&#125; 饿汉模式所谓饿汉模式，就是在创建对象实例时比较急，在装载类的时候就会创建对象实例。123456789101112131415161718192021222324252627282930313233343536373839404142package com.liuhao.designpattern.singleton;/** * 单例模式饿汉模式 * * @author liuhao * * 2015年7月17日 */public class SingletonHungry &#123; // 4. 直装载类的时候就会创建对象实例，只创建一次 private static SingletonHungry instance = new SingletonHungry(); // 1. 构造方法私有化，好在内部控制创建实例的数目 private SingletonHungry() &#123; &#125; // 2. 定义一个方法为客户端提供类实例 // 3. 这个方法需要定义成类方法，也就是 public static SingletonHungry getInstance() &#123; // 5. 直接使用以及创建好的实例 return instance; &#125; private String singletonData;// 单例可以有自己的属性 /** * 获取属性的值 * * @return 属性的值 */ public String getSingletonData() &#123; return singletonData; &#125; /** * 单例可以有自己的操作方法 */ public void singletonOperation() &#123; &#125;&#125; 其他单例模式的范围目前Java实现的单例是一个虚拟机范围的，因为装载类的功能是虚拟机的，所以一个虚拟机在通过自己的ClassLoader装载饿汉模式实现单例时就会创建一个类的实例。 因此如果一个虚拟机里面有很多个ClassLoader，而这些ClassLoader都装载某个类的话，就会产生多个实例。 单例模式的调用顺序 懒汉模式 饿汉模式 体现的一些思想 延迟加载懒汉模式中，一开始没有加载所需的资源或者数据，一直等到马上就要使用了才加载，即所谓的“延迟加载”。 缓存当某些资源或数据被频繁的使用，而且它们是存储在系统外部的（如数据库、硬盘），那么每次操作都要从数据库获取，速度会很慢，操作性能问题。 一个简单的方法就是把这些数据缓存到内存中，每次操作的时候先到内存里找，若有则直接使用；若果没有再获取它并设置到缓存中。 缓存是一种典型的空间换取时间的方案。 线程安全 不加同步的懒汉模式是线程不安全的。比如，有线程A、B同时调用getInstance方法，那就可能导致并发问题，如图。 如何实现懒汉模式的线程安全 加上关键字synchronized，如下 1public static synchronized SingletonLazy getInstance() &#123;&#125; 双重检查加锁。不是在每次进入getInstance时都需要同步，而是先不同步，进入方法后，先检查实例是否存在。如果不存在才进入下面的同步块，这是第一重检查。进入同步块后，再次检查实例是否存在，如果不存在，就在同步的情况下创建一个实例，这是第二重检查。双重检查加锁机制的实现需要使用volatile关键字，被它修饰的变量的值将不会被本地线程缓存，所有对该变量的读写都是直接操作共享内存，从而确保多个线程能够正确的处理该变量。具体实现： 12345678910111213public static SingletonVolatile getInstance() &#123; // 检查实例是否存在，不存在则进入到同步块 if (instance == null) &#123; // 同步块，线程安全地创建实例 synchronized (SingletonVolatile.class) &#123; // 再次检查实例是否存在，不存在则真正的创建实例 if (instance == null) &#123; instance = new SingletonVolatile(); &#125; &#125; &#125; return instance;&#125; 这种实现方式既可以实现线程安全，同时也不会对性能造成太大的影响。 饿汉模式是线程安全的。]]></content>
@@ -2275,6 +2274,18 @@
       <tags>
         <tag>设计模式</tag>
         <tag>单例模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[我学设计模式：外观（Facade）模式]]></title>
+    <url>%2F%E6%88%91%E5%AD%A6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%A4%96%E8%A7%82%EF%BC%88Facade%EF%BC%89%E6%A8%A1%E5%BC%8F.html</url>
+    <content type="text"><![CDATA[定义：为子系统中的一组接口提供一个一致的界面，Facade模式定义了一个高层接口，这个接口使得这一子系统更加易用。 外观模式比较简单，两个字：封装！外观模式是为了解决类与类之间的依赖关系的，将类与类之间（比如A、B、C）的关系放在一个Facade类中，从外部看来只要调用Facade类中的方法，就可以自动调用A、B、C的功能，从而降低了类之间的耦合度。 认识外观模式：封装交互，简化调用 如图所示，外观模式减少了外部与子系统内多个模块的交互，松散耦合，从而让外部可以更简单地使用子系统。一个直观的例子就是电脑，外部来看我们面对的是电脑，只要对电脑上的按钮操作即可，但是电脑内部有很多子系统，如CPU、Memory、Disk等。当我们启动或关闭电脑时，只要对封装好的Computer操作即可，而不需对每个子系统启动。 外观模式的调用顺序 何时使用外观模式 希望为一个复杂的子系统提供一个简单的接口 想让客户端和抽象类的实现部分松散耦合 构建多层结构系统时，可以使用外观作为每层的入口 本文是《研磨设计模式》的读书笔记。]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>设计模式</tag>
+        <tag>外观模式</tag>
       </tags>
   </entry>
   <entry>

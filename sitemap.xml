@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hoxis.github.io/markdown-editors.html</loc>
+    
+    <lastmod>2019-09-12T05:28:35.382Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hoxis.github.io/build-a-private-git-repository-with-gogs.html</loc>
     
     <lastmod>2019-09-05T01:14:39.647Z</lastmod>
@@ -1465,14 +1472,14 @@
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/resources/index.html</loc>
+    <loc>https://hoxis.github.io/tags/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.534Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/tags/index.html</loc>
+    <loc>https://hoxis.github.io/resources/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.534Z</lastmod>
     
@@ -1486,14 +1493,14 @@
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/about/index.html</loc>
+    <loc>https://hoxis.github.io/categories/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.531Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/categories/index.html</loc>
+    <loc>https://hoxis.github.io/about/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.531Z</lastmod>
     
