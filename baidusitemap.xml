@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://hoxis.github.io/redis-cluster-error-moved.html</loc>
+    <lastmod>2019-09-16T02:57:40.920Z</lastmod>
+    <data>
+        <display>
+        <title>redis集群报错：(error) MOVED 解决方法</title>
+        <pubTime>2019-09-16T02:51:27.000Z</pubTime>
+        
+        <tag>redis</tag>
+         
+         
+           
+             
+              <breadCrumb title="绊脚石" url="https://hoxis.github.io/categories/%E7%BB%8A%E8%84%9A%E7%9F%B3/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hoxis.github.io/capture-packets-with-fiddler-on-the-phone.html</loc>
     <lastmod>2019-09-12T07:30:50.164Z</lastmod>
     <data>

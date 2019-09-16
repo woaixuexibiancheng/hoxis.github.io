@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hoxis.github.io/"/>
-  <updated>2019-09-12T07:30:50.164Z</updated>
+  <updated>2019-09-16T02:57:40.920Z</updated>
   <id>https://hoxis.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redis集群报错：(error) MOVED 解决方法</title>
+    <link href="https://hoxis.github.io/redis-cluster-error-moved.html"/>
+    <id>https://hoxis.github.io/redis-cluster-error-moved.html</id>
+    <published>2019-09-16T02:51:27.000Z</published>
+    <updated>2019-09-16T02:57:40.920Z</updated>
+    
+    <content type="html"><![CDATA[<p>在使用 redis-cli 连接 redis 集群，进行数据操作时，有报错</p><a id="more"></a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./redis-cli -h 192.24.54.1 -p 6379 -a <span class="string">'123456'</span></span><br><span class="line">192.24.54.1:6379&gt; get name</span><br><span class="line">(error) MOVED 5798 192.24.54.2:6379</span><br></pre></td></tr></table></figure><p>解决方法：</p><p>这种情况一般是因为启动 <code>redis-cli</code> 时没有设置集群模式所导致。</p><p>启动时使用 <code>-c</code> 参数来启动集群模式，命令如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./redis-cli -h 192.24.54.1 -p 6379 -a <span class="string">'123456'</span> -c</span><br><span class="line">192.24.54.1:6379&gt; get name</span><br><span class="line">-&gt; Redirected to slot [5798] located at 192.24.54.2:6379</span><br><span class="line"><span class="string">"yayun"</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在使用 redis-cli 连接 redis 集群，进行数据操作时，有报错&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="绊脚石" scheme="https://hoxis.github.io/categories/%E7%BB%8A%E8%84%9A%E7%9F%B3/"/>
+    
+    
+      <category term="redis" scheme="https://hoxis.github.io/tags/redis/"/>
+    
+  </entry>
   
   <entry>
     <title>手把手教你如何用Fiddler抓取手机数据包（iOS+Android）</title>
@@ -470,32 +492,6 @@
       <category term="MySQL" scheme="https://hoxis.github.io/tags/MySQL/"/>
     
       <category term="极客时间" scheme="https://hoxis.github.io/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>史上第一张黑洞照片是用Python合成的？</title>
-    <link href="https://hoxis.github.io/python-blackhole.html"/>
-    <id>https://hoxis.github.io/python-blackhole.html</id>
-    <published>2019-04-25T08:43:37.000Z</published>
-    <updated>2019-07-30T06:20:16.519Z</updated>
-    
-    <content type="html"><![CDATA[<p>这两天，史上第一张黑洞照片在朋友圈和各大公众号疯传，希望你没有收到视觉中国的律师函。</p><p>好了，言归正传。</p><p>这个照片是怎么「拍到」的呢？</p><a id="more"></a><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190425164632.png" alt></p><p>其中一位研究人员（一个高颜值的妹子，MIT 的博士）就在 TED 上进行了很好的讲解。</p><p>在线观看地址：<a href="http://t.cn/E6dwQa5" target="_blank" rel="noopener">http://t.cn/E6dwQa5</a>。</p><p>这是一个两年前的视频，当时这张照片还没有诞生，但是这个项目已经启动了。</p><p>也就是，拍摄这张照片，至少用了两年时间。</p><p>这里，我来大概的说一下视频内容：</p><p>1、首先，想要拍到那个黑洞，需要一个和地球差不多大小的望远镜，至于为什么，请看上面提到的妹子讲解；</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190425164712.png" alt></p><p>2、显然，我们没有那么大望远镜，怎么办呢？这些科学家们就想到了，将遍布全世界的望远镜连接起来；</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190425164724.png" alt></p><p>3、通过电脑让这些望远镜协同工作，然后对这些望远镜拍摄的数据进行处理、筛选、合成等等，比较复杂的算法操作；</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190425164724.png" alt></p><p>4、数据处理的过程，就要用到我们的 Python 了！</p><p>其中，最重要的部分，就是根据那么多零散的数据，如何处理？来得到我们现在看到的这个照片？</p><p>视频中花了比较大的篇幅介绍算法，我是看不太懂了……</p><p>有兴趣的也可以看下算法的论文，地址：<a href="http://t.cn/E6dzFXo。" target="_blank" rel="noopener">http://t.cn/E6dzFXo。</a></p><p>论文中提到了很多 Python 库：</p><pre><code>* Numpy* Scipy* Pandas* Jupyter* Matplotlib* Astropy</code></pre><p>并且，在他们自己实现的 Python 代码中也有用到，代码库就存放在 GitHub 上： <a href="https://github.com/achael/eht-imaging" target="_blank" rel="noopener">https://github.com/achael/eht-imaging</a></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190425164808.png" alt></p><p>可以看出妹子在跑代码，没有报错时兴奋的表情：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190425164840.png" alt></p><p>下次谁在说 Python 的坏话时，记得提醒 ta：Python 曾帮助拍摄了第一张黑洞照片！</p><p>各路神仙大佬们，快去研究黑洞算法，以及它的 Python 实现代码吧！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这两天，史上第一张黑洞照片在朋友圈和各大公众号疯传，希望你没有收到视觉中国的律师函。&lt;/p&gt;
-&lt;p&gt;好了，言归正传。&lt;/p&gt;
-&lt;p&gt;这个照片是怎么「拍到」的呢？&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="趣闻" scheme="https://hoxis.github.io/categories/%E8%B6%A3%E9%97%BB/"/>
-    
-    
-      <category term="Python" scheme="https://hoxis.github.io/tags/Python/"/>
-    
-      <category term="黑洞" scheme="https://hoxis.github.io/tags/%E9%BB%91%E6%B4%9E/"/>
     
   </entry>
   
