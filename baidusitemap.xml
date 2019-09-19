@@ -5,11 +5,11 @@
     
   <url>
     <loc>https://hoxis.github.io/mysql-can't-open-the-mysql-plugin-table.html</loc>
-    <lastmod>2019-09-19T03:28:16.164Z</lastmod>
+    <lastmod>2019-09-19T05:56:32.091Z</lastmod>
     <data>
         <display>
         <title>MySQL 启动异常：Can't open the mysql.plugin table. Please run mysql_upgrade to create</title>
-        <pubTime>2019-07-24T04:25:22.000Z</pubTime>
+        <pubTime>2019-09-19T03:26:09.661Z</pubTime>
         
         <tag>MySQL</tag>
          
@@ -17,6 +17,28 @@
            
              
               <breadCrumb title="绊脚石" url="https://hoxis.github.io/categories/%E7%BB%8A%E8%84%9A%E7%9F%B3/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hoxis.github.io/jay-chou-qqmusic.html</loc>
+    <lastmod>2019-09-19T05:56:06.242Z</lastmod>
+    <data>
+        <display>
+        <title>周董新歌搞崩QQ，抓取20W评论看看歌迷在说啥</title>
+        <pubTime>2019-09-17T15:17:52.590Z</pubTime>
+        
+        <tag>数据可视化</tag>
+         
+        <tag>数据爬取</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://hoxis.github.io/categories/Python/"/>
           
         </display>
     </data>

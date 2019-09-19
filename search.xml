@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MySQL 启动异常：Can't open the mysql.plugin table. Please run mysql_upgrade to create]]></title>
+    <url>%2Fmysql-can't-open-the-mysql-plugin-table.html</url>
+    <content type="text"><![CDATA[MySQL 启动报错： 1090517 13:34:15 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.090517 13:34:15 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.host' doesn't exist090517 13:34:15 mysqld_safe mysqld from pid file /usr/local/mysql/var/mail.bmitwap.com.pid ended090517 13:38:35 mysqld_safe Starting mysqld daemon with databases from /usr/local/mysql/var 解决方法： 根据 error 中的提示 我们可以使用 mysql_upgrade 来修复问题 运行如下命令 1mysql_install_db --user=mysql 运行后，出现如下返回： 然后再启动即可 1service mysql start]]></content>
+      <categories>
+        <category>绊脚石</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[周董新歌搞崩QQ，抓取20W评论看看歌迷在说啥]]></title>
+    <url>%2Fjay-chou-qqmusic.html</url>
+    <content type="text"><![CDATA[9 月 16 日晚间，周董在朋友圈发布了最新单曲《说好不哭》 发布后，真的让一波人哭了 一群想抢鲜听的小伙伴直接泪奔 因为 QQ 音乐直接被搞崩了 没想到干翻 QQ 音乐的不是网易云音乐 也不是虾米音乐 而是周董！ 周董成成功地凭一己之力干翻了 QQ 音乐 那么听过周董新歌后的小伙伴都是怎么评价的呢？ 这里，我们获取了 QQ 音乐的近 20W 条评论数据进行分析 看看其中有哪些有趣的东西 一、数据获取1、请求分析在 QQ 网页版直接搜索『说好不哭』 很容易就能找到单曲页面 拉到页面最下方 可以看到评论的分页查看按钮 按下 F12 点击第二页 在请求流中就可以看到对应的请求 其中可以看到两个重要参数：pagenum 和 pagesize 将请求 copy 到 Postman 中进行测试 发现可以直接获取到数据 连 Header 都不需要添加 这里尝试对请求参数进行了精简 最终只需要如下几个参数即可 从 Postman 中可以直接获取到对应的代码 123456789import requestsurl = "https://c.y.qq.com/base/fcgi-bin/fcg_global_comment_h5.fcg"querystring = &#123;"biztype":"1","topid":"237773700","cmd":"8","pagenum":"1","pagesize":"25"&#125;response = requests.request("GET", url, params=querystring)print(response.text) 这里是单页评论的获取 所有评论的获取只需递增 pagenum 即可 2、数据解析返回数据中有很多暂时不需要的字段 这里我们只取其中的用户名、评论时间、评论内容、点赞数 对应如下字段 123456&#123; "nick": "丨那壹刻永遠消失\"\"", "praisenum": 1, "rootcommentcontent": "越听越好听怎么回事！", "time": 1568729836,&#125; 由于数据量较大这里我们暂时将数据存放在 Excel 中 一来无须依赖外部数据库 二来可以使用 Excel 对数据进行二次处理 数据存储代码如下： 12345678910111213141516def file_do(list_info, file_name): # 获取文件大小 if not os.path.exists(file_name): wb = openpyxl.Workbook() page = wb.active page.title = 'jay' page.append(['昵称','时间','点赞数','评论']) else: wb = openpyxl.load_workbook(file_name) page = wb.active for info in list_info: try: page.append(info) except Exception: print(info) wb.save(filename=file_name) 二、数据可视化1、各时段的评论数首先我们对评论按小时区间进行汇总 由于时间粒度比较小，这里对时间粒度进行了一些处理 周董的新曲是在 9.16 号 23 点准时发布的 可以看出在发布后的一个小时内（23:00-24:00） 评论数量达到了高峰 占了总评论数的一半以上 另外看了一眼 9.16 23 点之前的评论也很有意思 一种搬好小板凳嗑着瓜子坐等的既视感 2、大家都在说什么词云生成的方法有很多 可以用代码生成 也可以用一些在线工具 这里我就使用了在线词云工具：wordart 后续可以给大家单独再普及一下 生成效果如下 周杰伦、杰伦字眼很明显 还有大量跑来『打卡』的 『好听』、『来了』、『哭了』、『爱了』 其中少不了的还有『青春』 另外『阿信』的出现估计给了很多人惊喜 3、大家都点赞了哪些评论我们以点赞数对评论进行了排序 排名靠前的评论是如下一些 另外，QQ 音乐官方也会放出精彩评论 对比下可以看出和我们获取到的数据是比较一致的 只不过官方并不是按点赞个数进行排名的 看得出来这些排名靠前的大都是在回忆青春 这些评论之所以能够得到大家的共鸣 也许他们的青春里都有一个周杰伦吧]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>数据可视化</tag>
+        <tag>数据爬取</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[redis集群报错：(error) MOVED 解决方法]]></title>
     <url>%2Fredis-cluster-error-moved.html</url>
     <content type="text"><![CDATA[在使用 redis-cli 连接 redis 集群，进行数据操作时，有报错 123./redis-cli -h 192.24.54.1 -p 6379 -a '123456'192.24.54.1:6379&gt; get name(error) MOVED 5798 192.24.54.2:6379 解决方法： 这种情况一般是因为启动 redis-cli 时没有设置集群模式所导致。 启动时使用 -c 参数来启动集群模式，命令如下： 1234./redis-cli -h 192.24.54.1 -p 6379 -a '123456' -c192.24.54.1:6379&gt; get name-&gt; Redirected to slot [5798] located at 192.24.54.2:6379"yayun"]]></content>
@@ -131,17 +154,6 @@
       <tags>
         <tag>爬虫</tag>
         <tag>数据可视化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[MySQL 启动异常：Can't open the mysql.plugin table. Please run mysql_upgrade to create]]></title>
-    <url>%2Fmysql-can't-open-the-mysql-plugin-table.html</url>
-    <content type="text"><![CDATA[MySQL 启动报错： 1090517 13:34:15 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to create it.090517 13:34:15 [ERROR] Fatal error: Can't open and lock privilege tables: Table 'mysql.host' doesn't exist090517 13:34:15 mysqld_safe mysqld from pid file /usr/local/mysql/var/mail.bmitwap.com.pid ended090517 13:38:35 mysqld_safe Starting mysqld daemon with databases from /usr/local/mysql/var 解决方法： 根据 error 中的提示 我们可以使用 mysql_upgrade 来修复问题 运行如下命令 1mysql_install_db --user=mysql 运行后，出现如下返回： 然后再启动即可 1service mysql start]]></content>
-      <categories>
-        <category>绊脚石</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
