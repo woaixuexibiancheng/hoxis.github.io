@@ -4,12 +4,32 @@
 
     
   <url>
+    <loc>https://hoxis.github.io/ansible-only-show-errors.html</loc>
+    <lastmod>2019-09-29T03:24:30.354Z</lastmod>
+    <data>
+        <display>
+        <title>Ansible 只查看错误输出信息</title>
+        <pubTime>2019-09-29T03:23:39.000Z</pubTime>
+        
+        <tag>Ansible进阶</tag>
+         
+         
+           
+             
+              <breadCrumb title="Ansible" url="https://hoxis.github.io/categories/Ansible/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hoxis.github.io/mysql-can't-open-the-mysql-plugin-table.html</loc>
-    <lastmod>2019-09-19T05:56:32.091Z</lastmod>
+    <lastmod>2019-09-19T08:06:23.318Z</lastmod>
     <data>
         <display>
         <title>MySQL 启动异常：Can't open the mysql.plugin table. Please run mysql_upgrade to create</title>
-        <pubTime>2019-09-19T03:26:09.661Z</pubTime>
+        <pubTime>2019-07-24T04:25:22.000Z</pubTime>
         
         <tag>MySQL</tag>
          

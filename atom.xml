@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hoxis.github.io/"/>
-  <updated>2019-09-19T05:56:32.091Z</updated>
+  <updated>2019-09-29T03:24:30.354Z</updated>
   <id>https://hoxis.github.io/</id>
   
   <author>
@@ -17,25 +17,24 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>MySQL 启动异常：Can&#39;t open the mysql.plugin table. Please run mysql_upgrade to create</title>
-    <link href="https://hoxis.github.io/mysql-can&#39;t-open-the-mysql-plugin-table.html"/>
-    <id>https://hoxis.github.io/mysql-can&#39;t-open-the-mysql-plugin-table.html</id>
-    <published>2019-09-19T03:26:09.661Z</published>
-    <updated>2019-09-19T05:56:32.091Z</updated>
+    <title>Ansible 只查看错误输出信息</title>
+    <link href="https://hoxis.github.io/ansible-only-show-errors.html"/>
+    <id>https://hoxis.github.io/ansible-only-show-errors.html</id>
+    <published>2019-09-29T03:23:39.000Z</published>
+    <updated>2019-09-29T03:24:30.354Z</updated>
     
-    <content type="html"><![CDATA[<p>MySQL 启动报错：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">090517 13:34:15 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to <span class="keyword">create</span> it<span class="number">.090517</span> <span class="number">13</span>:<span class="number">34</span>:<span class="number">15</span> [<span class="keyword">ERROR</span>] Fatal <span class="keyword">error</span>: Can<span class="string">'t open and lock privilege tables: Table '</span>mysql.host<span class="string">' doesn'</span>t exist090517 <span class="number">13</span>:<span class="number">34</span>:<span class="number">15</span> mysqld_safe mysqld <span class="keyword">from</span> pid <span class="keyword">file</span> /usr/<span class="keyword">local</span>/mysql/<span class="keyword">var</span>/mail.bmitwap.com.pid ended090517 <span class="number">13</span>:<span class="number">38</span>:<span class="number">35</span> mysqld_safe <span class="keyword">Starting</span> mysqld daemon <span class="keyword">with</span> <span class="keyword">databases</span> <span class="keyword">from</span> /usr/<span class="keyword">local</span>/mysql/<span class="keyword">var</span></span><br></pre></td></tr></table></figure><a id="more"></a><p>解决方法：</p><p>根据 error 中的提示 我们可以使用 <code>mysql_upgrade</code> 来修复问题</p><p>运行如下命令</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_install_db --user=mysql</span><br></pre></td></tr></table></figure><p>运行后，出现如下返回：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190821144113.png" alt></p><p>然后再启动即可</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql start</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>Ansible 如何只输出错误信息？</p><a id="more"></a><p>有时主机较多时，我们只想关注有问题的主机。</p><p>Ansible callback 插件中有一个 <code>actionable</code>，官方描述为：</p><blockquote><p>actionable - shows only items that need attention</p></blockquote><p>即只输出需要关注的部分。</p><p>但是 callback 插件只对 playbook 生效，如何对 Ad-hoc 起作用呢？</p><p>参考文档：<a href="https://docs.ansible.com/ansible/2.6/plugins/callback.html#managing-adhoc" target="_blank" rel="noopener">https://docs.ansible.com/ansible/2.6/plugins/callback.html#managing-adhoc</a></p><p>可以通过修改配置文件</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[defaults]</span><br><span class="line">bin_ansible_callbacks=True</span><br></pre></td></tr></table></figure><p>或者修改环境变量来实现</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export ANSIBLE_LOAD_CALLBACK_PLUGINS=1</span><br></pre></td></tr></table></figure><p>这里我们通过环境变量的方式来进行，这样比较轻量，无需修改文件</p><p>在运行 Ad-hoc 命令时，前面加上两个参数即可：</p><p><code>ANSIBLE_LOAD_CALLBACK_PLUGINS=1 ANSIBLE_STDOUT_CALLBACK=actionable</code></p><p>完整命令如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ANSIBLE_LOAD_CALLBACK_PLUGINS=1 ANSIBLE_STDOUT_CALLBACK=actionable ansible all -m ping</span><br></pre></td></tr></table></figure><p>另外，ansible 环境变量汇总见页面：<a href="https://docs.ansible.com/ansible/2.6/reference_appendices/config.html#ansible-configuration-settings" target="_blank" rel="noopener">https://docs.ansible.com/ansible/2.6/reference_appendices/config.html#ansible-configuration-settings</a></p><p>参考：</p><ul><li><a href="https://stackoverflow.com/questions/40239150/how-can-i-make-ansible-show-only-errors-in-execution" target="_blank" rel="noopener">https://stackoverflow.com/questions/40239150/how-can-i-make-ansible-show-only-errors-in-execution</a></li><li><a href="https://docs.ansible.com/ansible/2.6/plugins/callback.html#callback-plugins" target="_blank" rel="noopener">https://docs.ansible.com/ansible/2.6/plugins/callback.html#callback-plugins</a></li></ul>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;MySQL 启动报错：&lt;/p&gt;
-&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;090517 13:34:15 [ERROR] Can&#39;t open the mysql.plugin table. Please run mysql_upgrade to &lt;span class=&quot;keyword&quot;&gt;create&lt;/span&gt; it&lt;span class=&quot;number&quot;&gt;.090517&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;13&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;34&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;15&lt;/span&gt; [&lt;span class=&quot;keyword&quot;&gt;ERROR&lt;/span&gt;] Fatal &lt;span class=&quot;keyword&quot;&gt;error&lt;/span&gt;: Can&lt;span class=&quot;string&quot;&gt;&#39;t open and lock privilege tables: Table &#39;&lt;/span&gt;mysql.host&lt;span class=&quot;string&quot;&gt;&#39; doesn&#39;&lt;/span&gt;t exist090517 &lt;span class=&quot;number&quot;&gt;13&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;34&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;15&lt;/span&gt; mysqld_safe mysqld &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; pid &lt;span class=&quot;keyword&quot;&gt;file&lt;/span&gt; /usr/&lt;span class=&quot;keyword&quot;&gt;local&lt;/span&gt;/mysql/&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt;/mail.bmitwap.com.pid ended090517 &lt;span class=&quot;number&quot;&gt;13&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;38&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;35&lt;/span&gt; mysqld_safe &lt;span class=&quot;keyword&quot;&gt;Starting&lt;/span&gt; mysqld daemon &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;databases&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; /usr/&lt;span class=&quot;keyword&quot;&gt;local&lt;/span&gt;/mysql/&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;p&gt;Ansible 如何只输出错误信息？&lt;/p&gt;
     
     </summary>
     
-      <category term="绊脚石" scheme="https://hoxis.github.io/categories/%E7%BB%8A%E8%84%9A%E7%9F%B3/"/>
+      <category term="Ansible" scheme="https://hoxis.github.io/categories/Ansible/"/>
     
     
-      <category term="MySQL" scheme="https://hoxis.github.io/tags/MySQL/"/>
+      <category term="Ansible进阶" scheme="https://hoxis.github.io/tags/Ansible%E8%BF%9B%E9%98%B6/"/>
     
   </entry>
   
@@ -358,6 +357,29 @@
   </entry>
   
   <entry>
+    <title>MySQL 启动异常：Can&#39;t open the mysql.plugin table. Please run mysql_upgrade to create</title>
+    <link href="https://hoxis.github.io/mysql-can&#39;t-open-the-mysql-plugin-table.html"/>
+    <id>https://hoxis.github.io/mysql-can&#39;t-open-the-mysql-plugin-table.html</id>
+    <published>2019-07-24T04:25:22.000Z</published>
+    <updated>2019-09-19T08:06:23.318Z</updated>
+    
+    <content type="html"><![CDATA[<p>MySQL 启动报错：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">090517 13:34:15 [ERROR] Can't open the mysql.plugin table. Please run mysql_upgrade to <span class="keyword">create</span> it<span class="number">.090517</span> <span class="number">13</span>:<span class="number">34</span>:<span class="number">15</span> [<span class="keyword">ERROR</span>] Fatal <span class="keyword">error</span>: Can<span class="string">'t open and lock privilege tables: Table '</span>mysql.host<span class="string">' doesn'</span>t exist090517 <span class="number">13</span>:<span class="number">34</span>:<span class="number">15</span> mysqld_safe mysqld <span class="keyword">from</span> pid <span class="keyword">file</span> /usr/<span class="keyword">local</span>/mysql/<span class="keyword">var</span>/mail.bmitwap.com.pid ended090517 <span class="number">13</span>:<span class="number">38</span>:<span class="number">35</span> mysqld_safe <span class="keyword">Starting</span> mysqld daemon <span class="keyword">with</span> <span class="keyword">databases</span> <span class="keyword">from</span> /usr/<span class="keyword">local</span>/mysql/<span class="keyword">var</span></span><br></pre></td></tr></table></figure><a id="more"></a><p>解决方法：</p><p>根据 error 中的提示 我们可以使用 <code>mysql_upgrade</code> 来修复问题</p><p>运行如下命令</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_install_db --user=mysql</span><br></pre></td></tr></table></figure><p>运行后，出现如下返回：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190821144113.png" alt></p><p>然后再启动即可</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql start</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;MySQL 启动报错：&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;090517 13:34:15 [ERROR] Can&#39;t open the mysql.plugin table. Please run mysql_upgrade to &lt;span class=&quot;keyword&quot;&gt;create&lt;/span&gt; it&lt;span class=&quot;number&quot;&gt;.090517&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;13&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;34&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;15&lt;/span&gt; [&lt;span class=&quot;keyword&quot;&gt;ERROR&lt;/span&gt;] Fatal &lt;span class=&quot;keyword&quot;&gt;error&lt;/span&gt;: Can&lt;span class=&quot;string&quot;&gt;&#39;t open and lock privilege tables: Table &#39;&lt;/span&gt;mysql.host&lt;span class=&quot;string&quot;&gt;&#39; doesn&#39;&lt;/span&gt;t exist090517 &lt;span class=&quot;number&quot;&gt;13&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;34&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;15&lt;/span&gt; mysqld_safe mysqld &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; pid &lt;span class=&quot;keyword&quot;&gt;file&lt;/span&gt; /usr/&lt;span class=&quot;keyword&quot;&gt;local&lt;/span&gt;/mysql/&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt;/mail.bmitwap.com.pid ended090517 &lt;span class=&quot;number&quot;&gt;13&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;38&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;35&lt;/span&gt; mysqld_safe &lt;span class=&quot;keyword&quot;&gt;Starting&lt;/span&gt; mysqld daemon &lt;span class=&quot;keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;databases&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; /usr/&lt;span class=&quot;keyword&quot;&gt;local&lt;/span&gt;/mysql/&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="绊脚石" scheme="https://hoxis.github.io/categories/%E7%BB%8A%E8%84%9A%E7%9F%B3/"/>
+    
+    
+      <category term="MySQL" scheme="https://hoxis.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>linux shell 中判断字符串为空的正确方法</title>
     <link href="https://hoxis.github.io/linux-shell-string-is-null.html"/>
     <id>https://hoxis.github.io/linux-shell-string-is-null.html</id>
@@ -473,28 +495,6 @@
     
     
       <category term="文字识别" scheme="https://hoxis.github.io/tags/%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jd-eclipse离线包地址</title>
-    <link href="https://hoxis.github.io/jd-eclipse-offline.html"/>
-    <id>https://hoxis.github.io/jd-eclipse-offline.html</id>
-    <published>2019-05-21T06:26:34.000Z</published>
-    <updated>2019-07-30T06:20:16.274Z</updated>
-    
-    <content type="html"><![CDATA[<p>jd-eclipse离线包地址</p><a id="more"></a><p>网上找了一圈，才找到官方下载地址：</p><p><a href="https://github.com/java-decompiler/jd-eclipse/releases" target="_blank" rel="noopener">jd-eclipse离线包地址</a></p><p>另外，官网下载不了的，我也做了一个百度云盘的备份，关注下方公众号二维码，回复【jd】即可。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;jd-eclipse离线包地址&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="资源分享" scheme="https://hoxis.github.io/categories/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="Java" scheme="https://hoxis.github.io/tags/Java/"/>
     
   </entry>
   

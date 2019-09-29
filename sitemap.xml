@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hoxis.github.io/ansible-only-show-errors.html</loc>
+    
+    <lastmod>2019-09-29T03:24:30.354Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hoxis.github.io/mysql-can't-open-the-mysql-plugin-table.html</loc>
     
-    <lastmod>2019-09-19T05:56:32.091Z</lastmod>
+    <lastmod>2019-09-19T08:06:23.318Z</lastmod>
     
   </url>
   
