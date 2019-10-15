@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[试用了65个网盘搜索引擎，这一款确实不错！]]></title>
+    <url>%2F99baiduyun.html</url>
+    <content type="text"><![CDATA[之前我们做过一次分享 但是 最近很多小伙伴反馈 Pandownload 自带的搜索不好使了 对此我也表示很是惋惜 于是浩哥我又开始四处寻觅 再寻找一款好用的网盘搜索引擎 市面上的网盘搜索引擎不要太多 70 款左右都是保守的估计 放张图大家感受下 经过多次摸查测试 99百度网盘搜索浮出水面 它的页面长这样 不过需要注册才能使用 当然注册也很简单 只要一个用户名+密码即可 注册完成后就可以开始搜索啦 搜下某马 搜个项目 深度学习从入门到放弃 还有小程序教程 另外 99 的一个优点就是 资源链接直接给出 没有其他乱七八糟的跳转 而且也没简单干净 没有猛然跳出的美女广告那种 就是搜索结果右侧的一堆头像 不知道是干啥的 难道是分享者的？ 好了 今天的分享就到这了 想要的后台回复【107】获取地址]]></content>
+      <categories>
+        <category>好物分享</category>
+      </categories>
+      <tags>
+        <tag>百度云</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！]]></title>
+    <url>%2Fxunjiepdf.html</url>
+    <content type="text"><![CDATA[神网站系列第 1 篇。 之前需要将一段录音文件转化为文字 刚开始想的是使用百度的 API 接口 但是觉得麻烦 还要写代码 后来简单搜索了一下 没想到发现了一个宝藏 文档转换支持 PDF、Office、WPS 甚至还支持电子书、CAD、CAJ 文档处理可以在线翻译文档 PDF 的操作合辑 在线压缩、编辑文件 图片文字识别图片文字、扫描 PDF、票据 这些统统都能搞定 识别时还可以设置一些参数 语音识别 支持多种格式 还支持批量识别 一般用户 20M 大小也足够使用 同样支持文字转语音 也可以设置各种目标参数 音视频转换这些功能现在用的不是很多 不过可备不时之需 论文查重免费的论文查重 最多只能 10000 字 思维导图/流程图还可以在线制作思维导图和流程图 思维导图和以前介绍的百度脑图差不多 流程图提供了各种模板 可以满足基本的绘图要求 使用起来比较流畅 好了 主要功能介绍的差不多了 后台回复【108】即可获取网站直达地址]]></content>
+      <categories>
+        <category>好物分享</category>
+      </categories>
+      <tags>
+        <tag>在线工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Ansible 只查看错误输出信息]]></title>
     <url>%2Fansible-only-show-errors.html</url>
     <content type="text"><![CDATA[Ansible 如何只输出错误信息？ 有时主机较多时，我们只想关注有问题的主机。 Ansible callback 插件中有一个 actionable，官方描述为： actionable - shows only items that need attention 即只输出需要关注的部分。 但是 callback 插件只对 playbook 生效，如何对 Ad-hoc 起作用呢？ 参考文档：https://docs.ansible.com/ansible/2.6/plugins/callback.html#managing-adhoc 可以通过修改配置文件 12[defaults]bin_ansible_callbacks=True 或者修改环境变量来实现 1export ANSIBLE_LOAD_CALLBACK_PLUGINS=1 这里我们通过环境变量的方式来进行，这样比较轻量，无需修改文件 在运行 Ad-hoc 命令时，前面加上两个参数即可： ANSIBLE_LOAD_CALLBACK_PLUGINS=1 ANSIBLE_STDOUT_CALLBACK=actionable 完整命令如下： 1ANSIBLE_LOAD_CALLBACK_PLUGINS=1 ANSIBLE_STDOUT_CALLBACK=actionable ansible all -m ping 另外，ansible 环境变量汇总见页面：https://docs.ansible.com/ansible/2.6/reference_appendices/config.html#ansible-configuration-settings 参考： https://stackoverflow.com/questions/40239150/how-can-i-make-ansible-show-only-errors-in-execution https://docs.ansible.com/ansible/2.6/plugins/callback.html#callback-plugins]]></content>
