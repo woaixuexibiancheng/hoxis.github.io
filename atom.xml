@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hoxis.github.io/"/>
-  <updated>2019-10-17T04:30:45.410Z</updated>
+  <updated>2019-10-23T01:17:59.151Z</updated>
   <id>https://hoxis.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Xshell、SecureCRT公司都不让用了，我好难啊！</title>
+    <link href="https://hoxis.github.io/mobaxterm.html"/>
+    <id>https://hoxis.github.io/mobaxterm.html</id>
+    <published>2019-10-23T01:17:25.000Z</published>
+    <updated>2019-10-23T01:17:59.151Z</updated>
+    
+    <content type="html"><![CDATA[<p>近年来，大家的版权意识越来越强</p><p>员工使用盗版软件，导致公司被罚的新闻也屡屡曝出</p><a id="more"></a><p><img src="http://hoxis.ibetalife.com/md/2019-10-21-1571633747640.png" alt="▲ 盗版被罚"></p><p>最近，我司也发出通知，不让用 Xshell 了</p><p>个人免费版的也不能用！</p><p>也许会有小伙伴有疑问，免费版的为啥不能用？</p><p>为此，小编特地去官网查看了一下：</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-21-1571633936076.png" alt="▲ Xshell免费使用条款"></p><p>其声明中很明显的指出</p><p><strong>不可用于商业用途</strong></p><p>也就是说，<strong>可以在家里用，不可以在公司用！</strong></p><p>那么，有没有什么替代品呢？</p><p>今天小编（公号：不正经程序员）就给大家介绍一款</p><p>免费可商用的 SSH 客户端</p><p>它就是<strong>MobaXterm！</strong> </p><h1 id="免费可商用"><a href="#免费可商用" class="headerlink" title="免费可商用"></a>免费可商用</h1><p>首先它是有免费版本和专业版本的</p><p>免费版本的功能足够使用</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-21-1571637282684.png" alt="▲ 免费版本"></p><p>再来看一下它的使用说明</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-21-1571638040594.png" alt="▲ MobaXterm使用说明"></p><p>用我英语专八的水平翻译一下</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-21-1571638273040.png" alt="▲ Google了一下"></p><p>意思就是</p><p><strong>免费版可以在公司环境下使用</strong></p><p>但是！</p><p><strong>软件使用者必须自己到官网下载</strong></p><p><strong>不允许在公司内批量分发本软件</strong></p><p>好了，只要是自己下载的</p><p>就可以愉快得使用啦~</p><h1 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h1><p>到官方下载页</p><p><a href="https://mobaxterm.mobatek.net/download.html" target="_blank" rel="noopener">https://mobaxterm.mobatek.net/download.html</a></p><p>这里有绿色版和安装版</p><p>按需直接下载即可</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-21-1571642573255.png" alt="▲ 下载页面"></p><p>绿色版下载后解压安装就可以使用了</p><p>安装版下载后傻瓜式安装即可</p><h1 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h1><h2 id="新建连接"><a href="#新建连接" class="headerlink" title="新建连接"></a>新建连接</h2><p><strong>连接类型支持丰富</strong></p><p>常用的 SSH、SFTP、VNC</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-21-1571648233545.png" alt="▲ 连接类型"></p><p>甚至可以直连 RDP（Windows 远程桌面）</p><p><strong>如何使用 MobaXterm 进行 SSH 连接</strong></p><p>指定远程主机的主机名或 IP 地址，还可以指定 SSH 连接的用户名</p><p>另外还有其他的高级设置、终端设置、网络设置等</p><p>点击确定后，就开始进行连接了</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-22-1571705377523.png" alt="▲ 新建SSH连接"></p><p><strong>RDP 连接</strong></p><p>下面是 Windows 远程桌面连接效果</p><p>可以看到顶部工具栏可以进行很多操作</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-22-1571706432826.png" alt="▲ RDP连接"></p><h2 id="会话管理"><a href="#会话管理" class="headerlink" title="会话管理"></a>会话管理</h2><p>MobaXterm 会话连接同样<strong>支持多标签式</strong></p><p>当要打开多个连接时，可以以标签的方式呈现</p><p>另外已连接的会话历史是以树状进行存储的</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-22-1571706057339.png" alt="▲ 树状书签+多标签"></p><h2 id="SFTP"><a href="#SFTP" class="headerlink" title="SFTP"></a>SFTP</h2><p>多窗口和分屏</p><p>目录比对</p><p>硬件信息</p><h1 id="划水专区"><a href="#划水专区" class="headerlink" title="划水专区"></a>划水专区</h1><h1 id="彩蛋"><a href="#彩蛋" class="headerlink" title="彩蛋"></a>彩蛋</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;近年来，大家的版权意识越来越强&lt;/p&gt;
+&lt;p&gt;员工使用盗版软件，导致公司被罚的新闻也屡屡曝出&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="好物分享" scheme="https://hoxis.github.io/categories/%E5%A5%BD%E7%89%A9%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="SSH工具" scheme="https://hoxis.github.io/tags/SSH%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</title>
@@ -477,32 +500,6 @@
     
     
       <category term="shell" scheme="https://hoxis.github.io/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>推荐几个公众号Markdown格式化网站</title>
-    <link href="https://hoxis.github.io/weixin-markdown.html"/>
-    <id>https://hoxis.github.io/weixin-markdown.html</id>
-    <published>2019-06-21T06:38:55.000Z</published>
-    <updated>2019-07-30T06:20:17.651Z</updated>
-    
-    <content type="html"><![CDATA[<p>好多人都喜欢用 Markdown 写文</p><p>但是公众号后台编辑又不支持 Markdown</p><p>因此，催生出了一系列 Markdown 渲染格式化的工具网站</p><p>我使用了其中的一些</p><p>分享给你</p><a id="more"></a><p>[TOC]</p><h1 id="1、Md2All"><a href="#1、Md2All" class="headerlink" title="1、Md2All"></a>1、Md2All</h1><p>官方网址：<a href="https://md.aclickall.com/" target="_blank" rel="noopener">https://md.aclickall.com/</a></p><p>Md2All 是用的比较多的一个。</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619225243.png" alt></p><p>它的特点就是<strong>功能丰富、可玩性强</strong>。</p><p><strong>内置多种样式</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619222716.png" alt></p><p>主要是标题样式有所不同</p><p><strong>多种代码样式可选</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619222819.png" alt></p><p><strong>样式自定义</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619225338.png" alt></p><p>其他功能：图片、公式、代码、云图床……</p><h1 id="2、Markdown-Nice"><a href="#2、Markdown-Nice" class="headerlink" title="2、Markdown Nice"></a>2、Markdown Nice</h1><p>官方网址：<a href="https://mdnice.github.io/" target="_blank" rel="noopener">https://mdnice.github.io/</a></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619224826.png" alt></p><p>相对于 Md2All，Markdown Nice 要<strong>简洁</strong>很多。</p><p>给人的感觉是<strong>干净</strong>，<strong>舒服</strong>。</p><p>但是功能同样很多：</p><ol><li>支持<strong>图片上传</strong>（<strong>SM.MS 图床</strong>）；</li><li>支持<strong>代码样式</strong>；</li><li>支持<strong>自定义样式</strong>；</li><li>支持<strong>数学公式</strong>。</li></ol><p><strong>内置样式</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619225516.png" alt></p><p><strong>代码样式</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619225543.png" alt></p><p><strong>自定义样式</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619225448.png" alt></p><p><strong>图片上传</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619225733.png" alt></p><h1 id="3、WeChat-Format"><a href="#3、WeChat-Format" class="headerlink" title="3、WeChat Format"></a>3、WeChat Format</h1><p>官方网址：<a href="https://lab.lyric.im/wxformat" target="_blank" rel="noopener">https://lab.lyric.im/wxformat</a></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619225946.png" alt></p><p>相比于上面介绍的两种，WeChat Format 的功能显得单薄许多。</p><p>页面风格、渲染风格，都跟 Markdown Nice 类似。</p><p><strong>主题只有两种可选</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619230258.png" alt></p><p>其他可以调整的就字体和字体大小了。</p><h1 id="4、可能吧公众号-Style"><a href="#4、可能吧公众号-Style" class="headerlink" title="4、可能吧公众号 Style"></a>4、可能吧公众号 Style</h1><p>官方网址：<a href="https://knb.im/mp/" target="_blank" rel="noopener">https://knb.im/mp/</a></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619230521.png" alt></p><p>可能吧公众号提供的一个样式渲染工具。</p><p>这是几个里面功能最弱的一个。</p><p><strong>没有实时预览</strong></p><p>需要手动点击转换</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619230659.png" alt></p><p><strong>颜色方案可选</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619231408.png" alt></p><p><strong>渲染效果</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190619231558.png" alt></p><p>文章头部的头像和阅读时间是其特点。</p><p>标题是普通的效果，加粗的字体的渲染也是很有特色。</p><p>文章头部可以自定义作者名称、头像，再加上阅读时间，逼哥就上去了。</p><p>功能虽然不多，但是有其特点。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>总的来说，Md2All 功能最为丰富，可玩性最强。</p><p>Markdown Nice 功能稍次于 Md2All，但是页面简洁舒服。</p><p>就到这了，选择哪一个，看你喜欢了</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;好多人都喜欢用 Markdown 写文&lt;/p&gt;
-&lt;p&gt;但是公众号后台编辑又不支持 Markdown&lt;/p&gt;
-&lt;p&gt;因此，催生出了一系列 Markdown 渲染格式化的工具网站&lt;/p&gt;
-&lt;p&gt;我使用了其中的一些&lt;/p&gt;
-&lt;p&gt;分享给你&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="好物分享" scheme="https://hoxis.github.io/categories/%E5%A5%BD%E7%89%A9%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="微信" scheme="https://hoxis.github.io/tags/%E5%BE%AE%E4%BF%A1/"/>
     
   </entry>
   
