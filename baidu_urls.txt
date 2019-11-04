@@ -1,5 +1,5 @@
+https://hoxis.github.io/taobao-venues-auto.html
 https://hoxis.github.io/mobaxterm.html
 https://hoxis.github.io/baidupcs-web.html
 https://hoxis.github.io/99baiduyun.html
 https://hoxis.github.io/xunjiepdf.html
-https://hoxis.github.io/ansible-only-show-errors.html
