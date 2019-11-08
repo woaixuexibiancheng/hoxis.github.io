@@ -4,6 +4,36 @@
 
     
   <url>
+    <loc>https://hoxis.github.io/package.html</loc>
+    <lastmod>2019-11-08T02:41:34.562Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2019-11-08T02:41:34.562Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hoxis.github.io/node_modules/hexo-plugin-readmore/package.html</loc>
+    <lastmod>2019-11-08T02:41:33.948Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2019-11-08T02:41:33.934Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hoxis.github.io/taobao-venues-auto.html</loc>
     <lastmod>2019-11-04T06:12:33.644Z</lastmod>
     <data>
@@ -151,9 +181,9 @@
         <title>周董新歌搞崩QQ，抓取20W评论看看歌迷在说啥</title>
         <pubTime>2019-09-17T15:17:52.590Z</pubTime>
         
-        <tag>数据可视化</tag>
-         
         <tag>数据爬取</tag>
+         
+        <tag>数据可视化</tag>
          
          
            
@@ -333,9 +363,9 @@
         <title>《哪吒》大火，爬取20W+评论数据，并用AI分析了一波，结果......</title>
         <pubTime>2019-07-24T04:25:22.000Z</pubTime>
         
-        <tag>爬虫</tag>
-         
         <tag>数据可视化</tag>
+         
+        <tag>爬虫</tag>
          
          
            
@@ -1223,9 +1253,9 @@
         <title>资源分享 | 网易云课堂价值 399 的 office 三合一自学教程</title>
         <pubTime>2018-10-16T05:43:26.000Z</pubTime>
         
-        <tag>资源</tag>
-         
         <tag>office</tag>
+         
+        <tag>资源</tag>
          
          
            
@@ -4495,4 +4525,34 @@
     
     
     
+    
+  <url>
+    <loc>https://hoxis.github.io/node_modules/hexo-plugin-readmore/README.html</loc>
+    <lastmod>1985-10-26T08:15:00.000Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2019-11-08T02:41:33.935Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hoxis.github.io/node_modules/hexo-plugin-readmore/index.html</loc>
+    <lastmod>1985-10-26T08:15:00.000Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2019-11-08T02:41:33.935Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
 </urlset>
