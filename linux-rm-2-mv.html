@@ -543,7 +543,7 @@
 <p>我在服务器维护的时候不小心执行了 <code>rm -rf</code> 命令……现在整台服务器被我删光了肿么办？？？</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20180906143504.png" alt="所以程序员喜欢跑步锻炼"></p>
 <p>好吧，现在先来介绍一下 <code>rm</code>。</p>
-<h1 id="rm-rf-的威力"><a href="#rm-rf-的威力" class="headerlink" title="rm -rf 的威力"></a>rm -rf 的威力</h1><p><code>rm</code> 是 linux 系统下删除文件的命令，<code>-r</code> 代表删除这个下面的一切，一切的一切那种的一切。<code>f</code> 表示不需要用户确认，直接执行。</p>
+<h1><span id="rm-rf-的威力">rm -rf 的威力</span></h1><p><code>rm</code> 是 linux 系统下删除文件的命令，<code>-r</code> 代表删除这个下面的一切，一切的一切那种的一切。<code>f</code> 表示不需要用户确认，直接执行。</p>
 <p>通常这个命令都是指定文件夹用的，比如</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">rm</span> -rf /home/<span class="keyword">test</span>/</span><br></pre></td></tr></table></figure>
 <p>就是删除 /home/test/ 这个文件夹下面的所有东西。</p>
@@ -551,12 +551,12 @@
 <p><code>rm -rf /</code> 在服务器上也就意味着…</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20180906143540.png" alt="解脱了"></p>
 <p>俗话说的好：常在河边走， 哪能不湿鞋。 那该怎么避免这种悲剧的发生呢？</p>
-<h1 id="如何避免再次跑路？"><a href="#如何避免再次跑路？" class="headerlink" title="如何避免再次跑路？"></a>如何避免再次跑路？</h1><p>一个方案就是重定向 <code>rm</code> 命令以嫁接为 <code>mv</code> 命令， 相当于给 Linux 系统定制了一个回收站。</p>
+<h1><span id="如何避免再次跑路">如何避免再次跑路？</span></h1><p>一个方案就是重定向 <code>rm</code> 命令以嫁接为 <code>mv</code> 命令， 相当于给 Linux 系统定制了一个回收站。</p>
 <p>实现方式如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 重定义rm命令 ###</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义回收站目录</span></span><br><span class="line">trash_path=<span class="string">'~/.trash'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断 $trash_path 定义的文件是否存在，如果不存在，那么就创建 $trash_path.</span></span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="variable">$trash_path</span> ]; <span class="keyword">then</span></span><br><span class="line">    mkdir -p <span class="variable">$trash_path</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义别名：使用 rm 就调用 trash</span></span><br><span class="line"><span class="built_in">alias</span> rm=trash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 rl 就调用 'ls ~/.trash' </span></span><br><span class="line"><span class="comment"># 如果更改上面的回收站目录这里的目录也需要修改</span></span><br><span class="line"><span class="built_in">alias</span> rl=<span class="string">'ls ~/.trash'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 unrm 就调用 restorefile，需要在删除目录的父目录下执行</span></span><br><span class="line"><span class="built_in">alias</span> unrm=restorefile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 rmtrash 就调用 claearteash</span></span><br><span class="line"><span class="built_in">alias</span> rmtrash=cleartrash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复文件的函数</span></span><br><span class="line">restorefile()</span><br><span class="line">&#123;</span><br><span class="line">    mv -i ~/.trash/<span class="variable">$@</span>  ./</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 删除文件的函数</span></span><br><span class="line">trash()</span><br><span class="line">&#123;  </span><br><span class="line">    mv <span class="variable">$@</span>  ~/.trash/</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 清空回收站的函数</span></span><br><span class="line">cleartrash()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">read</span> -p <span class="string">"确定要清空回收站吗?[y/n]"</span> confirm</span><br><span class="line">    [ <span class="variable">$confirm</span> == <span class="string">'y'</span> ] || [ <span class="variable">$confirm</span> == <span class="string">'Y'</span> ]  &amp;&amp; /bin/rm -rf  ~/.trash/*</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>最后将上述脚本写入 <code>/etc/bashrc</code>，并立即执行命令 <code>source /etc/bashrc</code> 即刻生效。</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20180906143554.png" alt="大神果然厉害"></p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>这个脚本定义了几个命令：</p>
+<h1><span id="使用">使用</span></h1><p>这个脚本定义了几个命令：</p>
 <ul>
 <li><code>rl</code>：查看回收站下的文件</li>
 <li><code>unrm 文件名或目录</code>：恢复到当前的路径下</li>
@@ -568,7 +568,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># touch hoxistest</span></span><br><span class="line"><span class="comment"># touch 1</span></span><br><span class="line"><span class="comment"># mkdir haha</span></span><br><span class="line"><span class="comment"># ls</span></span><br><span class="line">1  haha  hoxistest</span><br><span class="line"><span class="comment"># rm 1</span></span><br><span class="line"><span class="comment"># ls</span></span><br><span class="line">haha  hoxistest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看回收站文件</span></span><br><span class="line"><span class="comment"># rl</span></span><br><span class="line">1  myftp1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复已删除文件</span></span><br><span class="line"><span class="comment"># unrm 1</span></span><br><span class="line">[root@CESHI-CLM-10-254-4-48 <span class="built_in">test</span>]<span class="comment"># ls</span></span><br><span class="line">1  haha  hoxistest</span><br><span class="line"></span><br><span class="line"><span class="comment"># rm haha/</span></span><br><span class="line"><span class="comment"># rm hoxistest</span></span><br><span class="line"><span class="comment"># rl</span></span><br><span class="line">haha  hoxistest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 情况回收站</span></span><br><span class="line"><span class="comment"># rmtrash</span></span><br><span class="line">确定要清空回收站吗?[y/n]y</span><br><span class="line"><span class="comment"># rl</span></span><br></pre></td></tr></table></figure>
 <p>效果看着应该还可以吧。</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/2018-8-15-sudorm.gif" alt="很牛的样子"></p>
-<h1 id="例行总结"><a href="#例行总结" class="headerlink" title="例行总结"></a>例行总结</h1><p>看着是还可以，但是也有一些问题，比如删除文件不能重名，若重名了会提示你是否进行覆盖。那就需要再进行特殊处理了，比如删除时加个时间戳什么的，有兴趣的动手实现下吧。</p>
+<h1><span id="例行总结">例行总结</span></h1><p>看着是还可以，但是也有一些问题，比如删除文件不能重名，若重名了会提示你是否进行覆盖。那就需要再进行特殊处理了，比如删除时加个时间戳什么的，有兴趣的动手实现下吧。</p>
 <blockquote>
 <p>via：<a href="https://www.cloudbility.com/club/6981.html" target="_blank" rel="noopener">https://www.cloudbility.com/club/6981.html</a></p>
 </blockquote>
@@ -789,7 +789,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -881,23 +881,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -919,7 +919,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#rm-rf-的威力"><span class="nav-text">rm -rf 的威力</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何避免再次跑路？"><span class="nav-text">如何避免再次跑路？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例行总结"><span class="nav-text">例行总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">rm -rf 的威力</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">如何避免再次跑路？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">例行总结</span></a></li></ol></div>
             
 
           </div>
@@ -1617,5 +1617,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

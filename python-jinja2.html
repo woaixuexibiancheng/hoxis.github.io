@@ -529,11 +529,11 @@
       
         <p>工作中遇到了这种场景：需要生成批量文件，文件格式一致，其中的变量根据数据库的数据生成。这里就想到了之前 Ansible 中的 template 的处理方式，可以使用 Jinja2 模版，再结合 Python 脚本进行处理生成目标文件。</p>
 <a id="more"></a>
-<h1 id="Jinja2-简介"><a href="#Jinja2-简介" class="headerlink" title="Jinja2 简介"></a>Jinja2 简介</h1><p>Jinja2 是基于 Python 的模板引擎，功能比较类似于于 PHP 的 smarty，J2ee 的 Freemarker 和 velocity。 它能完全支持 unicode，并具有集成的沙箱执行环境，应用广泛。使用 Jinja2 的方式一般是，先创建一个包括 <code> {{ }} </code> 或 <code> {% %} </code> 等特殊符号的模板文件，然后用 Jinja 的模板对象加载，然后变量值对该模板中的变量进行赋值。</p>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><h2 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> jinja2 <span class="keyword">import</span> Template</span><br><span class="line"></span><br><span class="line">template = Template(<span class="string">'Hello &#123;&#123; name &#125;&#125;!'</span>)</span><br><span class="line">print(template.render(name=<span class="string">'World'</span>))</span><br></pre></td></tr></table></figure>
+<h1><span id="jinja2-简介">Jinja2 简介</span></h1><p>Jinja2 是基于 Python 的模板引擎，功能比较类似于于 PHP 的 smarty，J2ee 的 Freemarker 和 velocity。 它能完全支持 unicode，并具有集成的沙箱执行环境，应用广泛。使用 Jinja2 的方式一般是，先创建一个包括 <code> {{ }} </code> 或 <code> {% %} </code> 等特殊符号的模板文件，然后用 Jinja 的模板对象加载，然后变量值对该模板中的变量进行赋值。</p>
+<h1><span id="示例">示例</span></h1><h2><span id="简单示例">简单示例</span></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> jinja2 <span class="keyword">import</span> Template</span><br><span class="line"></span><br><span class="line">template = Template(<span class="string">'Hello &#123;&#123; name &#125;&#125;!'</span>)</span><br><span class="line">print(template.render(name=<span class="string">'World'</span>))</span><br></pre></td></tr></table></figure>
 <p>运行结果：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python test.py</span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
-<h2 id="结合模版文件"><a href="#结合模版文件" class="headerlink" title="结合模版文件"></a>结合模版文件</h2><p>Jinja2 使用一个名为 Environment 的中心对象。这个类的实例用于存储配 置、全局对象，并用于从文件系统或其它位置加载模板。即使你通过 Template 类的构造函数用字符串创建模板，也会为你自动创建一个环境。大多数应用在应用初始化时创建一个 Environment 对象，并用它加载模板。 </p>
+<h2><span id="结合模版文件">结合模版文件</span></h2><p>Jinja2 使用一个名为 Environment 的中心对象。这个类的实例用于存储配 置、全局对象，并用于从文件系统或其它位置加载模板。即使你通过 Template 类的构造函数用字符串创建模板，也会为你自动创建一个环境。大多数应用在应用初始化时创建一个 Environment 对象，并用它加载模板。 </p>
 <ul>
 <li>项目结构：</li>
 </ul>
@@ -781,7 +781,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -873,23 +873,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -911,7 +911,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jinja2-简介"><span class="nav-text">Jinja2 简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#示例"><span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单示例"><span class="nav-text">简单示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结合模版文件"><span class="nav-text">结合模版文件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Jinja2 简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">简单示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">结合模版文件</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1609,5 +1609,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

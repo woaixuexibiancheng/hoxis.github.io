@@ -532,7 +532,7 @@
         <p><code>select count(*)</code> 应该是一个比较常用的语句，用来统计记录行数。</p>
 <p>但是，慢慢地你会发现，这个语句越来越慢了，为什么呢？</p>
 <a id="more"></a>
-<h1 id="count-的实现方式"><a href="#count-的实现方式" class="headerlink" title="count(*) 的实现方式"></a>count(*) 的实现方式</h1><p>首先，我们来看下它的实现方式。</p>
+<h1><span id="count-的实现方式">count(*) 的实现方式</span></h1><p>首先，我们来看下它的实现方式。</p>
 <p>MySQL 中，不同的存储引擎，<code>count(*)</code> 的实现方式是不同的。</p>
 <p>1、MyISAM 引擎，比较简单粗暴，直接将表的总行数存储在磁盘上，因此效率很高；</p>
 <p>2、InnoDB 引擎中，执行时，需要一行行的把数据查出来，然后累加；</p>
@@ -546,17 +546,17 @@
 <p>A、B、C 查询的结果都不相同。</p>
 <p>B 读到的是 1002，是因为<strong>可重复读</strong>隔离级别的存在，而 C 未开启事务，因此无法看到别的事务的更新；</p>
 <p>综上，InnoDB 引擎中，在每一个会话中，都需要逐行读取数据，然后计数返回总行数。</p>
-<h2 id="InnoDB-对-count-的优化"><a href="#InnoDB-对-count-的优化" class="headerlink" title="InnoDB 对 count(*) 的优化"></a>InnoDB 对 count(*) 的优化</h2><p>InnoDB 中，主键索引存储的是数据，辅助索引存储的只是主键值。</p>
+<h2><span id="innodb-对-count-的优化">InnoDB 对 count(*) 的优化</span></h2><p>InnoDB 中，主键索引存储的是数据，辅助索引存储的只是主键值。</p>
 <p>因此，辅助索引比主键索引小得多，轻量得多。</p>
 <p>这种情况下，InnoDB 在执行 <code>count(*)</code> 时，就会判断使用哪个索引，会选择最小的树来进行遍历。</p>
 <blockquote>
 <p>在保证逻辑正确的前提下，尽量减少扫描的数据量，是数据库系统设计的通用法则之一。</p>
 </blockquote>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>1、由于 MyISAM 引擎不需要支持事务，因此可以快速返回 <code>count(*)</code>；<br>2、show table status 命令虽然返回很快，但是不准确；<br>3、InnoDB 执行 <code>count(*)</code> 时会遍历全表，因此性能较差；</p>
-<h1 id="count-、count-1-、count-主键-、count-字段-的区别"><a href="#count-、count-1-、count-主键-、count-字段-的区别" class="headerlink" title="count(*)、count(1)、count(主键)、count(字段)的区别"></a>count(*)、count(1)、count(主键)、count(字段)的区别</h1><p>以下，基于 InnoDB。</p>
-<h2 id="含义区别"><a href="#含义区别" class="headerlink" title="含义区别"></a>含义区别</h2><p><code>count()</code> 是一个聚合函数，对于返回的结果集，会逐行判断，若返回的不是 NULL，就会加 1，否则不加。</p>
+<h2><span id="小结">小结</span></h2><p>1、由于 MyISAM 引擎不需要支持事务，因此可以快速返回 <code>count(*)</code>；<br>2、show table status 命令虽然返回很快，但是不准确；<br>3、InnoDB 执行 <code>count(*)</code> 时会遍历全表，因此性能较差；</p>
+<h1><span id="count-count1-count主键-count字段的区别">count(*)、count(1)、count(主键)、count(字段)的区别</span></h1><p>以下，基于 InnoDB。</p>
+<h2><span id="含义区别">含义区别</span></h2><p><code>count()</code> 是一个聚合函数，对于返回的结果集，会逐行判断，若返回的不是 NULL，就会加 1，否则不加。</p>
 <p>因此，<code>count(*)</code>、<code>count(主键 id)</code> 和 <code>count(1)</code> 都表示返回满足条件的结果集的总行数；而 <code>count(字段）</code>，则表示返回满足条件的数据行里面，参数“字段”不为 NULL 的总个数。</p>
-<h2 id="性能区别"><a href="#性能区别" class="headerlink" title="性能区别"></a>性能区别</h2><p>分析性能，考虑以下几个原则：</p>
+<h2><span id="性能区别">性能区别</span></h2><p>分析性能，考虑以下几个原则：</p>
 <p>1、server 层要什么就会返回什么；<br>2、InnoDB 只返回必要的值；<br>3、优化器只优化了 <code>count(*)</code></p>
 <p>对于 <code>count(主键id)</code>，InnoDB 会遍历全表，取每行的主键 id，返回给 server 层，server 层拿到数据后，进行判断累加。</p>
 <p>对于 <code>count(1)</code>，InnoDB 仍遍历全表，但是不取值，server 层对返回的每一行数据新增一个 1，然后进行判断累加；</p>
@@ -784,7 +784,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -876,23 +876,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -914,7 +914,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#count-的实现方式"><span class="nav-text">count(*) 的实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#InnoDB-对-count-的优化"><span class="nav-text">InnoDB 对 count(*) 的优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#count-、count-1-、count-主键-、count-字段-的区别"><span class="nav-text">count(*)、count(1)、count(主键)、count(字段)的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#含义区别"><span class="nav-text">含义区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能区别"><span class="nav-text">性能区别</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">count(*) 的实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">InnoDB 对 count(*) 的优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">count(*)、count(1)、count(主键)、count(字段)的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">含义区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">性能区别</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1612,5 +1612,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

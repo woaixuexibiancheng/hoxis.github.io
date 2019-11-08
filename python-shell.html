@@ -537,10 +537,10 @@
       
         <p>Python 编程语言已经成为 IT 中使用的最流行的语言之一。成功的一个原因是它可以用来解决各种问题。从网站开发到数据科学、机器学习到任务自动化，Python 生态系统有丰富的框架和库。本文将介绍 Ubuntu 软件包集合中提供的一些有用的 Python shell 来简化我们的开发。</p>
 <a id="more"></a>
-<h1 id="Python-Shell"><a href="#Python-Shell" class="headerlink" title="Python Shell"></a>Python Shell</h1><p>Python Shell 即原生的 Python 交互环境，可以让你以交互模式使用 Python 解释器。这在测试代码或尝试新库时非常有用。在 Ubuntu 中，你可以通过在终端会话中输入 <code>python</code> 来调用默认的 shell。</p>
+<h1><span id="python-shell">Python Shell</span></h1><p>Python Shell 即原生的 Python 交互环境，可以让你以交互模式使用 Python 解释器。这在测试代码或尝试新库时非常有用。在 Ubuntu 中，你可以通过在终端会话中输入 <code>python</code> 来调用默认的 shell。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ python</span><br><span class="line">Python <span class="number">3.5</span><span class="number">.2</span> (default, Nov <span class="number">23</span> <span class="number">2017</span>, <span class="number">16</span>:<span class="number">37</span>:<span class="number">01</span>)</span><br><span class="line">[GCC <span class="number">5.4</span><span class="number">.0</span> <span class="number">20160609</span>] on linux</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">'hi'</span>)</span><br><span class="line">hi</span><br></pre></td></tr></table></figure>
-<h1 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a>IPython</h1><p>IPython 为 Python shell 提供了许多有用的增强功能。例如包括 tab 补全，对象内省，可以调用系统 shell 访问和命令历史检索。</p>
-<h2 id="安装和运行-IPython"><a href="#安装和运行-IPython" class="headerlink" title="安装和运行 IPython"></a>安装和运行 IPython</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ pip install ipython</span><br><span class="line"></span><br><span class="line">$ ipython --version</span><br><span class="line">6.5.0</span><br></pre></td></tr></table></figure>
+<h1><span id="ipython">IPython</span></h1><p>IPython 为 Python shell 提供了许多有用的增强功能。例如包括 tab 补全，对象内省，可以调用系统 shell 访问和命令历史检索。</p>
+<h2><span id="安装和运行-ipython">安装和运行 IPython</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ pip install ipython</span><br><span class="line"></span><br><span class="line">$ ipython --version</span><br><span class="line">6.5.0</span><br></pre></td></tr></table></figure>
 <ul>
 <li>自动补全</li>
 </ul>
@@ -559,21 +559,21 @@
 <p>IPython 完整的功能列表可在<a href="https://ipython.readthedocs.io/en/stable/overview.html#main-features-of-the-interactive-shell" target="_blank" rel="noopener">官方文档</a>中找到。</p>
 <p><code>crtl+r</code> 可以搜索历史命令：</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/1532943481103.jpg" alt="搜索历史命令"></p>
-<h1 id="bpython"><a href="#bpython" class="headerlink" title="bpython"></a>bpython</h1><p>bpython 并不能像 IPython 做那么多，但它却在一个简单的轻量级包中提供了一系列有用功能。除其他功能之外，bpython 提供：</p>
+<h1><span id="bpython">bpython</span></h1><p>bpython 并不能像 IPython 做那么多，但它却在一个简单的轻量级包中提供了一系列有用功能。除其他功能之外，bpython 提供：</p>
 <ul>
 <li>内嵌语法高亮显示</li>
 <li>在你输入时提供自动补全建议</li>
 <li>可预期的参数列表，bpython可以在调用函数时显示参数列表。</li>
 <li>能够将代码发送或保存到 pastebin 服务或文件中</li>
 </ul>
-<h2 id="安装和运行-bpython"><a href="#安装和运行-bpython" class="headerlink" title="安装和运行 bpython"></a>安装和运行 bpython</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ pip install bpython</span><br><span class="line"></span><br><span class="line">$ bpython --version</span><br><span class="line">bpython version 0.17.1 on top of Python 3.5.2 /usr/bin/python</span><br><span class="line">(C) 2008-2016 Bob Farrell, Andreas Stuehrk, Sebastian Ramacher, Thomas Ballinger, et al. See AUTHORS <span class="keyword">for</span> detail.</span><br></pre></td></tr></table></figure>
+<h2><span id="安装和运行-bpython">安装和运行 bpython</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ pip install bpython</span><br><span class="line"></span><br><span class="line">$ bpython --version</span><br><span class="line">bpython version 0.17.1 on top of Python 3.5.2 /usr/bin/python</span><br><span class="line">(C) 2008-2016 Bob Farrell, Andreas Stuehrk, Sebastian Ramacher, Thomas Ballinger, et al. See AUTHORS <span class="keyword">for</span> detail.</span><br></pre></td></tr></table></figure>
 <p>在你输入的时候，<code>bpython</code> 为你提供了选择来自动补全你的代码。</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/201807301748.gif" alt="自动补全"></p>
 <p>当你调用函数或方法时，会自动显示需要的参数和文档字符串。</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/201807301750.gif" alt="自动显示函数参数"></p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/e0b9585ec907d8ab88d0d880f9803f8a.gif" alt="用法演示"></p>
 <p>有关配置和功能的更多细节，请参考 <a href="https://docs.bpython-interpreter.org/" target="_blank" rel="noopener">bpython 官方文档</a>。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>使用增强的 Python shell 是提高生产力的好方法。它为你提供增强的功能来编写快速原型或尝试新库。</p>
+<h1><span id="总结">总结</span></h1><p>使用增强的 Python shell 是提高生产力的好方法。它为你提供增强的功能来编写快速原型或尝试新库。</p>
 <p>你在使用增强的 Python shell 吗？来留言分享吧~</p>
 <blockquote>
 <p>参考: <a href="https://fedoramagazine.org/enhance-python-interactive-shell/" target="_blank" rel="noopener">https://fedoramagazine.org/enhance-python-interactive-shell/</a></p>
@@ -795,7 +795,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -887,23 +887,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -925,7 +925,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-Shell"><span class="nav-text">Python Shell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IPython"><span class="nav-text">IPython</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装和运行-IPython"><span class="nav-text">安装和运行 IPython</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bpython"><span class="nav-text">bpython</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装和运行-bpython"><span class="nav-text">安装和运行 bpython</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Python Shell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">IPython</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">安装和运行 IPython</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">bpython</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">安装和运行 bpython</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -1623,5 +1623,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

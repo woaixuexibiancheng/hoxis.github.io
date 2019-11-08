@@ -533,18 +533,18 @@
 <p>要备份和导入这些表都需要很长时间，并且再次导入时可能还会遇到问题。</p>
 <p>但是，其他的表我们是需要其表结构和表数据的，那么怎么处理呢？</p>
 <a id="more"></a>
-<h1 id="查看数据库表中所有表的行数"><a href="#查看数据库表中所有表的行数" class="headerlink" title="查看数据库表中所有表的行数"></a>查看数据库表中所有表的行数</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> table_name,table_rows <span class="keyword">from</span> information_schema.tables <span class="keyword">where</span> TABLE_SCHEMA = <span class="string">'database'</span> <span class="keyword">order</span> <span class="keyword">by</span> table_rows <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+<h1><span id="查看数据库表中所有表的行数">查看数据库表中所有表的行数</span></h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> table_name,table_rows <span class="keyword">from</span> information_schema.tables <span class="keyword">where</span> TABLE_SCHEMA = <span class="string">'database'</span> <span class="keyword">order</span> <span class="keyword">by</span> table_rows <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
 <p>比如查看 mysql 库中所有表的行数：</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-1-1564650822863.png" alt="查看数据条数"></p>
 <p>也可以查看所有库中表的行数：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> table_name,table_rows <span class="keyword">from</span> information_schema.tables <span class="keyword">order</span> <span class="keyword">by</span> table_rows <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
-<h1 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h1><p>导出数据库 database 中<strong>所有表</strong>到 database.sql 文件中 </p>
+<h1><span id="导出">导出</span></h1><p>导出数据库 database 中<strong>所有表</strong>到 database.sql 文件中 </p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -uroot -p123456 -d database &gt; database.sql</span><br></pre></td></tr></table></figure>
 <p>导出除了 table1 和 table2 其余所有表中的数据，到 database.sql 文件中 </p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -uroot -p123456 -d database <span class="comment">--ignore-table=database.table1 --ignore-table=database.table2 &gt;&gt; database.sql</span></span><br></pre></td></tr></table></figure>
 <p>只导出指定表中的数据 </p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -uroot -p123456 -t database table1 table2 &gt; database.sql</span><br></pre></td></tr></table></figure>
-<h1 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p123456 database2 &lt; database.sql</span><br></pre></td></tr></table></figure>
+<h1><span id="导入">导入</span></h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p123456 database2 &lt; database.sql</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -761,7 +761,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -853,23 +853,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -891,7 +891,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查看数据库表中所有表的行数"><span class="nav-text">查看数据库表中所有表的行数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导出"><span class="nav-text">导出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导入"><span class="nav-text">导入</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">查看数据库表中所有表的行数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">导出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">导入</span></a></li></ol></div>
             
 
           </div>
@@ -1589,5 +1589,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

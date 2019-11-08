@@ -533,14 +533,14 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">错误: 代理抛出异常错误: <span class="xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span>java.rmi.server.ExportException<span class="tag">&lt;/<span class="name">u</span>&gt;</span></span>: Port already <span class="keyword">in</span> </span><br><span class="line">use: <span class="number">54530</span>; nested exception is: </span><br><span class="line"></span><br><span class="line">      &lt;u&gt;java.net.BindException&lt;<span class="regexp">/u&gt;: Address already in use: JVM_Bind</span></span><br></pre></td></tr></table></figure>
 <p>下面来看下 Windows 下如何查看端口占用情况，以及如何杀死端口占用的进程。</p>
 <a id="more"></a>
-<h1 id="1、查看端口占用情况"><a href="#1、查看端口占用情况" class="headerlink" title="1、查看端口占用情况"></a>1、查看端口占用情况</h1><p><code>netstat –ano|findstr &quot;指定端口号&quot;</code>，比如，查看 54530 的占用情况：</p>
+<h1><span id="1-查看端口占用情况">1、查看端口占用情况</span></h1><p><code>netstat –ano|findstr &quot;指定端口号&quot;</code>，比如，查看 54530 的占用情况：</p>
 <figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">C:</span>\WINDOWS\system32&gt;netstat -ano|findstr <span class="string">"54530"</span></span><br><span class="line">  TCP    <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">49643</span>        <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">54530</span>        ESTABLISHED     <span class="number">4388</span></span><br><span class="line">  TCP    <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">54530</span>        <span class="number">0.0</span><span class="meta">.0</span><span class="meta">.0</span>:<span class="number">0</span>              LISTENING       <span class="number">11320</span></span><br><span class="line">  TCP    <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">54530</span>        <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">49643</span>        ESTABLISHED     <span class="number">11320</span></span><br></pre></td></tr></table></figure>
 <p>最右边的数字就是进程号。</p>
-<h1 id="2、查看进程名"><a href="#2、查看进程名" class="headerlink" title="2、查看进程名"></a>2、查看进程名</h1><p>可以使用 <code>tasklist|findstr &quot;进程号&quot;</code> 来查看进程名称，比如：</p>
+<h1><span id="2-查看进程名">2、查看进程名</span></h1><p>可以使用 <code>tasklist|findstr &quot;进程号&quot;</code> 来查看进程名称，比如：</p>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">C</span>:\WINDOWS\system32&gt;tasklist|findstr <span class="string">"4388"</span></span><br><span class="line">xxx.exe     <span class="number">4388</span> Services                   <span class="number">0</span>     <span class="number">13</span>,<span class="number">276</span> <span class="keyword">K</span></span><br></pre></td></tr></table></figure>
 <p>可以看出，是 xxx.exe 这个进程占用了端口号，这时可以使用 Windows 任务管理器将服务停掉。</p>
 <p>或者使用命令。</p>
-<h1 id="3、杀死进程"><a href="#3、杀死进程" class="headerlink" title="3、杀死进程"></a>3、杀死进程</h1><p>可以使用 <code>tskill 进程号</code>来杀死指定进程。</p>
+<h1><span id="3-杀死进程">3、杀死进程</span></h1><p>可以使用 <code>tskill 进程号</code>来杀死指定进程。</p>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">C</span>:\WINDOWS\system32&gt;tasklist|findstr <span class="string">"4388"</span></span><br><span class="line">xxx.exe     <span class="number">4388</span> Services                   <span class="number">0</span>     <span class="number">13</span>,<span class="number">276</span> <span class="keyword">K</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">C</span>:\WINDOWS\system32&gt;tskill <span class="number">4388</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">C</span>:\WINDOWS\system32&gt;tasklist|findstr <span class="string">"4388"</span></span><br></pre></td></tr></table></figure>
 <p>可以看出，进程已被杀死。</p>
 <p>若提示没有权限杀死进程，请以管理员身份运行 cmd。</p>
@@ -763,7 +763,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -855,23 +855,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -893,7 +893,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、查看端口占用情况"><span class="nav-text">1、查看端口占用情况</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、查看进程名"><span class="nav-text">2、查看进程名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、杀死进程"><span class="nav-text">3、杀死进程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">1、查看端口占用情况</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">2、查看进程名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">3、杀死进程</span></a></li></ol></div>
             
 
           </div>
@@ -1591,5 +1591,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

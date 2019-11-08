@@ -529,18 +529,18 @@
       
 
       
-        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>要求ftp登录后的根目录是/var/test/，但是又不能影响其他用户的登录路径，因为有些程序是直接在根目录进行操作的，而没有目录切换的过程。</p>
+        <h2><span id="需求">需求</span></h2><p>要求ftp登录后的根目录是/var/test/，但是又不能影响其他用户的登录路径，因为有些程序是直接在根目录进行操作的，而没有目录切换的过程。</p>
 <a id="more"></a>
-<h2 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h2><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><h4 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">useradd test1</span><br><span class="line">useradd test2</span><br><span class="line">passwd test1</span><br><span class="line">passwd test2</span><br></pre></td></tr></table></figure>
-<h4 id="vsftpd配置"><a href="#vsftpd配置" class="headerlink" title="vsftpd配置"></a>vsftpd配置</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用户登录路径，local_root 针对系统用户</span></span><br><span class="line">local_root=/var/ftp/</span><br><span class="line"><span class="comment"># 锁定用户到各自目录为其根目录</span></span><br><span class="line">chroot_local_user=YES</span><br><span class="line"><span class="comment"># anon_root 针对匿名用户</span></span><br><span class="line">anon_root=/var/www/html</span><br><span class="line"></span><br><span class="line">allow_writeable_chroot=YES</span><br><span class="line"><span class="comment"># 用户配置目录</span></span><br><span class="line">user_config_dir=/etc/vsftpd/userconfig</span><br></pre></td></tr></table></figure>
-<h5 id="配置各自用户访问根目录"><a href="#配置各自用户访问根目录" class="headerlink" title="配置各自用户访问根目录"></a>配置各自用户访问根目录</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/vsftpd/</span><br><span class="line">mkdir userconfig</span><br><span class="line"><span class="built_in">cd</span> userconfig/</span><br></pre></td></tr></table></figure>
+<h2><span id="操作过程">操作过程</span></h2><h3><span id="方法1">方法1</span></h3><h4><span id="新建用户">新建用户</span></h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">useradd test1</span><br><span class="line">useradd test2</span><br><span class="line">passwd test1</span><br><span class="line">passwd test2</span><br></pre></td></tr></table></figure>
+<h4><span id="vsftpd配置">vsftpd配置</span></h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用户登录路径，local_root 针对系统用户</span></span><br><span class="line">local_root=/var/ftp/</span><br><span class="line"><span class="comment"># 锁定用户到各自目录为其根目录</span></span><br><span class="line">chroot_local_user=YES</span><br><span class="line"><span class="comment"># anon_root 针对匿名用户</span></span><br><span class="line">anon_root=/var/www/html</span><br><span class="line"></span><br><span class="line">allow_writeable_chroot=YES</span><br><span class="line"><span class="comment"># 用户配置目录</span></span><br><span class="line">user_config_dir=/etc/vsftpd/userconfig</span><br></pre></td></tr></table></figure>
+<h5><span id="配置各自用户访问根目录">配置各自用户访问根目录</span></h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/vsftpd/</span><br><span class="line">mkdir userconfig</span><br><span class="line"><span class="built_in">cd</span> userconfig/</span><br></pre></td></tr></table></figure>
 <p>在userconfig目录下为不同用户配置不同的根目录：<br><code>vim test1</code>：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">local_root=/var/ftp/test1/</span><br></pre></td></tr></table></figure></p>
 <p><code>vim test2</code>：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">local_root=/var/ftp/test2/</span><br></pre></td></tr></table></figure></p>
-<h5 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service vsftpd restart</span><br></pre></td></tr></table></figure>
-<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>新建<code>/var/ftp/test1/</code>、<code>/var/ftp/test2/</code>目录，并在目录下新增一些测试文件。</p>
+<h5><span id="重启服务">重启服务</span></h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service vsftpd restart</span><br></pre></td></tr></table></figure>
+<h3><span id="验证">验证</span></h3><p>新建<code>/var/ftp/test1/</code>、<code>/var/ftp/test2/</code>目录，并在目录下新增一些测试文件。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/pub/</span><br><span class="line">mkdir test1</span><br><span class="line">mkdir test2</span><br><span class="line"><span class="built_in">cd</span> test1</span><br><span class="line">touch a</span><br><span class="line">touch aa</span><br><span class="line"><span class="built_in">cd</span> ../test2/</span><br><span class="line">touch b</span><br><span class="line">touch bb</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">chown -R test1:test1 test1</span><br><span class="line">chown -R test2:test2 test2</span><br></pre></td></tr></table></figure>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/1506068281129.jpg" alt="修改结果"></p>
-<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><p>默认情况下，ftp登录后是以用户的home目录作为根目录的，因此只要修改用户的主目录即可。</p>
+<h3><span id="结果">结果</span></h3><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/1506068281129.jpg" alt="修改结果"></p>
+<h2><span id="方法2">方法2</span></h2><p>默认情况下，ftp登录后是以用户的home目录作为根目录的，因此只要修改用户的主目录即可。</p>
 <p><code>vi /etc/passwd</code></p>
 <p>找到要修改的用户那几行，修改掉即可。此法很暴力，建议慎用。</p>
 <p>/etc/passwd文件格式<br>登录名：加密口令：数字用户ID:数字组ID:注释字段：起始目录：sh程序 </p>
@@ -764,7 +764,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -856,23 +856,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -894,7 +894,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作过程"><span class="nav-text">操作过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法1"><span class="nav-text">方法1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新建用户"><span class="nav-text">新建用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vsftpd配置"><span class="nav-text">vsftpd配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#配置各自用户访问根目录"><span class="nav-text">配置各自用户访问根目录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重启服务"><span class="nav-text">重启服务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证"><span class="nav-text">验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果"><span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法2"><span class="nav-text">方法2</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">操作过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">方法1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">新建用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">vsftpd配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-text">配置各自用户访问根目录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-text">重启服务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">方法2</span></a></li></ol></div>
             
 
           </div>
@@ -1592,5 +1592,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

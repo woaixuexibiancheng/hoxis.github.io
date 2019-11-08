@@ -539,12 +539,12 @@
 <p>效果大概是这样的：</p>
 <p><img src="http://blog-1254259578.cossh.myqcloud.com/xsj/0.gif" alt="流氓！"></p>
 <p>我要做一个高仿版的！</p>
-<h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><p>首先我想到的就是 pygame 实现，因为之前很多人都用它「打过飞机」，不对，是做「打飞机」的游戏，因此多少有些熟悉。</p>
+<h1><span id="实现思路">实现思路</span></h1><p>首先我想到的就是 pygame 实现，因为之前很多人都用它「打过飞机」，不对，是做「打飞机」的游戏，因此多少有些熟悉。</p>
 <p>其实思路很简单，就是探测鼠标位置，当鼠标跑到按钮上面时，随机改变按钮的位置。</p>
 <p>剩下的就是组件的布局样式了！</p>
 <p>这里我在网上找了一个小图片，放在左方，然后中间位置放置两行文字，下方放置两个按钮，最终布局如下：</p>
 <p><img src="http://blog-1254259578.cossh.myqcloud.com/xsj/1541654836467.jpg" alt="样式布局"></p>
-<h1 id="主要实现逻辑"><a href="#主要实现逻辑" class="headerlink" title="主要实现逻辑"></a>主要实现逻辑</h1><p>实现流程大致如下：</p>
+<h1><span id="主要实现逻辑">主要实现逻辑</span></h1><p>实现流程大致如下：</p>
 <p><img src="http://blog-1254259578.cossh.myqcloud.com/xsj/1541657380653.jpg" alt="实现流程"></p>
 <p>主要的逻辑就是鼠标移动到按钮上时，按钮的位置进行随机的变动。</p>
 <p>如何判断鼠标在按钮上？看下出自灵魂画手的示意图：</p>
@@ -552,7 +552,7 @@
 <p>代码实现也很简单：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成随机的位置坐标</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_random_pos</span><span class="params">()</span>:</span></span><br><span class="line">    x, y = random.randint(<span class="number">20</span>, WIDTH<span class="number">-20</span>), random.randint(<span class="number">20</span>, HEIGHT<span class="number">-20</span>)</span><br><span class="line">    <span class="keyword">return</span> x, y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取鼠标位置</span></span><br><span class="line"><span class="comment"># 若鼠标位置位于按钮区域内</span></span><br><span class="line"><span class="comment"># 则随机生成按钮位置进行显示</span></span><br><span class="line">mouse_pos = pygame.mouse.get_pos()</span><br><span class="line"><span class="keyword">if</span> mouse_pos[<span class="number">0</span>] &lt; unlike_pos_x+unlike_pos_width <span class="keyword">and</span> mouse_pos[<span class="number">0</span>] &gt; unlike_pos_x <span class="keyword">and</span>\</span><br><span class="line">        mouse_pos[<span class="number">1</span>] &lt; unlike_pos_y+unlike_pos_height <span class="keyword">and</span> mouse_pos[<span class="number">1</span>] &gt; unlike_pos_y:</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        unlike_pos_x, unlike_pos_y = get_random_pos()</span><br><span class="line">        <span class="keyword">if</span> mouse_pos[<span class="number">0</span>] &lt; unlike_pos_x+unlike_pos_width <span class="keyword">and</span> mouse_pos[<span class="number">0</span>] &gt; unlike_pos_x <span class="keyword">and</span>\</span><br><span class="line">                mouse_pos[<span class="number">1</span>] &lt; unlike_pos_y+unlike_pos_height <span class="keyword">and</span> mouse_pos[<span class="number">1</span>] &gt; unlike_pos_y:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
 <p>看着有点乱，但其实就是上图的公式。</p>
-<h1 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h1><p>最终实现效果：</p>
+<h1><span id="实现效果">实现效果</span></h1><p>最终实现效果：</p>
 <p><img src="http://blog-1254259578.cossh.myqcloud.com/xsj/201811081351.gif" alt="实现效果"></p>
 <p>最后，把我们的程序打包成 exe，当然，需要附上图片和字体文件。</p>
 <p>不会代码打包的可以参考之前的文章：</p>
@@ -777,7 +777,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -869,23 +869,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -907,7 +907,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#实现思路"><span class="nav-text">实现思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主要实现逻辑"><span class="nav-text">主要实现逻辑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现效果"><span class="nav-text">实现效果</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">实现思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">主要实现逻辑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">实现效果</span></a></li></ol></div>
             
 
           </div>
@@ -1605,5 +1605,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

@@ -529,7 +529,7 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a href="https://www.codewars.com/kata/rectangle-into-squares/train/python" target="_blank" rel="noopener">题目地址</a></p>
+        <h2><span id="题目">题目</span></h2><p><a href="https://www.codewars.com/kata/rectangle-into-squares/train/python" target="_blank" rel="noopener">题目地址</a></p>
 <p>The drawing below gives an idea of how to cut a given “true” rectangle into squares (“true” rectangle meaning that the two dimensions are different).</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/1515391000798.jpg" alt="Rectangle into Squares"></p>
 <p>Can you translate this drawing into an algorithm?</p>
@@ -541,14 +541,14 @@
 </ol>
 <p>You will return an array with the size of each of the squares.</p>
 <p>Shell bash returns a string.<br><!--more--></p>
-<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqInRect(<span class="number">5</span>, <span class="number">3</span>) should return [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">sqInRect(<span class="number">3</span>, <span class="number">5</span>) should return [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">sqInRect(<span class="number">20</span>, <span class="number">14</span>) should return [<span class="number">14</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>]</span><br><span class="line">sqInRect(<span class="number">5</span>, <span class="number">5</span>) should return None</span><br></pre></td></tr></table></figure>
+<h3><span id="examples">Examples</span></h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sqInRect(<span class="number">5</span>, <span class="number">3</span>) should return [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">sqInRect(<span class="number">3</span>, <span class="number">5</span>) should return [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">sqInRect(<span class="number">20</span>, <span class="number">14</span>) should return [<span class="number">14</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>]</span><br><span class="line">sqInRect(<span class="number">5</span>, <span class="number">5</span>) should return None</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>#Note: lng == wdth as a starting case would be an entirely different problem and the drawing is planned to be interpreted with lng != wdth. </p>
 </blockquote>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>题目的含义是将一个长方形切割成正方形，且正方形尽可能的大。看返回值的规律应该是，将两个数值相减，直至两个数值相等。需要使用递归。</p>
+<h2><span id="思路">思路</span></h2><p>题目的含义是将一个长方形切割成正方形，且正方形尽可能的大。看返回值的规律应该是，将两个数值相减，直至两个数值相等。需要使用递归。</p>
 <p>但是初步写完测试后，返现不是这个规律。<code>sqInRect(20, 14) should return [14, 6, 6, 2, 2, 2]</code>这个就不适用。</p>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><h3 id="我的答案"><a href="#我的答案" class="headerlink" title="我的答案"></a>我的答案</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sqInRect</span><span class="params">(lng, wdth)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> lng == wdth:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">    list = []</span><br><span class="line">    </span><br><span class="line">    list.append(min(lng, wdth))</span><br><span class="line">    <span class="keyword">while</span> lng != wdth:</span><br><span class="line">        minNum = min(lng, wdth)</span><br><span class="line">        maxNum = max(lng, wdth)</span><br><span class="line">        lng = minNum</span><br><span class="line">        wdth = maxNum - minNum</span><br><span class="line">        list.append(min(lng, wdth))  </span><br><span class="line">    <span class="keyword">return</span> list</span><br></pre></td></tr></table></figure>
-<h3 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h3><ul>
+<h2><span id="答案">答案</span></h2><h3><span id="我的答案">我的答案</span></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sqInRect</span><span class="params">(lng, wdth)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> lng == wdth:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">    list = []</span><br><span class="line">    </span><br><span class="line">    list.append(min(lng, wdth))</span><br><span class="line">    <span class="keyword">while</span> lng != wdth:</span><br><span class="line">        minNum = min(lng, wdth)</span><br><span class="line">        maxNum = max(lng, wdth)</span><br><span class="line">        lng = minNum</span><br><span class="line">        wdth = maxNum - minNum</span><br><span class="line">        list.append(min(lng, wdth))  </span><br><span class="line">    <span class="keyword">return</span> list</span><br></pre></td></tr></table></figure>
+<h3><span id="最佳答案">最佳答案</span></h3><ul>
 <li><p>最佳实践解法</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sqInRect</span><span class="params">(lng, wdth)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> lng == wdth:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">    <span class="keyword">if</span> lng &lt; wdth:</span><br><span class="line">        wdth, lng = lng, wdth</span><br><span class="line">    res = []</span><br><span class="line">    <span class="keyword">while</span> lng != wdth:</span><br><span class="line">        res.append(wdth)</span><br><span class="line">        lng = lng - wdth</span><br><span class="line">        <span class="keyword">if</span> lng &lt; wdth:</span><br><span class="line">            wdth, lng = lng, wdth</span><br><span class="line">    res.append(wdth)</span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
 </li>
@@ -774,7 +774,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -866,23 +866,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -904,7 +904,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples"><span class="nav-text">Examples</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#答案"><span class="nav-text">答案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我的答案"><span class="nav-text">我的答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最佳答案"><span class="nav-text">最佳答案</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">Examples</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">答案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">我的答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">最佳答案</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1602,5 +1602,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

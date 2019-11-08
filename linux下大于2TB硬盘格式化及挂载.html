@@ -545,21 +545,21 @@
 </li>
 </ul>
 <p>明显地，当磁盘超过<code>2TB</code>时需要使用<code>GBT</code>分区。<br><a id="more"></a></p>
-<h2 id="parted分区步骤"><a href="#parted分区步骤" class="headerlink" title="parted分区步骤"></a>parted分区步骤</h2><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/2017-12-20-174302.gif" alt="所有流程"></p>
-<h3 id="进入parted"><a href="#进入parted" class="headerlink" title="进入parted"></a>进入parted</h3><p>在命令行键入命令<strong>parted 待格式化分区</strong>，如下：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parted /dev/sdb</span><br></pre></td></tr></table></figure></p>
+<h2><span id="parted分区步骤">parted分区步骤</span></h2><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/2017-12-20-174302.gif" alt="所有流程"></p>
+<h3><span id="进入parted">进入parted</span></h3><p>在命令行键入命令<strong>parted 待格式化分区</strong>，如下：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parted /dev/sdb</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/1513761711249.jpg" alt="parted /dev/sdb"></p>
 <p>类似fdisk一样，先选择要分区的硬盘，此处为/dev/sdb。</p>
 <p>可以输入p打印磁盘信息，查看分区的情况，找到起始和结束位置。</p>
-<h3 id="设置分区类型为gpt"><a href="#设置分区类型为gpt" class="headerlink" title="设置分区类型为gpt"></a>设置分区类型为gpt</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mklabel gpt</span><br></pre></td></tr></table></figure>
-<h3 id="开始分区"><a href="#开始分区" class="headerlink" title="开始分区"></a>开始分区</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkpart primary 0% 100%</span><br></pre></td></tr></table></figure>
+<h3><span id="设置分区类型为gpt">设置分区类型为gpt</span></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mklabel gpt</span><br></pre></td></tr></table></figure>
+<h3><span id="开始分区">开始分区</span></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkpart primary 0% 100%</span><br></pre></td></tr></table></figure>
 <p>primary指分区类型为主分区，0是分区开始位置，100%是分区结束位置。相同的命令为：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkpart primary 0-1</span><br></pre></td></tr></table></figure>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/1513762566190.jpg" alt="开始分区"><br>分区时系统会给出提示。</p>
-<h3 id="检查分区"><a href="#检查分区" class="headerlink" title="检查分区"></a>检查分区</h3><p>检查打印当前分区，查看分区设置是否正确<br>完成后用quit命令退出。</p>
-<h2 id="磁盘格式化和挂载"><a href="#磁盘格式化和挂载" class="headerlink" title="磁盘格式化和挂载"></a>磁盘格式化和挂载</h2><h3 id="格式化磁盘"><a href="#格式化磁盘" class="headerlink" title="格式化磁盘"></a>格式化磁盘</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext3 /dev/sdb1</span><br></pre></td></tr></table></figure>
+<h3><span id="检查分区">检查分区</span></h3><p>检查打印当前分区，查看分区设置是否正确<br>完成后用quit命令退出。</p>
+<h2><span id="磁盘格式化和挂载">磁盘格式化和挂载</span></h2><h3><span id="格式化磁盘">格式化磁盘</span></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext3 /dev/sdb1</span><br></pre></td></tr></table></figure>
 <p>如果支持<code>ext4</code>可选择格式化为<code>ext4</code>，格式化成<code>ext3</code>的时候又出现问题。<code>ext3</code>默认的<code>block size</code>的大小为4k，最大只能支持8T的空间。格式化时指定<code>block size</code>的大小为8K这样最大可以支持16T的空间。相应命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext3 -b 8192 /dev/sdb1</span><br></pre></td></tr></table></figure></p>
-<h3 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h3><p>挂载到/home目录下<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sdb1 /home/</span><br></pre></td></tr></table></figure></p>
-<h3 id="自动挂载分区配置"><a href="#自动挂载分区配置" class="headerlink" title="自动挂载分区配置"></a>自动挂载分区配置</h3><p>当在系统里创建了一个新的分区后，因为mount挂载在重启服务后会失效，所以需要将分区信息写到/etc/fstab文件中让其永久挂载<br>，编辑/etc/fstab里加入：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/sdb1 /home ext3 defaults 0 0</span><br></pre></td></tr></table></figure></p>
+<h3><span id="挂载">挂载</span></h3><p>挂载到/home目录下<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sdb1 /home/</span><br></pre></td></tr></table></figure></p>
+<h3><span id="自动挂载分区配置">自动挂载分区配置</span></h3><p>当在系统里创建了一个新的分区后，因为mount挂载在重启服务后会失效，所以需要将分区信息写到/etc/fstab文件中让其永久挂载<br>，编辑/etc/fstab里加入：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/sdb1 /home ext3 defaults 0 0</span><br></pre></td></tr></table></figure></p>
 <p>保存退出，重启后<code>/dev/sdb1</code>就会自动挂载到<code>/home</code>目录下</p>
 
       
@@ -780,7 +780,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -872,23 +872,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -910,7 +910,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#parted分区步骤"><span class="nav-text">parted分区步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进入parted"><span class="nav-text">进入parted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置分区类型为gpt"><span class="nav-text">设置分区类型为gpt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始分区"><span class="nav-text">开始分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查分区"><span class="nav-text">检查分区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#磁盘格式化和挂载"><span class="nav-text">磁盘格式化和挂载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化磁盘"><span class="nav-text">格式化磁盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挂载"><span class="nav-text">挂载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动挂载分区配置"><span class="nav-text">自动挂载分区配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">parted分区步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">进入parted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">设置分区类型为gpt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">开始分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">检查分区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">磁盘格式化和挂载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">格式化磁盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">挂载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">自动挂载分区配置</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1608,5 +1608,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

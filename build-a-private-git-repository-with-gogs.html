@@ -541,19 +541,19 @@
 <p><a href="https://gogs.io/" target="_blank" rel="noopener">https://gogs.io/</a></p>
 <a id="more"></a>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-4-1567583679956.png" alt="gogs"></p>
-<h1 id="1、安装-git"><a href="#1、安装-git" class="headerlink" title="1、安装 git"></a>1、安装 git</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure>
-<h1 id="2、安装MySQL"><a href="#2、安装MySQL" class="headerlink" title="2、安装MySQL"></a>2、安装MySQL</h1><p>安装过程省略。</p>
+<h1><span id="1-安装-git">1、安装 git</span></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure>
+<h1><span id="2-安装mysql">2、安装MySQL</span></h1><p>安装过程省略。</p>
 <p>安装后登录 MySQL 进行如下配置：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> gogs <span class="keyword">default</span> <span class="built_in">character</span> <span class="keyword">set</span> utf8mb4 <span class="keyword">collate</span> utf8mb4_unicode_ci;</span><br><span class="line"></span><br><span class="line"># 这里我新建了一个用户用来访问gogs数据库</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'pig'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'xxxx'</span>;</span><br><span class="line"><span class="keyword">GRANT</span> ALL <span class="keyword">ON</span> gogs.* <span class="keyword">TO</span> <span class="string">'pig'</span>@<span class="string">'%'</span>;</span><br></pre></td></tr></table></figure>
-<h1 id="3、安装gogs"><a href="#3、安装gogs" class="headerlink" title="3、安装gogs"></a>3、安装gogs</h1><h2 id="3-1-创建git用户"><a href="#3-1-创建git用户" class="headerlink" title="3.1 创建git用户"></a>3.1 创建git用户</h2><p>建议使用 git 用户，因为 gogs 配置文件默认使用的 git 用户。</p>
+<h1><span id="3-安装gogs">3、安装gogs</span></h1><h2><span id="31-创建git用户">3.1 创建git用户</span></h2><p>建议使用 git 用户，因为 gogs 配置文件默认使用的 git 用户。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd git</span><br><span class="line">passwd git设置密码</span><br></pre></td></tr></table></figure>
-<h2 id="3-2-下载解压gogs"><a href="#3-2-下载解压gogs" class="headerlink" title="3.2 下载解压gogs"></a>3.2 下载解压gogs</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">su git</span><br><span class="line"><span class="built_in">cd</span> </span><br><span class="line"></span><br><span class="line">wget https://dl.gogs.io/0.11.29/linux_amd64.zip</span><br><span class="line"><span class="comment"># unzip 命令不可用的话需先安装</span></span><br><span class="line">unzip linux_amd64.zip</span><br></pre></td></tr></table></figure>
-<h2 id="3-3-配置gogs"><a href="#3-3-配置gogs" class="headerlink" title="3.3 配置gogs"></a>3.3 配置gogs</h2><p><code>vim /home/git/gogs/scripts/init/debian/gogs</code></p>
+<h2><span id="32-下载解压gogs">3.2 下载解压gogs</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">su git</span><br><span class="line"><span class="built_in">cd</span> </span><br><span class="line"></span><br><span class="line">wget https://dl.gogs.io/0.11.29/linux_amd64.zip</span><br><span class="line"><span class="comment"># unzip 命令不可用的话需先安装</span></span><br><span class="line">unzip linux_amd64.zip</span><br></pre></td></tr></table></figure>
+<h2><span id="33-配置gogs">3.3 配置gogs</span></h2><p><code>vim /home/git/gogs/scripts/init/debian/gogs</code></p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">PATH</span>=/sbin:/usr/sbin:/bin:/usr/bin</span><br><span class="line"><span class="attr">DESC</span>=<span class="string">"GoGs Git Service"</span></span><br><span class="line"><span class="attr">NAME</span>=gogs</span><br><span class="line"><span class="attr">SERVICEVERBOSE</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">PIDFILE</span>=/var/run/<span class="variable">$NAME</span>.pid</span><br><span class="line"><span class="attr">SCRIPTNAME</span>=/etc/init.d/<span class="variable">$NAME</span></span><br><span class="line"><span class="attr">WORKINGDIR</span>=/home/git/gogs #根据自己的目录修改</span><br><span class="line"><span class="attr">DAEMON</span>=<span class="variable">$WORKINGDIR</span>/<span class="variable">$NAME</span></span><br><span class="line"><span class="attr">DAEMON_ARGS</span>=<span class="string">"web"</span></span><br><span class="line"><span class="attr">USER</span>=git  #修改对应用户</span><br></pre></td></tr></table></figure>
-<h2 id="3-4-切回root，拷贝文件和服务"><a href="#3-4-切回root，拷贝文件和服务" class="headerlink" title="3.4 切回root，拷贝文件和服务"></a>3.4 切回root，拷贝文件和服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#拷贝到init.d下</span></span><br><span class="line">cp /home/git/gogs/scripts/init/debian/gogs /etc/init.d/</span><br><span class="line"><span class="comment">#添加可执行权限</span></span><br><span class="line">chmod +x /etc/init.d/gogs</span><br><span class="line"><span class="comment">#拷贝service</span></span><br><span class="line">cp /home/git/gogs/scripts/systemd/gogs.service /etc/systemd/system/</span><br></pre></td></tr></table></figure>
-<h2 id="3-5-启动"><a href="#3-5-启动" class="headerlink" title="3.5 启动"></a>3.5 启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start gogs.service</span><br></pre></td></tr></table></figure>
-<h1 id="4、配置-gogs"><a href="#4、配置-gogs" class="headerlink" title="4、配置 gogs"></a>4、配置 gogs</h1><p>此时，使用 <code>ip:3000</code> 就可以访问了</p>
-<h2 id="P-S-阿里云的坑"><a href="#P-S-阿里云的坑" class="headerlink" title="P.S. 阿里云的坑"></a>P.S. 阿里云的坑</h2><p>阿里云的主机默认是无法访问 3000 端口的，解决方法</p>
+<h2><span id="34-切回root拷贝文件和服务">3.4 切回root，拷贝文件和服务</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#拷贝到init.d下</span></span><br><span class="line">cp /home/git/gogs/scripts/init/debian/gogs /etc/init.d/</span><br><span class="line"><span class="comment">#添加可执行权限</span></span><br><span class="line">chmod +x /etc/init.d/gogs</span><br><span class="line"><span class="comment">#拷贝service</span></span><br><span class="line">cp /home/git/gogs/scripts/systemd/gogs.service /etc/systemd/system/</span><br></pre></td></tr></table></figure>
+<h2><span id="35-启动">3.5 启动</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start gogs.service</span><br></pre></td></tr></table></figure>
+<h1><span id="4-配置-gogs">4、配置 gogs</span></h1><p>此时，使用 <code>ip:3000</code> 就可以访问了</p>
+<h2><span id="ps-阿里云的坑">P.S. 阿里云的坑</span></h2><p>阿里云的主机默认是无法访问 3000 端口的，解决方法</p>
 <p>① 登录到阿里云控制台，进入到自己的云主机管理页面</p>
 <p>② 点击『防火墙』</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-4-1567584179874.png" alt="防火墙"></p>
@@ -565,7 +565,7 @@
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-4-1567584527797.png" alt="其他配置"></p>
 <p>点击 install gogs，安装成功以后会直接进入 gogs 首页，在这里可以注册或者登录，完全像是一个正常的网站。</p>
 <p>若在安装页面没有配置管理员，那么第一个注册的用户默认自动变成管理员，之后注册的用户都是普通用户。</p>
-<h2 id="配置文件详解"><a href="#配置文件详解" class="headerlink" title="配置文件详解"></a>配置文件详解</h2><p>配置文件位于：</p>
+<h2><span id="配置文件详解">配置文件详解</span></h2><p>配置文件位于：</p>
 <p><code>/home/git/gogs/custom/conf/app.ini</code></p>
 <p>其中参数的详细解释可以看官网：<a href="https://gogs.io/docs/advanced/configuration_cheat_sheet" target="_blank" rel="noopener">https://gogs.io/docs/advanced/configuration_cheat_sheet</a></p>
 <p><strong>禁止用户注册</strong></p>
@@ -796,7 +796,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -888,23 +888,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -926,7 +926,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、安装-git"><span class="nav-text">1、安装 git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、安装MySQL"><span class="nav-text">2、安装MySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、安装gogs"><span class="nav-text">3、安装gogs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-创建git用户"><span class="nav-text">3.1 创建git用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-下载解压gogs"><span class="nav-text">3.2 下载解压gogs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-配置gogs"><span class="nav-text">3.3 配置gogs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-切回root，拷贝文件和服务"><span class="nav-text">3.4 切回root，拷贝文件和服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-启动"><span class="nav-text">3.5 启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4、配置-gogs"><span class="nav-text">4、配置 gogs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#P-S-阿里云的坑"><span class="nav-text">P.S. 阿里云的坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件详解"><span class="nav-text">配置文件详解</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">1、安装 git</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">2、安装MySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">3、安装gogs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">3.1 创建git用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">3.2 下载解压gogs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">3.3 配置gogs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">3.4 切回root，拷贝文件和服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">3.5 启动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">4、配置 gogs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">P.S. 阿里云的坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">配置文件详解</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1624,5 +1624,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

@@ -532,10 +532,10 @@
 <a id="more"></a>
 <p>namedtuple 主要用来产生可以使用名称来访问元素的数据对象，通常用来增强代码的可读性。</p>
 <p>namedtuple 继承自 tuple，但是它有更多更酷的特性，正所谓「青出于蓝」。namedtuple 创建一个和 tuple 类似的对象，而且对象拥有可以访问的属性。这对象更像<strong>带有数据属性的类</strong>，不过数据属性是只读的。</p>
-<h1 id="定义和使用"><a href="#定义和使用" class="headerlink" title="定义和使用"></a>定义和使用</h1><p>namedtuple 创建时会需要使用构造函数 namedtuple()，参数是创建类的名称，以及包含元素名称的字符串。</p>
+<h1><span id="定义和使用">定义和使用</span></h1><p>namedtuple 创建时会需要使用构造函数 namedtuple()，参数是创建类的名称，以及包含元素名称的字符串。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Person = namedtuple(<span class="string">'Person'</span>,<span class="string">'name age gender'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(Person)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">type</span>'&gt;</span></span><br><span class="line">&gt;&gt;&gt; hoxis = Person('hoxis',18,'male')</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(hoxis)</span><br><span class="line">Person(name=<span class="string">'hoxis'</span>, age=<span class="number">18</span>, gender=<span class="string">'male'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis.name</span><br><span class="line"><span class="string">'hoxis'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis[<span class="number">0</span>]</span><br><span class="line"><span class="string">'hoxis'</span></span><br></pre></td></tr></table></figure>
 <p>从上面例子可以看出，我们可以通过 <code>.</code> 来访问成员（<code>obj.attr</code>），同时也可以使用数字索引访问。同时，还内置了 <code>repr()</code> 函数。</p>
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>和元组一样，namedtuple 也是<strong>不可变</strong>的，不能直接改变其成员：</p>
+<h1><span id="注意事项">注意事项</span></h1><p>和元组一样，namedtuple 也是<strong>不可变</strong>的，不能直接改变其成员：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hoxis 只能是 18 岁，变不了</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis.age</span><br><span class="line"><span class="number">18</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis.age = <span class="number">28</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">AttributeError: can<span class="string">'t set attribute</span></span><br></pre></td></tr></table></figure>
 <p>若非要改变，可以使用 <code>_replace()</code> 方法，但是这时其实是生成了一个新的 namedtuple，原来的还是没有改变，不信你看：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hoxis 还是 18 岁</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis_2 = hoxis._replace(age=<span class="number">28</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis</span><br><span class="line">Person(name=<span class="string">'hoxis'</span>, age=<span class="number">18</span>, gender=<span class="string">'male'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis_2</span><br><span class="line">Person(name=<span class="string">'hoxis'</span>, age=<span class="number">28</span>, gender=<span class="string">'male'</span>)</span><br></pre></td></tr></table></figure>
@@ -547,13 +547,13 @@
 <p>若非要死皮赖脸说，我就要用 <code>class</code>，那你需要设置 <code>rename=True</code> 属性：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>Person = namedtuple(<span class="string">'Person'</span>,<span class="string">'name age gender class'</span>, rename=<span class="keyword">True</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis = Person(<span class="string">'hoxis'</span>,<span class="number">18</span>,<span class="string">'male'</span>,<span class="string">'三年二班'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis</span><br><span class="line">Person(name=<span class="string">'hoxis'</span>, age=<span class="number">18</span>, gender=<span class="string">'male'</span>, _3=<span class="string">'三年二班'</span>)</span><br></pre></td></tr></table></figure>
 <p>其实成员名称被重命名了，class 你还是没用上，死皮赖脸也没用。。。</p>
-<h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><p>有没有发现，namedtuple 和 dict 有点像？</p>
+<h1><span id="扩展">扩展</span></h1><p>有没有发现，namedtuple 和 dict 有点像？</p>
 <p>其实 namedtuple 有一个内置的方法 <code>._asdict()</code>，可以生成一个 dict：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis = Person(<span class="string">'hoxis'</span>,<span class="number">18</span>,<span class="string">'male'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis_dict = hoxis._asdict()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis_dict</span><br><span class="line">OrderedDict([(<span class="string">'name'</span>, <span class="string">'hoxis'</span>), (<span class="string">'age'</span>, <span class="number">18</span>), (<span class="string">'gender'</span>, <span class="string">'male'</span>)])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis_dict[<span class="string">'age'</span>]</span><br><span class="line"><span class="number">18</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis_dict[<span class="string">'age'</span>] = <span class="number">28</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis_dict</span><br><span class="line">OrderedDict([(<span class="string">'name'</span>, <span class="string">'hoxis'</span>), (<span class="string">'age'</span>, <span class="number">28</span>), (<span class="string">'gender'</span>, <span class="string">'male'</span>)])</span><br></pre></td></tr></table></figure>
 <p>转换成 dict 后，属性就可以改变了。</p>
 <p>当然，dict 也可以转换为 namedtuple，其实是用 dict 生成一个 namedtuple：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis = Person(**hoxis_dict)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hoxis</span><br><span class="line">Person(name=<span class="string">'hoxis'</span>, age=<span class="number">28</span>, gender=<span class="string">'male'</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>相比 tuple 和 dictionary，namedtuple 略微有点综合体的意味：直观、使用方便，你不必使用整数索引来访问一个命名元组，这让你的代码更易于维护。<br>而且，namedtuple 的每个实例没有对象字典，所以它们很轻量，并不需要更多的内存，这使得它们比字典更快。</p>
+<h1><span id="总结">总结</span></h1><p>相比 tuple 和 dictionary，namedtuple 略微有点综合体的意味：直观、使用方便，你不必使用整数索引来访问一个命名元组，这让你的代码更易于维护。<br>而且，namedtuple 的每个实例没有对象字典，所以它们很轻量，并不需要更多的内存，这使得它们比字典更快。</p>
 <p>建议大家在合适的时候尝试使用 namedtuple，你会回来点赞的~</p>
 
       
@@ -772,7 +772,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -864,23 +864,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -902,7 +902,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#定义和使用"><span class="nav-text">定义和使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意事项"><span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扩展"><span class="nav-text">扩展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">定义和使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">扩展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -1600,5 +1600,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

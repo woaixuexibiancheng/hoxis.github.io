@@ -527,23 +527,23 @@
       
 
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><a href="https://www.codewars.com/kata/find-the-unique-number-1/train/python" target="_blank" rel="noopener">题目地址</a></p>
+        <h2><span id="题目">题目</span></h2><p><a href="https://www.codewars.com/kata/find-the-unique-number-1/train/python" target="_blank" rel="noopener">题目地址</a></p>
 <p>There is an array with some numbers. All numbers are equal except for one. Try to find it!</p>
 <a id="more"></a>
-<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">findUniq([ <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span> ]) === <span class="number">2</span></span><br><span class="line">findUniq([ <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.55</span>, <span class="number">0</span>, <span class="number">0</span> ]) === <span class="number">0.55</span></span><br></pre></td></tr></table></figure>
+<h3><span id="examples">Examples</span></h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">findUniq([ <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span> ]) === <span class="number">2</span></span><br><span class="line">findUniq([ <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.55</span>, <span class="number">0</span>, <span class="number">0</span> ]) === <span class="number">0.55</span></span><br></pre></td></tr></table></figure>
 <p>It’s guaranteed that array contains more than 3 numbers.<br>The tests contain some very huge arrays, so think about performance.</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>先对list进行排序，对排序后的结果再进行判断。主要是判断首位和末位是否是目标数。</p>
-<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><h3 id="我的答案"><a href="#我的答案" class="headerlink" title="我的答案"></a>我的答案</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_uniq</span><span class="params">(arr)</span>:</span></span><br><span class="line">    arr.sort()</span><br><span class="line">    <span class="keyword">return</span> arr[<span class="number">0</span>] <span class="keyword">if</span> arr[<span class="number">0</span>] != arr[<span class="number">1</span>] <span class="keyword">else</span> arr[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
-<h3 id="最佳答案"><a href="#最佳答案" class="headerlink" title="最佳答案"></a>最佳答案</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_uniq</span><span class="params">(arr)</span>:</span></span><br><span class="line">    a, b = set(arr)</span><br><span class="line">    <span class="keyword">return</span> a <span class="keyword">if</span> arr.count(a) == <span class="number">1</span> <span class="keyword">else</span> b</span><br></pre></td></tr></table></figure>
+<h2><span id="思路">思路</span></h2><p>先对list进行排序，对排序后的结果再进行判断。主要是判断首位和末位是否是目标数。</p>
+<h2><span id="答案">答案</span></h2><h3><span id="我的答案">我的答案</span></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_uniq</span><span class="params">(arr)</span>:</span></span><br><span class="line">    arr.sort()</span><br><span class="line">    <span class="keyword">return</span> arr[<span class="number">0</span>] <span class="keyword">if</span> arr[<span class="number">0</span>] != arr[<span class="number">1</span>] <span class="keyword">else</span> arr[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+<h3><span id="最佳答案">最佳答案</span></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_uniq</span><span class="params">(arr)</span>:</span></span><br><span class="line">    a, b = set(arr)</span><br><span class="line">    <span class="keyword">return</span> a <span class="keyword">if</span> arr.count(a) == <span class="number">1</span> <span class="keyword">else</span> b</span><br></pre></td></tr></table></figure>
 <p>最佳答案的思路主要有利用<code>set()</code>函数将排除重复数值，将最终的两个数值分离出，然后看原list中哪个数值的数量少，以及使用<code>sort()</code>函数。</p>
 <p>关于sort()函数的讲解见<a href="https://hoxis.github.io/Invert%20values.html">【Codewars每日一题】- Invert values</a>，下面主要说下<code>set()</code>函数的用法。</p>
 <blockquote>
 <p>P.S. 这是我有史以来最接近最佳答案的一次 <span class="github-emoji" title="smile" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">&#x1f604;</span></p>
 </blockquote>
-<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><h3 id="set-函数"><a href="#set-函数" class="headerlink" title="set()函数"></a>set()函数</h3><h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><p><code>set()</code>函数创建一个无序不重复元素集，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。</p>
-<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">class</span> <span class="keyword">set</span>([iterable])</span><br></pre></td></tr></table></figure>
+<h2><span id="知识点">知识点</span></h2><h3><span id="set函数">set()函数</span></h3><h4><span id="描述">描述</span></h4><p><code>set()</code>函数创建一个无序不重复元素集，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。</p>
+<h4><span id="语法">语法</span></h4><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">class</span> <span class="keyword">set</span>([iterable])</span><br></pre></td></tr></table></figure>
 <ul>
-<li>iterable – 可迭代对象对象；<h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4>返回新的集合对象。<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4></li>
+<li>iterable – 可迭代对象对象；<h4><span id="返回值">返回值</span></h4>返回新的集合对象。<h4><span id="示例">示例</span></h4></li>
 <li><p>重复元素在set中自动被过滤：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [ <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span> ]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = set(a)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s</span><br><span class="line">set([<span class="number">1</span>, <span class="number">2</span>])</span><br></pre></td></tr></table></figure>
 </li>
@@ -774,7 +774,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -866,23 +866,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -904,7 +904,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples"><span class="nav-text">Examples</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#答案"><span class="nav-text">答案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我的答案"><span class="nav-text">我的答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最佳答案"><span class="nav-text">最佳答案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知识点"><span class="nav-text">知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#set-函数"><span class="nav-text">set()函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#描述"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回值"><span class="nav-text">返回值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例"><span class="nav-text">示例</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">Examples</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">答案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">我的答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">最佳答案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">set()函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">返回值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">示例</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1602,5 +1602,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

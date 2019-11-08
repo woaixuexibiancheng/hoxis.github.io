@@ -545,22 +545,22 @@
 <li>使用个人公众号</li>
 <li>使用其他公众号封装好的发送消息的功能；</li>
 </ol>
-<h1 id="itchat"><a href="#itchat" class="headerlink" title="itchat"></a>itchat</h1><p>大部分人操作个人微信都是使用这个模块。</p>
+<h1><span id="itchat">itchat</span></h1><p>大部分人操作个人微信都是使用这个模块。</p>
 <p>itchat 是一个开源的微信个人接口，它可以模拟网页端的微信登陆，从而用 Python 脚本或命令行模式来使用个人微信号，达到推送各种通知到微信上的目的。</p>
 <p>项目主页：<a href="https://github.com/littlecodersh/ItChat" target="_blank" rel="noopener">https://github.com/littlecodersh/ItChat</a></p>
 <p>其实是基于网页版微信，通过 HTTP 交互来实现微信的一些操作，被封的风险其实在于，当检测到账号异常时，账号的网页版登录权限会被腾讯禁掉，这种情况下 itchat 就不好使了。另外，据说新申请的账号直接没有网页版登录权限了。</p>
 <p>itchat 的使用已经有其他很多大神讲了，网上也有很多教程，这里我们不再赘述，有兴趣的自行 Google，也可以后台找我，一起来研究下~</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20180906140229.png" alt="一起来"></p>
-<h1 id="个人公众号接口"><a href="#个人公众号接口" class="headerlink" title="个人公众号接口"></a>个人公众号接口</h1><p>微信提供了丰富的公众号接口，可以实现消息收发、关注用户信息获取等等。</p>
+<h1><span id="个人公众号接口">个人公众号接口</span></h1><p>微信提供了丰富的公众号接口，可以实现消息收发、关注用户信息获取等等。</p>
 <p>BUT！大部分接口（包括发送消息接口）只开放给认证用户，而个人号又无法认证，所以这条路断了！</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20180906140244.png" alt="接口权限"></p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20180906140254.png" alt="微信认证"></p>
 <p>据说以前个人是可以认证的，反正权限的口子越来越小了。</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20180906140303.png" alt="可以先哭一会吗"></p>
-<h1 id="别人家的公众号"><a href="#别人家的公众号" class="headerlink" title="别人家的公众号"></a>别人家的公众号</h1><p>正所谓「它山之石，可以攻玉」，此处不留爷，爷就去他处！今天的主角登场！</p>
+<h1><span id="别人家的公众号">别人家的公众号</span></h1><p>正所谓「它山之石，可以攻玉」，此处不留爷，爷就去他处！今天的主角登场！</p>
 <p>还好我们找到了提供收发消息功能的公众号 API，我们只要集成他们的接口即可。</p>
 <p>它就是「<strong>Server酱</strong>」！</p>
-<h2 id="Server-酱"><a href="#Server-酱" class="headerlink" title="Server 酱"></a>Server 酱</h2><p>Server 酱，英文名字 ServerChan，地址：<a href="http://sc.ftqq.com" target="_blank" rel="noopener">http://sc.ftqq.com</a></p>
+<h2><span id="server-酱">Server 酱</span></h2><p>Server 酱，英文名字 ServerChan，地址：<a href="http://sc.ftqq.com" target="_blank" rel="noopener">http://sc.ftqq.com</a></p>
 <p>使用方法：</p>
 <ol>
 <li>登入：用 GitHub 账号登入网站，就能获得一个 SCKEY（在「发送消息」页面）；</li>
@@ -580,7 +580,7 @@
 <p>每人每天发送上限 500 条，相同内容 5 分钟内不能重复发送，不同内容一分钟只能发送 30 条。主要是防止程序出错的情况。</p>
 </blockquote>
 <p>对于我这种需求肯定够了。</p>
-<h2 id="PushBear"><a href="#PushBear" class="headerlink" title="PushBear"></a>PushBear</h2><p>ServerChan 只能推送到一个微信上，若果想一对多发送信息，并且向自定义发件人，那么可以使用 PushBear。</p>
+<h2><span id="pushbear">PushBear</span></h2><p>ServerChan 只能推送到一个微信上，若果想一对多发送信息，并且向自定义发件人，那么可以使用 PushBear。</p>
 <p>PushBear 地址：<a href="https://pushbear.ftqq.com" target="_blank" rel="noopener">https://pushbear.ftqq.com</a></p>
 <ol>
 <li>无需注册，直接扫码登入；</li>
@@ -600,7 +600,7 @@
 </blockquote>
 <p>综上，若要完成签到成功后的通知，我们只要使用 ServerChan 或者 PushBear 的接口封装成发送消息的函数即可！</p>
 <p>食行生鲜签到系列也可以到此结束了，回复【食行生鲜】可以获取最终代码。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>也许还有其他微信的使用方法，但是 ServerChan 是我找到的最简单的一个了，1 行代码搞定，简单高效，很 <strong>pythonic</strong>！</p>
+<h1><span id="总结">总结</span></h1><p>也许还有其他微信的使用方法，但是 ServerChan 是我找到的最简单的一个了，1 行代码搞定，简单高效，很 <strong>pythonic</strong>！</p>
 <p>当然，作为个人发送一些通知 ServerChan 是绰绰有余的，但是，若是企业级的应用还是用自己的微信订阅号来开发接口吧~</p>
 
       
@@ -819,7 +819,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -911,23 +911,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -949,7 +949,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#itchat"><span class="nav-text">itchat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#个人公众号接口"><span class="nav-text">个人公众号接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#别人家的公众号"><span class="nav-text">别人家的公众号</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Server-酱"><span class="nav-text">Server 酱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PushBear"><span class="nav-text">PushBear</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">itchat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">个人公众号接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">别人家的公众号</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">Server 酱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">PushBear</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -1647,5 +1647,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

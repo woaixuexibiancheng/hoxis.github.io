@@ -542,11 +542,11 @@
 <li><a href="#files文件传输">Files：文件传输</a></li>
 <li><a href="#templates模板替换">Templates：模板替换</a></li>
 </ol>
-<h1 id="Roles-目录结构"><a href="#Roles-目录结构" class="headerlink" title="Roles 目录结构"></a>Roles 目录结构</h1><p>Roles <strong>严重依赖</strong>目录命名规则和目录摆放，所以目录的命名和目录位置都非常重要。下面是一个案例的目录结构：</p>
+<h1><span id="roles-目录结构">Roles 目录结构</span></h1><p>Roles <strong>严重依赖</strong>目录命名规则和目录摆放，所以目录的命名和目录位置都非常重要。下面是一个案例的目录结构：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">liuhao@liuhao-pc:~/ansible$ tree fab2ansible/</span><br><span class="line">fab2ansible/</span><br><span class="line">├── group_vars</span><br><span class="line">│   └── all</span><br><span class="line">├── roles</span><br><span class="line">│   ├── git</span><br><span class="line">│   │   ├── files</span><br><span class="line">│   │   │   └── main.yml</span><br><span class="line">│   │   ├── tasks</span><br><span class="line">│   │   │   ├── create_dir.yml</span><br><span class="line">│   │   │   ├── git_checkout.yml</span><br><span class="line">│   │   │   ├── main.yml</span><br><span class="line">│   │   │   └── static_git_pull.yml</span><br><span class="line">│   │   └── vars</span><br><span class="line">│   │       └── main.yml</span><br><span class="line">│   └── user</span><br><span class="line">│       ├── tasks</span><br><span class="line">│       │   ├── main.yml</span><br><span class="line">│       │   └── user-config.yml</span><br><span class="line">│       └── vars</span><br><span class="line">│           └── main.yml</span><br><span class="line">└── userconf.yml</span><br><span class="line"></span><br><span class="line">9 directories, 11 files</span><br></pre></td></tr></table></figure>
 <p>对应的模块调用结构：</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/1521596065577.jpg" alt="Role 模块调用结构"></p>
-<h1 id="调用过程解析"><a href="#调用过程解析" class="headerlink" title="调用过程解析"></a>调用过程解析</h1><p>参考上图，下面来针对 roles 目录中的 git 模块进行剖析。</p>
+<h1><span id="调用过程解析">调用过程解析</span></h1><p>参考上图，下面来针对 roles 目录中的 git 模块进行剖析。</p>
 <ol>
 <li>group_vars/all 文件：定义 roles 变量</li>
 </ol>
@@ -581,7 +581,7 @@
 </ul>
 <p>实现 Git 项目初始化，Checkout 最新代码至指定目录。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">---  </span><br><span class="line">- hosts: localhost  </span><br><span class="line">  tasks:  </span><br><span class="line">      - name: Git init before git pull  </span><br><span class="line">        <span class="built_in">command</span>: /usr/bin/git fetch  </span><br><span class="line">        args:  </span><br><span class="line">            <span class="built_in">chdir</span>: <span class="string">"&#123;&#123; package_dir &#125;&#125;&#123;&#123; project &#125;&#125;-release-&#123;&#123; git_commit &#125;&#125;/&#123;&#123; flag &#125;&#125;-&#123;&#123; project &#125;&#125;"</span>  </span><br><span class="line">  </span><br><span class="line">      - name: Git reset  </span><br><span class="line">        <span class="built_in">command</span>: /usr/bin/git reset --hard  </span><br><span class="line">        args:  </span><br><span class="line">            <span class="built_in">chdir</span>: <span class="string">"&#123;&#123; package_dir &#125;&#125;&#123;&#123; project &#125;&#125;-release-&#123;&#123; git_commit &#125;&#125;/&#123;&#123; flag &#125;&#125;-&#123;&#123; project &#125;&#125;"</span>  </span><br><span class="line">  </span><br><span class="line">      - name: Git checkout  </span><br><span class="line">        <span class="built_in">command</span>: /usr/bin/git checkout &#123;&#123; git_commit &#125;&#125;  </span><br><span class="line">        args:  </span><br><span class="line">            <span class="built_in">chdir</span>: <span class="string">"&#123;&#123; package_dir &#125;&#125;&#123;&#123; project &#125;&#125;-release-&#123;&#123; git_commit &#125;&#125;/&#123;&#123; flag &#125;&#125;-&#123;&#123; project &#125;&#125;"</span></span><br></pre></td></tr></table></figure>
-<h1 id="handlers：动态变更"><a href="#handlers：动态变更" class="headerlink" title="handlers：动态变更"></a>handlers：动态变更</h1><p>Roles 不仅支持 Tasks 调用，同时支持 vars、files、handlers、meta、templates 的调用。本节介绍 Handlers 在 Roles 中的使用技巧。</p>
+<h1><span id="handlers动态变更">handlers：动态变更</span></h1><p>Roles 不仅支持 Tasks 调用，同时支持 vars、files、handlers、meta、templates 的调用。本节介绍 Handlers 在 Roles 中的使用技巧。</p>
 <p>Handlers 通常和 Notify 搭配使用，当（文件、进程、返回等）状态有变换时，Notify 会通过 Handlers 做指定的变更。我们通过一个功能完整的 Roles 来整体了解 Vars、Files、Handlers、Meta、Templates，然后逐步深入 Roles Handlers 用法。请看示例 example.yml：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">site.yml</span><br><span class="line">webservers.yml</span><br><span class="line">fooservers.yml</span><br><span class="line">roles/</span><br><span class="line">    common/</span><br><span class="line">        files/</span><br><span class="line">        templates/</span><br><span class="line">        tasks/</span><br><span class="line">        handlers/</span><br><span class="line">        vars/</span><br><span class="line">        defaults/</span><br><span class="line">        meta/</span><br><span class="line">    webservers/</span><br><span class="line">        files/</span><br><span class="line">        templates/</span><br><span class="line">        tasks/</span><br><span class="line">        handlers/</span><br><span class="line">        vars/</span><br><span class="line">        defaults/</span><br><span class="line">        meta/</span><br></pre></td></tr></table></figure>
 <p>example.yml 包含两个 Role， common 和 webservers，每个 Role 均包括 files、templates、tasks、handlers、vars、defaults、meta。在 Playbooks 中的调用方式如下：</p>
@@ -594,7 +594,7 @@
 <li>roles/x/meta/main.yml：roles 所有依赖将被正常登入。</li>
 <li>roles/x/{files,templates,tasks}/(dir depends on task)：所有文件、模板都可存放在这里，不用指定绝对路径</li>
 </ul>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>当 Apache 配置文件发生变化时重启 Apache。</p>
+<h2><span id="示例">示例</span></h2><p>当 Apache 配置文件发生变化时重启 Apache。</p>
 <ol>
 <li>编排 Roles 目录结构</li>
 </ol>
@@ -622,7 +622,7 @@
 <li>执行命令 <code>ansible-playbook apache.yml</code>，验证结果。</li>
 </ol>
 <p>命令运行结果为更新 Apache 配置文件，如配置文件有更新则重启 Apache，如无错误返回为正常。</p>
-<h1 id="Files：文件传输"><a href="#Files：文件传输" class="headerlink" title="Files：文件传输"></a>Files：文件传输</h1><p>Files 和 Templates 均用于 Ansible 文件处理，两者主要区别是：Files（不是 file 模块）目录下的文件无需写绝对路径即可将文件传输至远程主机；Templates 目录下的文件以 Jinja2 渲染，且传输文件至远程主机的同时支持预定义变量替换。接下来我们看 Roles 中 Files 的使用方式。</p>
+<h1><span id="files文件传输">Files：文件传输</span></h1><p>Files 和 Templates 均用于 Ansible 文件处理，两者主要区别是：Files（不是 file 模块）目录下的文件无需写绝对路径即可将文件传输至远程主机；Templates 目录下的文件以 Jinja2 渲染，且传输文件至远程主机的同时支持预定义变量替换。接下来我们看 Roles 中 Files 的使用方式。</p>
 <p>案例场景：将 example role 下的 MAGEDU.PPT 和 STANLEY.PPT 两个文件传输至远程，并修改文件名为英文小写。</p>
 <ol>
 <li>编排目录结构如下</li>
@@ -648,7 +648,7 @@
 </ol>
 <p>Roles 的 Files 功能设计主要针对业务文件传输需求，凡存放于对应的 Roles 的 Files 目录下的文件，传输时只需指定相对路径即可，这在很大程度上保证了管理机故障迁移时 Ansible 的健壮性，同时也从规则上使使用者有意规范自己的文件存放习惯。</p>
 <p>在企业中不仅会遇到文件传输的需求，对于应用的配置文件，针对不同的主机需要进行相应的变更该怎么办呢？Templates 可以满足我们需求。</p>
-<h1 id="Templates：模板替换"><a href="#Templates：模板替换" class="headerlink" title="Templates：模板替换"></a>Templates：模板替换</h1><p>Templates 常被用作传输文件，同时支持预定义变量替换。因 Templates 由 Jinja2 渲染格式，Jinja2 官网 <a href="http://jinja.pocoo.org/" target="_blank" rel="noopener">http://jinja.pocoo.org/</a></p>
+<h1><span id="templates模板替换">Templates：模板替换</span></h1><p>Templates 常被用作传输文件，同时支持预定义变量替换。因 Templates 由 Jinja2 渲染格式，Jinja2 官网 <a href="http://jinja.pocoo.org/" target="_blank" rel="noopener">http://jinja.pocoo.org/</a></p>
 <p>案例场景：将 order.j2 分发至远程主机 /data// 目录下，并改名为 order.conf，且替换配置文件中变量为对应的值。</p>
 <ol>
 <li>编排目录如下</li>
@@ -897,7 +897,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -989,23 +989,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -1027,7 +1027,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Roles-目录结构"><span class="nav-text">Roles 目录结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调用过程解析"><span class="nav-text">调用过程解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#handlers：动态变更"><span class="nav-text">handlers：动态变更</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Files：文件传输"><span class="nav-text">Files：文件传输</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Templates：模板替换"><span class="nav-text">Templates：模板替换</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Roles 目录结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">调用过程解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">handlers：动态变更</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Files：文件传输</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Templates：模板替换</span></a></li></ol></div>
             
 
           </div>
@@ -1725,5 +1725,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

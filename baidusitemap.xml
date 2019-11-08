@@ -4,36 +4,6 @@
 
     
   <url>
-    <loc>https://hoxis.github.io/package.html</loc>
-    <lastmod>2019-11-08T02:41:34.562Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2019-11-08T02:41:34.562Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hoxis.github.io/node_modules/hexo-plugin-readmore/package.html</loc>
-    <lastmod>2019-11-08T02:41:33.948Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2019-11-08T02:41:33.934Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://hoxis.github.io/taobao-venues-auto.html</loc>
     <lastmod>2019-11-04T06:12:33.644Z</lastmod>
     <data>
@@ -4525,34 +4495,4 @@
     
     
     
-    
-  <url>
-    <loc>https://hoxis.github.io/node_modules/hexo-plugin-readmore/README.html</loc>
-    <lastmod>1985-10-26T08:15:00.000Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2019-11-08T02:41:33.935Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hoxis.github.io/node_modules/hexo-plugin-readmore/index.html</loc>
-    <lastmod>1985-10-26T08:15:00.000Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2019-11-08T02:41:33.935Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>

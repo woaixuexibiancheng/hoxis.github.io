@@ -534,7 +534,7 @@
         <p>经常会有同学来问我，我的数据库占用空间太大，我把一个最大的表删掉了一半的数据，怎么表文件的大小还是没变？</p>
 <a id="more"></a>
 <p>InnoDB 表的组成：表结构定义和数据。</p>
-<h1 id="数据删除流程"><a href="#数据删除流程" class="headerlink" title="数据删除流程"></a>数据删除流程</h1><p>InnoDB 中，数据是以 B+ 树结构来存储数据的：</p>
+<h1><span id="数据删除流程">数据删除流程</span></h1><p>InnoDB 中，数据是以 B+ 树结构来存储数据的：</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190219185319.png" alt></p>
 <p>假设删掉表记录 R4，此时 InnoDB 只是把 R4 <strong>标记为已删除状态</strong>，后续这个位置可以插入新的数据，但是磁盘文件大小并不会变化。</p>
 <p><strong>何时复用？</strong></p>
@@ -546,12 +546,12 @@
 <p>此时，所有的数据页都会标记为可复用，但是磁盘空间仍然不会变小。</p>
 <p><strong>总结</strong></p>
 <p>delete 操作，只是把记录的位置标记为「可复用」，但是磁盘大小不会变化，这些可以复用，而未被使用的空间，看起来就像<strong>空洞</strong>。</p>
-<h1 id="增删改-造成空洞"><a href="#增删改-造成空洞" class="headerlink" title="增删改-造成空洞"></a>增删改-造成空洞</h1><p>当数据是随机插入时，就可能造成索引的数据页分裂。</p>
+<h1><span id="增删改-造成空洞">增删改-造成空洞</span></h1><p>当数据是随机插入时，就可能造成索引的数据页分裂。</p>
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/20190219190353.png" alt></p>
 <p>如图所示，由于 page A 写满，此时插入 ID 为 550 的数据，就不得不申请新的数据页，页分裂完成后，A 上就会留下空洞。</p>
 <p>另外，更新索引上的值，其实是删除旧值，插入新值，这个过程同样会造成空洞。</p>
 <p>综上，经过大量增删改操作的表，都是可能存在大量空洞的，若要收缩表空间，就要清除这些空洞。</p>
-<h1 id="重建表-清除空洞"><a href="#重建表-清除空洞" class="headerlink" title="重建表-清除空洞"></a>重建表-清除空洞</h1><p>如何清除空洞？</p>
+<h1><span id="重建表-清除空洞">重建表-清除空洞</span></h1><p>如何清除空洞？</p>
 <p>直接的想法就是，新建一个表结构相同的表，然后按主键 ID 递增的顺序，将原表中的数据，插入到新表。</p>
 <p>这样，新表中就不会存在空洞了。新表的主键索引也会更加紧凑，数据页的利用率也更高。</p>
 <p>上面的操作可以通过下面的语句自动完成：</p>
@@ -783,7 +783,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -875,23 +875,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -913,7 +913,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据删除流程"><span class="nav-text">数据删除流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增删改-造成空洞"><span class="nav-text">增删改-造成空洞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重建表-清除空洞"><span class="nav-text">重建表-清除空洞</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">数据删除流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">增删改-造成空洞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">重建表-清除空洞</span></a></li></ol></div>
             
 
           </div>
@@ -1611,5 +1611,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

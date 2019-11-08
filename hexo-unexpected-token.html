@@ -529,16 +529,16 @@
       
         <p>在使用 Hexo 调试时，一直出现 <code>Template render error: unexpected token: }}</code> 的异常，显然是出现了特殊字符导致无法解析。</p>
 <a id="more"></a>
-<h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>在上一篇 <a href="https://hoxis.github.io/python-jinja2.html">Python 利用 Jinja2 模版生成文件</a> 中，每次执行 hexo s 或 hexo g，都会报错：</p>
+<h1><span id="现象">现象</span></h1><p>在上一篇 <a href="https://hoxis.github.io/python-jinja2.html">Python 利用 Jinja2 模版生成文件</a> 中，每次执行 hexo s 或 hexo g，都会报错：</p>
 <figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FATAL Something's wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html</span><br><span class="line">Template render error: unexpected token: &#125;&#125;</span><br><span class="line">    at new exports.TemplateError (E:<span class="symbol">\l</span>iuhao_data<span class="symbol">\h</span>exo-blog<span class="symbol">\n</span>ode_modules<span class="symbol">\h</span>exo<span class="symbol">\n</span>ode_modules<span class="symbol">\n</span>unjucks<span class="symbol">\s</span>rc<span class="symbol">\l</span>ib.js:51:19)</span><br><span class="line">    at new_cls.fail (E:<span class="symbol">\l</span>iuhao_data<span class="symbol">\h</span>exo-blog<span class="symbol">\n</span>ode_modules<span class="symbol">\h</span>exo<span class="symbol">\n</span>ode_modules<span class="symbol">\n</span>unjucks<span class="symbol">\s</span>rc<span class="symbol">\p</span>arser.js:64:15)</span><br><span class="line">    at new_cls.parsePrimary (E:<span class="symbol">\l</span>iuhao_data<span class="symbol">\h</span>exo-blog<span class="symbol">\n</span>ode_modules<span class="symbol">\h</span>exo<span class="symbol">\n</span>ode_modules<span class="symbol">\n</span>unjucks<span class="symbol">\s</span>rc<span class="symbol">\p</span>arser.js:947:18)</span><br><span class="line">    at new_cls.parseUnary (E:<span class="symbol">\l</span>iuhao_data<span class="symbol">\h</span>exo-blog<span class="symbol">\n</span>ode_modules<span class="symbol">\h</span>exo<span class="symbol">\n</span>ode_modules<span class="symbol">\n</span>unjucks<span class="symbol">\s</span>rc<span class="symbol">\p</span>arser.js:882:25)</span><br><span class="line">.......</span><br></pre></td></tr></table></figure>
-<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>原文中有这句话：</p>
+<h1><span id="原因">原因</span></h1><p>原文中有这句话：</p>
 <blockquote>
 <p>先创建一个包括 <code>{{ }}</code>或 <code>{% %}</code> 等特殊符号的模板文件</p>
 </blockquote>
 <p>出错时 Markdown 原文是这样的：</p>
 <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先创建一个包括 `&#123;&#123; &#125;&#125;`或 `&#123;% %&#125;` 等特殊符号的模板文件</span><br></pre></td></tr></table></figure>
 <p>其中 <code> {{ }} </code> 和 <code> {% %} </code> 被当成 hexo 模板中的标签，解析出错。</p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>Github 上给出的方法是在需要显示 <code>{{ }}</code> 符号的地方用如下代码包围：</p>
+<h1><span id="解决方法">解决方法</span></h1><p>Github 上给出的方法是在需要显示 <code>{{ }}</code> 符号的地方用如下代码包围：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;%<span class="built_in"> raw </span>%&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
 <p>标记这部分不需要解析。</p>
 <ul>
@@ -777,7 +777,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -869,23 +869,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -907,7 +907,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#现象"><span class="nav-text">现象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原因"><span class="nav-text">原因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方法"><span class="nav-text">解决方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">现象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">原因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">解决方法</span></a></li></ol></div>
             
 
           </div>
@@ -1605,5 +1605,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

@@ -539,14 +539,14 @@
 <p>就像这样：</p>
 <p><img src="http://blog-1254259578.cossh.myqcloud.com/xsj/201809201458.gif" alt="hello"></p>
 <p>Python 程序都是脚本的方式，一般是在解析器里运行，如果要发布出去，需要提前安装解析器才可以运行，为了在 Windows 里方便发布，只要点击一个 EXE 文件运行，并且打包所需要库文件，这样发布给用户使用就会更方便。</p>
-<h1 id="PyInstaller"><a href="#PyInstaller" class="headerlink" title="PyInstaller"></a>PyInstaller</h1><p>PyInstaller 是一个十分有用的第三方库，可以用来打包 python 应用程序，打包完的程序就可以在没有安装 Python 解释器的机器上运行了。</p>
+<h1><span id="pyinstaller">PyInstaller</span></h1><p>PyInstaller 是一个十分有用的第三方库，可以用来打包 python 应用程序，打包完的程序就可以在没有安装 Python 解释器的机器上运行了。</p>
 <p>它能够在 Windows、Linux、 Mac OS X 等操作系统下将 Python 源文件打包，通过对源文件打包， Python 程序可以在没有安装 Python 的环境中运行，也可以作为一个 独立文件方便传递和管理。</p>
 <p>PyInstaller 支持 Python 2.7 / 3.4-3.7。可以在 Windows、Mac OS X 和 Linux 上使用，但是并不是跨平台的，而是说你要是希望打包成 .exe 文件，需要在 Windows 系统上运行 PyInstaller 进行打包工作。</p>
 <p>下面我们以 <code>Windows</code> 为例来进行程序的打包工作。</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install pyinstaller</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">python -m pip install pyinstaller</span><br></pre></td></tr></table></figure>
+<h1><span id="安装">安装</span></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install pyinstaller</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">python -m pip install pyinstaller</span><br></pre></td></tr></table></figure>
 <p>安装成功：</p>
 <p><img src="http://blog-1254259578.cossh.myqcloud.com/xsj/1537412275629.jpg" alt="安装成功"></p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller -F helloworld.py</span><br></pre></td></tr></table></figure>
+<h1><span id="使用">使用</span></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller -F helloworld.py</span><br></pre></td></tr></table></figure>
 <p>其中，<code>-F</code> 表示打包成单独的 .exe 文件，这时生成的 .exe 文件会比较大，而且运行速度回较慢。仅仅一个 helloworld 程序，生成的文件就 5MB 大。</p>
 <p>另外，使用 <code>-i</code> 还可以指定可执行文件的图标；<br><code>-w</code> 表示去掉控制台窗口，这在 GUI 界面时非常有用。不过如果是命令行程序的话那就把这个选项删除吧！</p>
 <p>PyInstaller 会对脚本进行解析，并做出如下动作：</p>
@@ -556,7 +556,7 @@
 <p>生成文件：</p>
 <p><img src="http://blog-1254259578.cossh.myqcloud.com/xsj/1537418624692.jpg" alt="生成两个目录"></p>
 <p><img src="http://blog-1254259578.cossh.myqcloud.com/xsj/1537418710463.jpg" alt="生成的可执行文件"></p>
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>1、直接运行最终的 .exe 程序，可能会出现<strong>一闪而过</strong>的情况，这种情况下要么是程序运行结束（比如直接打印的 helloWorld），要么程序出现错误退出了。</p>
+<h1><span id="注意事项">注意事项</span></h1><p>1、直接运行最终的 .exe 程序，可能会出现<strong>一闪而过</strong>的情况，这种情况下要么是程序运行结束（比如直接打印的 helloWorld），要么程序出现错误退出了。</p>
 <p>这种情况下，建议在命令行 cmd 下运行 .exe 文件，这时就会有文本输出到窗口；</p>
 <p>2、<code>-i</code> 是改变图标的，但是我发现是有些 bug 的，客官请看：</p>
 <p><img src="http://blog-1254259578.cossh.myqcloud.com/xsj/201809201311.gif" alt="图标变化"></p>
@@ -575,7 +575,7 @@
 <p>然后在生成 exe 文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller helloworld.spec</span><br></pre></td></tr></table></figure>
 <p>然后生成的文件就可以正常引入外部文件了。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文只是使用 PyInstaller 打包流程进行简单的介绍，更多内容可以参见官方文档：<a href="https://pyinstaller.readthedocs.io" target="_blank" rel="noopener">https://pyinstaller.readthedocs.io</a>。</p>
+<h1><span id="总结">总结</span></h1><p>本文只是使用 PyInstaller 打包流程进行简单的介绍，更多内容可以参见官方文档：<a href="https://pyinstaller.readthedocs.io" target="_blank" rel="noopener">https://pyinstaller.readthedocs.io</a>。</p>
 <p>欢迎留言交流。</p>
 
       
@@ -796,7 +796,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -888,23 +888,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -926,7 +926,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PyInstaller"><span class="nav-text">PyInstaller</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意事项"><span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">PyInstaller</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -1624,5 +1624,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

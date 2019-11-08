@@ -542,26 +542,26 @@
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/1544512039246.png" alt="间接 SSH 连接"></p>
 <p><strong>原理</strong></p>
 <p>ssh 命令自提供的代理机制，在机器 A 上另外单独建立与 B 的 SSH 连接，该 SSH 连接的 B 端侧与机器 C 上的 SSH Server 端口建立连接，该 SSH 连接的 A 端侧与机器 A 上的 SSH Client建立连接。</p>
-<h1 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h1><p>A-本机：192.22.9.23<br>B-跳板机：192.22.9.21<br>C-目标机：192.22.4.46</p>
+<h1><span id="测试环境">测试环境</span></h1><p>A-本机：192.22.9.23<br>B-跳板机：192.22.9.21<br>C-目标机：192.22.4.46</p>
 <p>条件：A-&gt;B的互信</p>
-<h1 id="测试步骤"><a href="#测试步骤" class="headerlink" title="测试步骤"></a>测试步骤</h1><h2 id="测试-1"><a href="#测试-1" class="headerlink" title="测试 1"></a>测试 1</h2><p>A–&gt;B：root 用户的互信<br>C：root 的登录信息</p>
+<h1><span id="测试步骤">测试步骤</span></h1><h2><span id="测试-1">测试 1</span></h2><p>A–&gt;B：root 用户的互信<br>C：root 的登录信息</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># ansible all -m ping --ssh-common-args=<span class="string">'-o ProxyCommand="ssh -W %h:%p -q root@192.22.9.21"'</span></span><br><span class="line"><span class="number">192.22</span><span class="number">.4</span><span class="number">.46</span> | <span class="function"><span class="params">SUCCESS</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="string">"changed"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="string">"ping"</span>: <span class="string">"pong"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>可以成功穿过跳板机。</p>
-<h2 id="测试-2"><a href="#测试-2" class="headerlink" title="测试 2"></a>测试 2</h2><p>A–&gt;B：一般用户（luke）的互信<br>C：root 的登录信息</p>
+<h2><span id="测试-2">测试 2</span></h2><p>A–&gt;B：一般用户（luke）的互信<br>C：root 的登录信息</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># ansible all -m ping --ssh-common-args=<span class="string">'-o ProxyCommand="ssh -W %h:%p -q luke@192.22.9.21"'</span></span><br><span class="line"><span class="number">192.22</span><span class="number">.4</span><span class="number">.46</span> | <span class="function"><span class="params">SUCCESS</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="string">"changed"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="string">"ping"</span>: <span class="string">"pong"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>跳板机普通用户，访问目标机器的 root 目录</p>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># ansible all --ssh-common-args='-o ProxyCommand=<span class="string">"ssh -W %h:%p -q luke@192.22.9.21"</span>' -m command -a 'ls /root/'</span><br><span class="line"><span class="number">192.22</span><span class="number">.4</span><span class="number">.46</span> | CHANGED | rc=<span class="number">0</span> &gt;&gt;</span><br><span class="line"><span class="number">1115.</span>txt</span><br><span class="line">anaconda-ks.cfg</span><br><span class="line">deploytelegraf</span><br><span class="line">deploytelegraf.tar.gz</span><br><span class="line">epic-brook<span class="number">.18</span><span class="number">.11</span><span class="number">.20</span><span class="number">.01</span>.tar.gz</span><br><span class="line">epic-josh-threshold<span class="number">.0</span><span class="number">.1</span><span class="number">.26</span>.tar.gz</span><br><span class="line">images.tar.gz</span><br><span class="line">metric.tar.gz</span><br><span class="line">python-httplib2<span class="number">-0.9</span><span class="number">.2</span><span class="number">-1.</span>el7.noarch.rpm</span><br><span class="line">restates</span><br><span class="line">sensu<span class="number">-1.6</span><span class="number">.1</span><span class="number">-1.</span>el7.x86_64.rpm</span><br><span class="line">sshpass<span class="number">-1.06</span><span class="number">-2.</span>el7.x86_64.rpm</span><br><span class="line">test1115.txt</span><br><span class="line">tl.txt</span><br></pre></td></tr></table></figure>
 <p><strong>结论</strong></p>
 <p>访问权限取决于目标机器的登录用户。</p>
-<h2 id="测试-3"><a href="#测试-3" class="headerlink" title="测试 3"></a>测试 3</h2><p>A–&gt;B：一般用户（luke）的互信<br>C：一般用户（luke）的登录信息</p>
+<h2><span id="测试-3">测试 3</span></h2><p>A–&gt;B：一般用户（luke）的互信<br>C：一般用户（luke）的登录信息</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># ansible all -m ping --ssh-common-args=<span class="string">'-o ProxyCommand="ssh -W %h:%p -q luke@192.22.9.21"'</span></span><br><span class="line"><span class="number">192.22</span><span class="number">.4</span><span class="number">.46</span> | <span class="function"><span class="params">SUCCESS</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="string">"changed"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="string">"ping"</span>: <span class="string">"pong"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ansible all --ssh-common-args='-o ProxyCommand="ssh -W %h:%p -q luke@192.22.9.21"' -m command -a 'pwd'</span></span><br><span class="line"><span class="meta">192.22.4.46 | CHANGED | rc=0 &gt;</span>&gt;</span><br><span class="line">/home/luke</span><br></pre></td></tr></table></figure>
 <p>跳板机普通用户，目标机普通用户，无法访问 root</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># ansible <span class="keyword">all</span> --ssh-common-<span class="keyword">args</span>=<span class="string">'-o ProxyCommand="ssh -W %h:%p -q luke@192.22.9.21"'</span> -<span class="keyword">m</span> <span class="keyword">command</span> -<span class="keyword">a</span> <span class="string">'ls /root/'</span></span><br><span class="line"><span class="number">192.22</span>.<span class="number">4.46</span> | FAILED | rc=<span class="number">2</span> &gt;&gt;</span><br><span class="line"><span class="keyword">l</span><span class="variable">s:</span> cannot <span class="keyword">open</span> directory /root/: Permission deniednon-zero <span class="keyword">return</span> code</span><br></pre></td></tr></table></figure>
 <p>目标机器的普通用户无法访问 root 权限的路径。</p>
-<h2 id="测试-4"><a href="#测试-4" class="headerlink" title="测试 4"></a>测试 4</h2><p>A–&gt;B：root 用户的互信<br>C：luke 的登录信息</p>
+<h2><span id="测试-4">测试 4</span></h2><p>A–&gt;B：root 用户的互信<br>C：luke 的登录信息</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ansible all --ssh-common-args='-o ProxyCommand="ssh -W %h:%p -q root@192.22.9.21"' -m command -a 'pwd'</span></span><br><span class="line"><span class="meta">192.22.4.46 | CHANGED | rc=0 &gt;</span>&gt;</span><br><span class="line">/home/luke</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>1、若要使用跳板机功能，需要本机和跳板机的互信，任一用户的互信都可以。</p>
+<h1><span id="总结">总结</span></h1><p>1、若要使用跳板机功能，需要本机和跳板机的互信，任一用户的互信都可以。</p>
 <p>2、目标机器的操作权限，取决于目标机器的登录用户信息，与跳板机的登录信息无关。</p>
 <p>3、穿过跳板机，无法保证所有的 Ansible 功能都支持，特别是一些复杂的功能，如 synchronize 模块。后续需要用的模块需要一一测试。</p>
 
@@ -781,7 +781,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -873,23 +873,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -911,7 +911,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#测试环境"><span class="nav-text">测试环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试步骤"><span class="nav-text">测试步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#测试-1"><span class="nav-text">测试 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试-2"><span class="nav-text">测试 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试-3"><span class="nav-text">测试 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试-4"><span class="nav-text">测试 4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">测试环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">测试步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">测试 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">测试 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">测试 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">测试 4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
@@ -1609,5 +1609,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

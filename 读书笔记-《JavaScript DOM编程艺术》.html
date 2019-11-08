@@ -529,7 +529,7 @@
       
 
       
-        <h2 id="第1章"><a href="#第1章" class="headerlink" title="第1章"></a>第1章</h2><h2 id="第2章"><a href="#第2章" class="headerlink" title="第2章"></a>第2章</h2><p>1.最好的方法是将<code>&lt;script&gt;</code>标签放在HTML文档的最后，<code>&lt;/body&gt;</code>之前，这样可以使得浏览器更快的加载页面。</p>
+        <h2><span id="第1章">第1章</span></h2><h2><span id="第2章">第2章</span></h2><p>1.最好的方法是将<code>&lt;script&gt;</code>标签放在HTML文档的最后，<code>&lt;/body&gt;</code>之前，这样可以使得浏览器更快的加载页面。</p>
 <p>2.解释型语言</p>
 <a id="more"></a>
 <p>3.注释：建议用</p>
@@ -547,7 +547,7 @@
 <p>12.内建对象:Array.Math.Date<br>数组，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> persons = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">persons.length;</span><br></pre></td></tr></table></figure></p>
 <p>13.宿主对象：由运行环境（Web浏览器）提供的，包括<code>Form</code>.<code>Image</code>.<code>Elemen</code>t等，用来获取网页上的表单.表单元素等信息</p>
 <hr>
-<h2 id="第3章"><a href="#第3章" class="headerlink" title="第3章"></a>第3章</h2><p>14.<code>DOM：Document.Object.Model</code>。加载到当前窗口的网页，可以使用js去读取其中的内容。</p>
+<h2><span id="第3章">第3章</span></h2><p>14.<code>DOM：Document.Object.Model</code>。加载到当前窗口的网页，可以使用js去读取其中的内容。</p>
 <p>15.window对象，对应浏览器本身，其属性和方法通常称为BOM（浏览器对象模型）。<code>window.open</code>.<code>window.blur</code>等方法。各种弹出广告的实现</p>
 <p>16.HTML DOM 树形结构:<br><img src="http://hoxis-github-io.qiniudn.com/dom_tree.png" alt></p>
 <p>17.CSS的简单使用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">selector&#123;</span><br><span class="line">    property:value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -572,7 +572,7 @@
 </ul>
 <p>23.DOM工作模式：先加载文档的静态内容，再动态刷新，动态刷新不影响文档的静态内容。</p>
 <hr>
-<h2 id="第4章"><a href="#第4章" class="headerlink" title="第4章"></a>第4章</h2><p>24.事件函数的处理机制：在给某个元素添加了事件处理函数（如onclick）后，一旦事件发生，就会执行相应的JavaScript代码，被调用的JavaScript代码可以返回一个值，这个值将会传递给那个事件处理函数（onclick）。例如，给一个链接添加一个onclick函数，并让该函数返回一个布尔类型的值。这样一来，当这个链接被点击时，如果那段代码返回了true，那么onclick函数就认为这个“链接被点击了”；如果返回了false，那么就会认为这个链接“没有被点击”。<br>如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"http://www.baidu.com"</span> onclick=<span class="string">"return false;"</span>&gt;点我&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2><span id="第4章">第4章</span></h2><p>24.事件函数的处理机制：在给某个元素添加了事件处理函数（如onclick）后，一旦事件发生，就会执行相应的JavaScript代码，被调用的JavaScript代码可以返回一个值，这个值将会传递给那个事件处理函数（onclick）。例如，给一个链接添加一个onclick函数，并让该函数返回一个布尔类型的值。这样一来，当这个链接被点击时，如果那段代码返回了true，那么onclick函数就认为这个“链接被点击了”；如果返回了false，那么就会认为这个链接“没有被点击”。<br>如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"http://www.baidu.com"</span> onclick=<span class="string">"return false;"</span>&gt;点我&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>点击后，将不会触发链接默认的行为（跳转）。</p>
 <p>25.想在页面加载时运行函数count，可以这样设置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = count;</span><br></pre></td></tr></table></figure></p>
 <p>26.childNodes属性：可以用来获取任何一个元素的所有子元素，是一个包含其全部子元素的数组，包含的不仅仅是元素节点（ul、img等），甚至连空格和换行符都被当作节点。</p>
@@ -806,7 +806,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -898,23 +898,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -936,7 +936,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章"><span class="nav-text">第1章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章"><span class="nav-text">第2章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章"><span class="nav-text">第3章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章"><span class="nav-text">第4章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">第1章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">第2章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">第3章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">第4章</span></a></li></ol></div>
             
 
           </div>
@@ -1634,5 +1634,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>

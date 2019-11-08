@@ -530,12 +530,12 @@
         <p>什么是 ssh 互信？说白了，就是在目标机器上，预先设置好经过认证的 key 文件，当需要访问目标机器时，目标机器通过 key 文件，对访问者进行自动认证，从而实现互信。</p>
 <p>当管理大量机器时，使用 ssh-copy-id 方法一个个建立互信有些费时，那么使用 ansible 是否可以批量建立互信呢？</p>
 <a id="more"></a>
-<h1 id="生成密钥对"><a href="#生成密钥对" class="headerlink" title="生成密钥对"></a>生成密钥对</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<h1><span id="生成密钥对">生成密钥对</span></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
 <p>一路回车即可。</p>
-<h1 id="建立互信"><a href="#建立互信" class="headerlink" title="建立互信"></a>建立互信</h1><p>格式： <code>ssh-copy-id -i ~/.ssh/id_rsa.pub username@[ip,hostname]</code></p>
+<h1><span id="建立互信">建立互信</span></h1><p>格式： <code>ssh-copy-id -i ~/.ssh/id_rsa.pub username@[ip,hostname]</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub username@192.168.1.2</span><br></pre></td></tr></table></figure>
 <p>根据提示完成操作即完成了互信。</p>
-<h1 id="批量建立互信"><a href="#批量建立互信" class="headerlink" title="批量建立互信"></a>批量建立互信</h1><p>机器多的情况下，使用 ssh-copy-id 方法有些费时，使用 ansible-playbook 推送 ymal，这里使用到了 <code>authoried_keys</code> 模块，可以参考官方文档：<a href="http://docs.ansible.com/authorized_key_module.html" target="_blank" rel="noopener">http://docs.ansible.com/authorized_key_module.html</a></p>
+<h1><span id="批量建立互信">批量建立互信</span></h1><p>机器多的情况下，使用 ssh-copy-id 方法有些费时，使用 ansible-playbook 推送 ymal，这里使用到了 <code>authoried_keys</code> 模块，可以参考官方文档：<a href="http://docs.ansible.com/authorized_key_module.html" target="_blank" rel="noopener">http://docs.ansible.com/authorized_key_module.html</a></p>
 <p>建立如下 playbook：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">  - hosts:</span> <span class="string">test</span></span><br><span class="line">    <span class="comment"># 互信用户</span></span><br><span class="line"><span class="attr">    user:</span> <span class="string">hoxis</span></span><br><span class="line"><span class="attr">    tasks:</span></span><br><span class="line"><span class="attr">     - name:</span> <span class="string">ssh-copy</span></span><br><span class="line"><span class="attr">       authorized_key:</span> <span class="string">user=hoxis</span> <span class="string">key="&#123;&#123;</span> <span class="string">lookup('file',</span> <span class="string">'/home/hoxis/.ssh/id_rsa.pub'</span><span class="string">)</span> <span class="string">&#125;&#125;"</span></span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -763,7 +763,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">222</span>
+                  <span class="site-state-item-count">218</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -855,23 +855,23 @@
                 
                 
                   <li>
-                    <a href="/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/README.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/index.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
-                    <a href="/node_modules/hexo-plugin-readmore/package.html" title target="_blank"></a>
-                  </li>
-                
-                  <li>
                     <a href="/taobao-venues-auto.html" title="分享两款“自动领喵币”的软件（附使用教程）" target="_blank">分享两款“自动领喵币”的软件（附使用教程）</a>
+                  </li>
+                
+                  <li>
+                    <a href="/mobaxterm.html" title="Xshell、SecureCRT公司都不让用了，我好难啊！" target="_blank">Xshell、SecureCRT公司都不让用了，我好难啊！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/baidupcs-web.html" title="Pandownload倒下了，还有它，又一款百度云下载神器，10M/s" target="_blank">Pandownload倒下了，还有它，又一款百度云下载神器，10M/s</a>
+                  </li>
+                
+                  <li>
+                    <a href="/99baiduyun.html" title="试用了65个网盘搜索引擎，这一款确实不错！" target="_blank">试用了65个网盘搜索引擎，这一款确实不错！</a>
+                  </li>
+                
+                  <li>
+                    <a href="/xunjiepdf.html" title="『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！" target="_blank">『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</a>
                   </li>
                 
               </ul>
@@ -893,7 +893,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#生成密钥对"><span class="nav-text">生成密钥对</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#建立互信"><span class="nav-text">建立互信</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#批量建立互信"><span class="nav-text">批量建立互信</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">生成密钥对</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">建立互信</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">批量建立互信</span></a></li></ol></div>
             
 
           </div>
@@ -1591,5 +1591,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-koharu"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
 </html>
