@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hoxis.github.io/"/>
-  <updated>2019-11-04T06:12:33.644Z</updated>
+  <updated>2019-11-12T09:29:27.798Z</updated>
   <id>https://hoxis.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo 博客引流到公众号配置方法（亲测可用）</title>
+    <link href="https://hoxis.github.io/hexo-blog-to-wechat.html"/>
+    <id>https://hoxis.github.io/hexo-blog-to-wechat.html</id>
+    <published>2019-11-12T09:29:25.000Z</published>
+    <updated>2019-11-12T09:29:27.798Z</updated>
+    
+    <content type="html"><![CDATA[<p>相信有不少小伙伴都在 github 上创建了属于自己的博客，其中用 Hexo 的 Next 主题应该不少，那么，我们究竟该如何将博客的流量引流到微信呢？今天就来带你看一看。</p><a id="more"></a><p>这里我是借助了 OpenWrite 中的引流工具实现的。</p><h1><span id="一-openwrite设置">一、OpenWrite设置</span></h1><p>打开<a href="https://openwrite.cn/" target="_blank" rel="noopener">https://openwrite.cn/</a>进行注册</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-11-12-1573548658902.png" alt="▲ 注册"></p><p>登录后，选择<strong>增长工具</strong>–&gt;<strong>博客导流公众号</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-11-12-1573548701794.png" alt="▲ 配置"></p><p>点击添加，填写信息</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-11-12-1573548776429.png" alt="▲ 填写信息"></p><h1><span id="二-openwrite使用">二、OpenWrite使用</span></h1><p>填写完成后，点击使用</p><p>登录要增粉的微信公众号，按如下规则设置关键词回复</p><p>关键词，设置为：<strong>VIP</strong>（之前你自己设置的关键词）</p><p>回复内容，设置为如下文本内容：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://my.openwrite.cn/code/generate?blogId=15287-1573137991892-156"</span>&gt;</span>点击该链接，获取博客解锁验证码<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><p>然后还有一段 js 代码</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-11-12-1573549369895.png" alt="▲ js"></p><p>将其拷贝出来</p><h1><span id="三-hexo配置">三、hexo配置</span></h1><p>1、新增swig文件</p><p>在 <code>themes\next\layout\_custom</code> 文件夹中，新建一个 <code>hide.swig</code> 文件，内容如下：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if page.comments and theme.page_readmore %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://my.openwrite.cn/js/readmore.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    const btw = new BTWPlugin();</span></span><br><span class="line"><span class="undefined">    btw.init(&#123;</span></span><br><span class="line"><span class="undefined">        id: 'container',</span></span><br><span class="line"><span class="undefined">        blogId: '15287-111-156',</span></span><br><span class="line"><span class="undefined">        name: '不正经程序员',</span></span><br><span class="line"><span class="undefined">        qrcode: 'https://blog-1111.cos.ap-shanghai.myqcloud.com/picgo/wechat-qcode.jpg',</span></span><br><span class="line"><span class="undefined">        keyword: 'VIP',</span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure><p>其中的 js 代码为第二步中生成的 js。</p><p>2、修改_layout.swig</p><p>修改文件 <code>themes\next\layout\_layout.swig</code> 文件</p><p>找到类似如下代码段：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content-wrap"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">&#123;% block content %&#125;&#123;% endblock %&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  &#123;% include '_third-party/duoshuo-hot-articles.swig' %&#125;</span><br><span class="line">  &#123;% include '_partials/comments.swig' %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><p>修改为：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content-wrap"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">&#123;% block content %&#125;&#123;% endblock %&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  &#123;% include '_third-party/duoshuo-hot-articles.swig' %&#125;</span><br><span class="line">  &#123;% include '_partials/comments.swig' %&#125;</span><br><span class="line">  &#123;% include '_custom/hide.swig' %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><p>3、修改主题配置文件</p><p>新增是否添加<strong>阅读全文</strong>的开关</p><p>在文件 <code>themes\next\_config.yml</code> 中新增：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 是否开启阅读全文</span></span><br><span class="line"><span class="attr">page_readmore:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>此配置可以用于快捷配置开关。</p><p>4、重新生成静态文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure><p>本地调试没有问题后，可以推送到最新文章。</p><h1><span id="四-效果">四、效果</span></h1><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-11-12-20191112171729.gif" alt="▲ 最终效果"></p><p>如果大家有什么疑问，欢迎在下方留言。</p><p>参考：</p><p><a href="https://cloud.tencent.com/developer/article/1531992" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1531992</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;相信有不少小伙伴都在 github 上创建了属于自己的博客，其中用 Hexo 的 Next 主题应该不少，那么，我们究竟该如何将博客的流量引流到微信呢？今天就来带你看一看。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="奇技淫巧 " scheme="https://hoxis.github.io/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+    
+    
+      <category term="hexo" scheme="https://hoxis.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>分享两款“自动领喵币”的软件（附使用教程）</title>
@@ -467,40 +489,6 @@
     
     
       <category term="备份恢复" scheme="https://hoxis.github.io/tags/%E5%A4%87%E4%BB%BD%E6%81%A2%E5%A4%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《哪吒》大火，爬取20W+评论数据，并用AI分析了一波，结果......</title>
-    <link href="https://hoxis.github.io/python-data-analysis-nezha.html"/>
-    <id>https://hoxis.github.io/python-data-analysis-nezha.html</id>
-    <published>2019-07-24T04:25:22.000Z</published>
-    <updated>2019-08-06T05:11:03.627Z</updated>
-    
-    <content type="html"><![CDATA[<p>说起这个暑期档的动画片，非《哪吒之魔童降世》莫属了！</p><blockquote><p>上映第 1 天：89分钟，中国动画最快破 1亿纪录。</p><p>上映第 2 天：中国影史首部单日票房破 2亿的动画电影。</p><p>上映第 4 天：中国影史第66部破 10亿影片！</p><p>上映第 8 天：正式登顶！破 16亿，超过《疯狂动物城》，创中国影史动画电影票房新纪录！</p><p>上映第 9 天：成为中国影史第 17 部破 20亿 影片！</p><p>上映第 10 天：破 23亿！连续10天单日票房过亿，连续10天获得单日票房冠军！</p><p>而，最令人振奋的是，猫眼给出的最终票房预测已经飙到 44.87亿！</p></blockquote><p>不仅仅是票房，《哪吒》在豆瓣上的评分也到了 8.6 分以上（《大圣归来》的豆瓣评分是 8.3 分），众多影迷观看后给出的评价也非常直观，就是<strong>好看</strong>二字。</p><a id="more"></a><p>那么，这部动画，到底大家对其评价如何？</p><p>大量票房背后的数据里又隐藏了哪些东西？</p><p>本文抓取了猫眼 20W+ 的短评，并进行了简单的数据分析，带大家一起看下，观众的真实想法。</p><h1><span id="一-电影总体评价如何">一、电影总体评价如何？</span></h1><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-6-《哪吒》各评分数量.png" alt="《哪吒》各评分数量"></p><p>猫眼电影的评分为 0-10 分，从上图可以看到，<strong>有 97.3% 的观众给出了 8 分以上的高分，给出满分 10 分的更是达到了 85%。</strong></p><p>只有极小一部分观众（1%）打了 4 分以下的低分。</p><p>总体来说，观众还是很喜欢这部电影的，<strong>票房好</strong>的同时，<strong>口碑也好，名利双收！</strong></p><h1><span id="二-总体评价的时间走向如何">二、总体评价的时间走向如何？</span></h1><p>下面来分析一下自首映以来的<strong>每天的评分变化趋势</strong>。</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-6-评分走势图.png" alt="评分走势图"></p><p>从图中可以看出，从首映开始，评分就一直居高不下，而且没有下滑的趋势，始终在 9.5 以上，这几天的总体平均分维持在 9.63 分，说明大家对该片的肯定。</p><p>至于后续大家对其的评价如何，是否会出现滑铁卢？还需要时间来检验。</p><h1><span id="三-该片的观众分布">三、该片的观众分布</span></h1><h2><span id="地理位置分布">地理位置分布</span></h2><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-6-观众地理分布.png" alt="观众地理分布"></p><p>从上图可以看出，《哪吒》的观影人群主要集中在<strong>沿海一带</strong>，这些地方经济相对发达，城市人口基数庞大，极多的荧幕数量和座位、极高密度的排片场次，让观众便捷观影，活跃的观众评论也多，自然也就成为票房的主要贡献者。</p><p>其实这条线和<strong>胡焕庸线</strong>是非常契合的</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-2-1564722937146.png" alt="胡焕庸线"></p><p>这条 1935 首次提出的概念，到今天依然符合国情。</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-6-观众来源排行TOP20.png" alt="观众来源排行TOP20"></p><p>观众来源排名前 20 的城市依次为：北京、深圳、广州、成都、上海、重庆、东莞、长沙、武汉、西安、天津、郑州、南京、佛山、杭州、昆明、沈阳、长春、青岛、大连。</p><p>电影消费是城市文化消费的一部分，从某种角度来看，可以反映出一个<strong>城市的购买力</strong>。</p><p>当然，这里没有考虑城市的总人数，存在一定的不严谨。</p><h2><span id="性别分布">性别分布</span></h2><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-6-观众性别分布图.png" alt="观众性别分布图"></p><p>从上图可以看出，猫眼上的观众大多没有公开自己的性别信息，也有可能是注册时默认就是未知性别。</p><p>男女相比的话，也没有很大的区分，二者相差并不多，男生稍稍多于女生。</p><p>总之，《哪吒》是一部男女皆宜的片子。</p><h1><span id="四-ai-分析评论的情感倾向">四、AI 分析评论的情感倾向</span></h1><p>该片的评分甚高，但是评论透露出观众的情感到底是怎样的呢？</p><p>下面我调用了腾讯 AI 开放平台的情感倾向分析接口，得出了每条评论的情感倾向值，及其分布情况。</p><blockquote><p>情感分析接口能够对带有情感色彩的主观性文本进行分析、处理、归纳和推理，识别出用户的情感倾向，是积极还是消极，并且提供各自概率。</p></blockquote><p>接口返回中，有两个有用的信息。</p><p>一个是<strong>正向情感指数</strong>，该值越大，代表文本的情感倾向越积极，否则越消极。</p><p>另外，接口会直接给出文本的<strong>情感分级结果</strong>，有负向、正向两种。</p><p>先来看一下分级结果统计：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-6-情感分析结果分布图.png" alt="情感分析结果分布图"></p><p>感觉腾讯 AI 接口的评论分析统计结果，有 84% 的观众的评论是正向的。</p><p>当然，这里腾讯的分析结果和普通人的理解还是有点差距的。</p><p>比如，以下评论都被腾讯接口归到了负向情感中。</p><blockquote><p>笑点居多！准备二刷<br>我夸爆！！！<br>别的不想说！！！都给我看！！！！<br>看哭了，看哭了</p></blockquote><p>下面再来看一下情感值的分布情况：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-6-正向情感分布.png" alt="正向情感分布"></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-6-负向情感分布.png" alt="负向情感分布"></p><p>从评论内容分析结果来看，正向情感指数的观众是远高于负向的，这也有观众的评分情况契合。</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-6-评论情感指数走势图.png" alt="评论情感指数走势图"></p><p>从评论情感指数走势图可以看出，情感指数一直在 0.77 上下徘徊，也算是一直处于正向情感中了。</p><h1><span id="五-为什么那么多高分">五、为什么那么多高分？</span></h1><p>绝大部分观众都对这部电影打出了高分，那么大家是因为什么喜欢这部电影的呢？</p><p>为此我整理出打了 8 分以上的观众评论，并制作了评论词云图，字体越大，说明这个词在评论中被提及得越多。</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-6-positive_text.png" alt="高分评论词云"></p><p>1、大大的<strong>好看</strong>二字，说明大家都觉得这部电影真的很不错，超级非常好看！</p><p>2、另外，剧情、特效、搞笑、画面、情节、感动等字眼，也说明了该片得到大家的认可之处；</p><p>3、国产、崛起等字眼，也说明了该片在国产片中算是一匹黑马，并且其票房已经登上国产动画电影票房第一的宝座。</p><h1><span id="打低分的观众都说了些什么">打低分的观众都说了些什么？</span></h1><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-6-negative_text.png" alt="低分评论词云"></p><p>1、大大的<strong>好看</strong>二字说明有些观众打分的随意性，但是评论还是真实的。</p><p>2、垃圾、不好、难看等字眼，也说明了确实有一部分观众不喜欢该片；</p><h1><span id="总结">总结</span></h1><p>总得来说，《哪吒》在猫眼的认可度还是很高的，从其评分、评论都可见一斑。</p><p>虽然存在一些评价不高的情况，但是瑕不掩瑜，从来就没有让每个人都满意的东西。</p><p>所以，大家可以去支持一波《哪吒》，当然，也希望国产电影可以涌现出更多类似哪吒的电影，这样才有希望。</p><blockquote><p>P.S.<br>问：为啥不爬豆瓣？<br>答：豆瓣现在限制只放出 500 条评论，所以。</p></blockquote><p>参考：</p><p><a href="https://dwz.cn/EjQAuNx7" target="_blank" rel="noopener">https://dwz.cn/EjQAuNx7</a><br><a href="https://dwz.cn/ELafTJ3z" target="_blank" rel="noopener">https://dwz.cn/ELafTJ3z</a><br><a href="https://dwz.cn/pqsCNS39" target="_blank" rel="noopener">https://dwz.cn/pqsCNS39</a><br><a href="https://dwz.cn/pwCqoKBw" target="_blank" rel="noopener">https://dwz.cn/pwCqoKBw</a></p><ol><li><p>原创不易，如果你喜欢我们的内容，请关注点赞分享转发支持我们，你们的认可是我们的动力；</p></li><li><p>微信后台回复“哪吒”，即可获取分享在Github的爬虫以及数据分析代码链接；</p></li><li><p>欢迎任何形式的合作、转载，合作请微信后台留言咨询；</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;说起这个暑期档的动画片，非《哪吒之魔童降世》莫属了！&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;上映第 1 天：89分钟，中国动画最快破 1亿纪录。&lt;/p&gt;
-&lt;p&gt;上映第 2 天：中国影史首部单日票房破 2亿的动画电影。&lt;/p&gt;
-&lt;p&gt;上映第 4 天：中国影史第66部破 10亿影片！&lt;/p&gt;
-&lt;p&gt;上映第 8 天：正式登顶！破 16亿，超过《疯狂动物城》，创中国影史动画电影票房新纪录！&lt;/p&gt;
-&lt;p&gt;上映第 9 天：成为中国影史第 17 部破 20亿 影片！&lt;/p&gt;
-&lt;p&gt;上映第 10 天：破 23亿！连续10天单日票房过亿，连续10天获得单日票房冠军！&lt;/p&gt;
-&lt;p&gt;而，最令人振奋的是，猫眼给出的最终票房预测已经飙到 44.87亿！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;不仅仅是票房，《哪吒》在豆瓣上的评分也到了 8.6 分以上（《大圣归来》的豆瓣评分是 8.3 分），众多影迷观看后给出的评价也非常直观，就是&lt;strong&gt;好看&lt;/strong&gt;二字。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="数据分析" scheme="https://hoxis.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    
-    
-      <category term="数据可视化" scheme="https://hoxis.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
-      <category term="爬虫" scheme="https://hoxis.github.io/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   

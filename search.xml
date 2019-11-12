@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hexo 博客引流到公众号配置方法（亲测可用）]]></title>
+    <url>%2Fhexo-blog-to-wechat.html</url>
+    <content type="text"><![CDATA[相信有不少小伙伴都在 github 上创建了属于自己的博客，其中用 Hexo 的 Next 主题应该不少，那么，我们究竟该如何将博客的流量引流到微信呢？今天就来带你看一看。 这里我是借助了 OpenWrite 中的引流工具实现的。 一、OpenWrite设置打开https://openwrite.cn/进行注册 登录后，选择增长工具–&gt;博客导流公众号 点击添加，填写信息 二、OpenWrite使用填写完成后，点击使用 登录要增粉的微信公众号，按如下规则设置关键词回复 关键词，设置为：VIP（之前你自己设置的关键词） 回复内容，设置为如下文本内容： 1&lt;a href="https://my.openwrite.cn/code/generate?blogId=15287-1573137991892-156"&gt;点击该链接，获取博客解锁验证码&lt;/a&gt; 然后还有一段 js 代码 将其拷贝出来 三、hexo配置1、新增swig文件 在 themes\next\layout\_custom 文件夹中，新建一个 hide.swig 文件，内容如下： 12345678910111213&#123;% if page.comments and theme.page_readmore %&#125;&lt;script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"&gt;&lt;/script&gt;&lt;script&gt; const btw = new BTWPlugin(); btw.init(&#123; id: 'container', blogId: '15287-111-156', name: '不正经程序员', qrcode: 'https://blog-1111.cos.ap-shanghai.myqcloud.com/picgo/wechat-qcode.jpg', keyword: 'VIP', &#125;);&lt;/script&gt;&#123;% endif %&#125; 其中的 js 代码为第二步中生成的 js。 2、修改_layout.swig 修改文件 themes\next\layout\_layout.swig 文件 找到类似如下代码段： 1234567&lt;div class="content-wrap"&gt; &lt;div id="content" class="content"&gt; &#123;% block content %&#125;&#123;% endblock %&#125; &lt;/div&gt; &#123;% include '_third-party/duoshuo-hot-articles.swig' %&#125; &#123;% include '_partials/comments.swig' %&#125;&lt;/div&gt; 修改为： 12345678910&lt;div class="content-wrap"&gt; &lt;div id="container"&gt; &lt;div id="content" class="content"&gt; &#123;% block content %&#125;&#123;% endblock %&#125; &lt;/div&gt; &lt;/div&gt; &#123;% include '_third-party/duoshuo-hot-articles.swig' %&#125; &#123;% include '_partials/comments.swig' %&#125; &#123;% include '_custom/hide.swig' %&#125;&lt;/div&gt; 3、修改主题配置文件 新增是否添加阅读全文的开关 在文件 themes\next\_config.yml 中新增： 12# 是否开启阅读全文page_readmore: true 此配置可以用于快捷配置开关。 4、重新生成静态文件 123hexo cleanhexo ghexo s 本地调试没有问题后，可以推送到最新文章。 四、效果 如果大家有什么疑问，欢迎在下方留言。 参考： https://cloud.tencent.com/developer/article/1531992]]></content>
+      <categories>
+        <category>奇技淫巧 </category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[分享两款“自动领喵币”的软件（附使用教程）]]></title>
     <url>%2Ftaobao-venues-auto.html</url>
     <content type="text"><![CDATA[双十一将近，各大电商有开始铺起了套路 淘宝的套路就是要领喵币 以前是只要点进去就可以领的 但是今天淘宝变了 进去后还要停留 15 秒 不过还好有大神做了自动刷喵币的软件 一、淘宝喵币淘宝喵币是基于 auto.js 开发的 项目已开源，地址为：https://github.com/sleepybear1113/taobaoVisitingVenues 具体实现细节咱也看不懂 理解上和电脑版的按键精灵的区别不大 现在作者已将代码开源并且封装成了 APK 包 实际使用效果如下 使用方法下载 APK 包，在手机上进行安装 安装后直接打开软件 若提示要打开权限，允许打开即可 进入软件后的页面 点击两个关于，可以查看软件使用注意事项 1、配置无障碍服务 点击加载悬浮窗，会进入到无障碍服务配置页面 选中淘宝喵币，点击，然后点击开启服务 注：不同手机系统操作步骤会有所不同 此时，手机页面会出现如下悬浮窗 点击选择功能，这里我们选择 “去浏览”+“去逛店” 2、进入淘宝 打开淘宝，进入到领喵币的页面 点击悬浮窗的开始，就会自动开始领喵币了 二、TB自动刷喵币这款软件是吾爱破解论坛大神分享的 地址为：https://www.52pojie.cn/thread-1043755-1-1.html 实际使用效果如下 使用方法与上一个类似 安装后，点击软件图标进入 此时会提示访问超级用户权限，按默认的操作即可 也要开启无障碍服务 与上一个同样的操作即可 一些手机可能还会有这个提示 其实就是是否运行显示悬浮窗，点击允许 退出软件，重新进入 此时就会显示悬浮窗，并且自动打开淘宝进行领喵币了 注意事项1、淘宝账号已登录，并且没有后台驻留； 2、若领币过程中被其他弹窗影响，将弹窗关掉，重启启动软件领取即可； 3、软件安全性，本人不作保证，有兴趣的可以去看源码 4、文中提到的两个软件安装包，可以去源地址下载，也可以后台回复【112】获取]]></content>
