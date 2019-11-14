@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hoxis.github.io/baidu/index.html</loc>
+    
+    <lastmod>2019-11-14T06:09:21.237Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hoxis.github.io/hexo-blog-to-wechat.html</loc>
     
     <lastmod>2019-11-12T09:29:27.798Z</lastmod>
@@ -1549,14 +1556,14 @@
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/resources/index.html</loc>
+    <loc>https://hoxis.github.io/tags/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.534Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/tags/index.html</loc>
+    <loc>https://hoxis.github.io/resources/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.534Z</lastmod>
     
