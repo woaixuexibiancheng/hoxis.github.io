@@ -256,6 +256,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[老哥，能不能不截图！]]></title>
+    <url>%2Fwindows-ocr.html</url>
+    <content type="text"><![CDATA[最近工作群里每每看到暴躁老哥出现 比如 为什么？ 因为这位老哥要排查问题 需要一个 id 而那个 id 是这样的 这是一串 uuid 另外一个同事是截图发来的 这是要自己手输么？ 这时候就要如果有 OCR 神器 就不会有这种烦恼了 神器Ⅰ-天若OCR（我觉得必须用罗马数字才能显示其庄重） 第一款神器就是大名鼎鼎的天若OCR 可能会有小伙伴表示不屑 表示自己很早就知道了 但是我想还是有一批小伙伴没听过的 比如我周围的同事们 神器具体怎么用呢？ 这里也给大家演示下 下载后，无需安装 直接双击即可使用 运行后会在右下角窗口驻留一个小图标 我们右击打开设置 可以设置一下常用的快捷键 还可以设置百度识别接口的密钥 百度识别接口如何申请，还请自行百度 然后在需要识别图片时，按下 F4 即可 然后选中要识别的区域 就会开始自动识别了 识别结果如下： 12345# DATASOURCEspring. datasource. url=jdbc: mysql://192.23.43.3:3306/test? useUnicode=true&amp; characterEncoding=utf8spring. datasource, username=testspring. datasource. password=00iLasdu8&amp;*%~jhgjyspring. datasource. driver-class-name=com. mysql. jdbc. Driver 可以看出准确率还是比较高的 稍作调整就可以使用了 识别结果里还有一行工具栏 包括了查找、快速复制、拆分、合并、翻译等功能 中英混合识别 总的来说 免安装、好用、识别效果好、可自定义接口 神器Ⅱ-树洞OCR这款神器是吾爱破解大神贡献的 一款跨平台（Win+Mac）、开源的 OCR 识别软件 项目地址：https://github.com/AnyListen/tools-ocr 安装完成后，双击图标 即可启动软件 工具栏可以截图、加载本地图片 复制、粘贴、清空、换行 点击截图按钮 然后选择识别区域，回车即开始识别 用刚才那段中英混合再来试一下 准确率也还可以 总结 跨平台、开源 但是，不能自定义API、识别有时会出现失败的情况 总结天若 OCR 最香！ Mac 的话，可能只能选择树洞了 或者有其他什么神器？ 欢迎留言区交流]]></content>
+      <categories>
+        <category>好物分享</category>
+      </categories>
+      <tags>
+        <tag>文件传输</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[linux shell 中判断字符串为空的正确方法]]></title>
     <url>%2Flinux-shell-string-is-null.html</url>
     <content type="text"><![CDATA[Linux 下判断字符串是否为空，有一个大坑！ 首先想到的两个参数： -z：判断 string 是否是空串-n：判断 string 是否是非空串 常规错误做法123456789#!/bin/shSTRING=if [ -z $STRING ]; then echo "STRING is empty" fiif [ -n $STRING ]; then echo "STRING is not empty" fi 看上去没毛病，但是！ 输出错误结果：123root@james-desktop:~# ./zerostring.sh STRING is empty STRING is not empty 发现使用 -n 判断时，竟然出现错误！ 正确做法12345678910#!/bin/shSTRING=if [ -z "$STRING" ]; then echo "STRING is empty" fiif [ -n "$STRING" ]; then echo "STRING is not empty" fi 12root@james-desktop:~# ./zerostring.sh STRING is empty 这里，我们得出一个道理，在进行字符串比较时，用引号将字符串界定起来，是一个非常好的习惯！ 参考： https://www.cnblogs.com/cute/archive/2011/08/26/2154137.html]]></content>
