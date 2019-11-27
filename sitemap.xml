@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hoxis.github.io/everything-quick-start.html</loc>
+    
+    <lastmod>2019-11-27T05:34:20.263Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hoxis.github.io/baidu-yun-search.html</loc>
     
     <lastmod>2019-11-27T04:44:53.353Z</lastmod>
@@ -1577,14 +1584,14 @@
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/tags/index.html</loc>
+    <loc>https://hoxis.github.io/resources/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.534Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/resources/index.html</loc>
+    <loc>https://hoxis.github.io/tags/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.534Z</lastmod>
     
@@ -1598,14 +1605,14 @@
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/categories/index.html</loc>
+    <loc>https://hoxis.github.io/about/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.531Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/about/index.html</loc>
+    <loc>https://hoxis.github.io/categories/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.531Z</lastmod>
     

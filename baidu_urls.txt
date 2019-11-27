@@ -1,5 +1,5 @@
+https://hoxis.github.io/everything-quick-start.html
 https://hoxis.github.io/baidu-yun-search.html
 https://hoxis.github.io/hexo-blog-to-wechat.html
 https://hoxis.github.io/taobao-venues-auto.html
 https://hoxis.github.io/mobaxterm.html
-https://hoxis.github.io/baidupcs-web.html
