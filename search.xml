@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[百度云资源搜索网站汇总，免费，好用！]]></title>
+    <url>%2Fbaidu-yun-search.html</url>
+    <content type="text"><![CDATA[后台经常有小伙伴找我要资源 俗话说『授人以鱼，不如授人以渔』 今天就给大家分享一下 我平时都是在哪找资源的 话说我这输入法不太智能啊 兽人永不洗头是什么梗？ 言归正传 百度云资源搜索引擎比较多 但是靠谱的并不是那么多 其中比较好用的有下面几个 我的筛选标准是 1、可以搜索出关联资源 2、免费 3、可以直达百度资源链接 4、最好可以显示资源状态 大力盘可以直接通过网址访问 https://www.dalipan.com 我们搜尚X堂 可以看到搜索结果匹配还是比较精准的 点击资源详情 可以看到资源的完整目录 还会显示出资源的状态 若资源已失效，会直接显示 资源没有问题的话显示是这样的 小可搜搜可以直接通过网址访问 https://www.xiaokesoso.com/ 小可的搜索结果展示比较简单 只展示了搜索结果 和资源文件列表 并且点进去不会显示资源状态 不过作为找不到资源时的辅助还是阔以的 下面的几个不再一一演示 简单展示一下搜索页面 Pansoso网址：http://www.pansoso.com/ 搜索匹配度还可以 有分享时间 可以用来判断资源新旧 没有资源状态展示 网盘搜索地址：http://m.51caichang.com/ 搜索匹配度还可以 点击到详情页有分享时间 没有资源状态展示 fastsoso地址：https://www.fastsoso.cn/ 页面比较简约现代 搜索匹配度不错 有分享时间 可以用来判断资源新旧 没有资源状态展示 99百度网盘搜索地址：http://www.99baiduyun.com/ 搜索列表直接展示网盘地址 无需再点击到详情页 搜索匹配度也比较高 但是需要注册使用 不过注册只要用户名密码即可 轻舟地址：https://www.qzhou.com.cn/ 页面比较简约现代 唯一一款可以针对资源内文件名进行搜索的 一般的都是只对资源的主目录进行关联 另外搜索匹配度也很高 百度云搜搜地址：http://www.baiduyunsousou.com/ 搜索匹配度高 有资源分享时间 详情页面展示资源详细目录 天天网盘搜索地址：http://www.daysou.com/ 这个引擎是抓取各个网站分享的资源链接 而不是直接抓取百度的资源 好了，今天就到这]]></content>
+      <categories>
+        <category>好物分享</category>
+      </categories>
+      <tags>
+        <tag>百度云</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo 博客引流到公众号配置方法（亲测可用）]]></title>
     <url>%2Fhexo-blog-to-wechat.html</url>
     <content type="text"><![CDATA[相信有不少小伙伴都在 github 上创建了属于自己的博客，其中用 Hexo 的 Next 主题应该不少，那么，我们究竟该如何将博客的流量引流到微信呢？今天就来带你看一看。 这里我是借助了 OpenWrite 中的引流工具实现的。 一、OpenWrite设置打开https://openwrite.cn/进行注册 登录后，选择增长工具–&gt;博客导流公众号 点击添加，填写信息 二、OpenWrite使用填写完成后，点击使用 登录要增粉的微信公众号，按如下规则设置关键词回复 关键词，设置为：VIP（之前你自己设置的关键词） 回复内容，设置为如下文本内容： 1&lt;a href="https://my.openwrite.cn/code/generate?blogId=15287-1573137991892-156"&gt;点击该链接，获取博客解锁验证码&lt;/a&gt; 然后还有一段 js 代码 将其拷贝出来 三、hexo配置1、新增swig文件 在 themes\next\layout\_custom 文件夹中，新建一个 hide.swig 文件，内容如下： 12345678910111213&#123;% if page.comments and theme.page_readmore %&#125;&lt;script src="https://my.openwrite.cn/js/readmore.js" type="text/javascript"&gt;&lt;/script&gt;&lt;script&gt; const btw = new BTWPlugin(); btw.init(&#123; id: 'container', blogId: '15287-111-156', name: '不正经程序员', qrcode: 'https://blog-1111.cos.ap-shanghai.myqcloud.com/picgo/wechat-qcode.jpg', keyword: 'VIP', &#125;);&lt;/script&gt;&#123;% endif %&#125; 其中的 js 代码为第二步中生成的 js。 2、修改_layout.swig 修改文件 themes\next\layout\_layout.swig 文件 找到类似如下代码段： 1234567&lt;div class="content-wrap"&gt; &lt;div id="content" class="content"&gt; &#123;% block content %&#125;&#123;% endblock %&#125; &lt;/div&gt; &#123;% include '_third-party/duoshuo-hot-articles.swig' %&#125; &#123;% include '_partials/comments.swig' %&#125;&lt;/div&gt; 修改为： 12345678910&lt;div class="content-wrap"&gt; &lt;div id="container"&gt; &lt;div id="content" class="content"&gt; &#123;% block content %&#125;&#123;% endblock %&#125; &lt;/div&gt; &lt;/div&gt; &#123;% include '_third-party/duoshuo-hot-articles.swig' %&#125; &#123;% include '_partials/comments.swig' %&#125; &#123;% include '_custom/hide.swig' %&#125;&lt;/div&gt; 3、修改主题配置文件 新增是否添加阅读全文的开关 在文件 themes\next\_config.yml 中新增： 12# 是否开启阅读全文page_readmore: true 此配置可以用于快捷配置开关。 4、重新生成静态文件 123hexo cleanhexo ghexo s 本地调试没有问题后，可以推送到最新文章。 四、效果 如果大家有什么疑问，欢迎在下方留言。 参考： https://cloud.tencent.com/developer/article/1531992]]></content>
@@ -245,17 +256,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[分享两个百度云资源搜索网站，以后不要再来找我要资源了！]]></title>
-    <url>%2Fbaidu-yun-search.html</url>
-    <content type="text"><![CDATA[后台经常有小伙伴找我要资源 俗话说『授人以鱼，不如授人以渔』 今天就给大家分享一下 我平时都是在哪找资源的 话说我这输入法不太智能啊 兽人永不洗头是什么梗？ 言归正传 百度云资源搜索引擎比较多 但是靠谱的并不是那么多 其中比较好用的有下面几个 大力盘可以直接通过网址访问 https://www.dalipan.com 我们搜尚X堂 可以看到搜索结果匹配还是比较精准的 点击资源详情 可以看到资源的完整目录 还会显示出资源的状态 若资源已失效，会直接显示 资源没有问题的话显示是这样的 小可搜搜可以直接通过网址访问 https://www.xiaokesoso.com/ 小可的搜索结果展示比较简单 只展示了搜索结果 和资源文件列表 并且点进去不会显示资源状态 不过作为找不到资源时的辅助还是阔以的]]></content>
-      <categories>
-        <category>好物分享</category>
-      </categories>
-      <tags>
-        <tag>文件传输</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[老哥，能不能不截图！]]></title>
     <url>%2Fwindows-ocr.html</url>
     <content type="text"><![CDATA[最近工作群里每每看到暴躁老哥出现 比如 为什么？ 因为这位老哥要排查问题 需要一个 id 而那个 id 是这样的 这是一串 uuid 另外一个同事是截图发来的 这是要自己手输么？ 这时候就要如果有 OCR 神器 就不会有这种烦恼了 神器Ⅰ-天若OCR（我觉得必须用罗马数字才能显示其庄重） 第一款神器就是大名鼎鼎的天若OCR 可能会有小伙伴表示不屑 表示自己很早就知道了 但是我想还是有一批小伙伴没听过的 比如我周围的同事们 神器具体怎么用呢？ 这里也给大家演示下 下载后，无需安装 直接双击即可使用 运行后会在右下角窗口驻留一个小图标 我们右击打开设置 可以设置一下常用的快捷键 还可以设置百度识别接口的密钥 百度识别接口如何申请，还请自行百度 然后在需要识别图片时，按下 F4 即可 然后选中要识别的区域 就会开始自动识别了 识别结果如下： 12345# DATASOURCEspring. datasource. url=jdbc: mysql://192.23.43.3:3306/test? useUnicode=true&amp; characterEncoding=utf8spring. datasource, username=testspring. datasource. password=00iLasdu8&amp;*%~jhgjyspring. datasource. driver-class-name=com. mysql. jdbc. Driver 可以看出准确率还是比较高的 稍作调整就可以使用了 识别结果里还有一行工具栏 包括了查找、快速复制、拆分、合并、翻译等功能 中英混合识别 总的来说 免安装、好用、识别效果好、可自定义接口 神器Ⅱ-树洞OCR这款神器是吾爱破解大神贡献的 一款跨平台（Win+Mac）、开源的 OCR 识别软件 项目地址：https://github.com/AnyListen/tools-ocr 安装完成后，双击图标 即可启动软件 工具栏可以截图、加载本地图片 复制、粘贴、清空、换行 点击截图按钮 然后选择识别区域，回车即开始识别 用刚才那段中英混合再来试一下 准确率也还可以 总结 跨平台、开源 但是，不能自定义API、识别有时会出现失败的情况 总结天若 OCR 最香！ Mac 的话，可能只能选择树洞了 或者有其他什么神器？ 欢迎留言区交流]]></content>
@@ -263,7 +263,7 @@
         <category>好物分享</category>
       </categories>
       <tags>
-        <tag>文件传输</tag>
+        <tag>OCR</tag>
       </tags>
   </entry>
   <entry>
