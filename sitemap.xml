@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hoxis.github.io/2019-baidu.html</loc>
+    
+    <lastmod>2019-11-25T08:31:23.577Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hoxis.github.io/baidu/index.html</loc>
     
     <lastmod>2019-11-14T06:21:47.413Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hoxis.github.io/baidu-yun-search.html</loc>
+    
+    <lastmod>2019-11-13T15:19:41.000Z</lastmod>
     
   </url>
   
