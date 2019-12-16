@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hoxis.github.io/python-shsx.html</loc>
+    
+    <lastmod>2019-12-16T04:59:03.273Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hoxis.github.io/video-speed-controller.html</loc>
     
     <lastmod>2019-12-16T04:56:56.431Z</lastmod>
@@ -579,13 +586,6 @@
     <loc>https://hoxis.github.io/python-static-check.html</loc>
     
     <lastmod>2019-07-30T06:20:17.070Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hoxis.github.io/python-shsx.html</loc>
-    
-    <lastmod>2019-07-30T06:20:17.008Z</lastmod>
     
   </url>
   
@@ -1598,14 +1598,14 @@
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/tags/index.html</loc>
+    <loc>https://hoxis.github.io/resources/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.534Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/resources/index.html</loc>
+    <loc>https://hoxis.github.io/tags/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.534Z</lastmod>
     
@@ -1619,14 +1619,14 @@
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/about/index.html</loc>
+    <loc>https://hoxis.github.io/categories/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.531Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/categories/index.html</loc>
+    <loc>https://hoxis.github.io/about/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.531Z</lastmod>
     

@@ -132,10 +132,10 @@
 <meta property="og:description" content="用过食行生鲜的同学应该知道，每天可以在食行生鲜签到，签到可以领到 20 积分，在购物时可以抵 2 毛钱。钱虽少，但是积少成多，买菜时可以抵扣一两块钱还是不错的。 今天我们就用 Python 来实现自动签到，省得我每天打开 APP 来操作了。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/1533011816326.jpg">
-<meta property="og:image" content="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/1533012605702.jpg">
+<meta property="og:image" content="http://hoxis.ibetalife.com/md/2019-10-23-1571793396899.png">
 <meta property="og:image" content="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/1533013355981.jpg">
 <meta property="og:image" content="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/1533013552389.jpg">
-<meta property="og:updated_time" content="2019-07-30T06:20:17.008Z">
+<meta property="og:updated_time" content="2019-12-16T04:59:03.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 实现「食行生鲜」签到领积分">
 <meta name="twitter:description" content="用过食行生鲜的同学应该知道，每天可以在食行生鲜签到，签到可以领到 20 积分，在购物时可以抵 2 毛钱。钱虽少，但是积少成多，买菜时可以抵扣一两块钱还是不错的。 今天我们就用 Python 来实现自动签到，省得我每天打开 APP 来操作了。">
@@ -552,7 +552,7 @@
 <p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/1533011816326.jpg" alt="还好没有做只能在微信端访问的限制"></p>
 <p>下面的操作就好办了，在电脑端的浏览器打开网址，按下 F12，开始起飞~</p>
 <h2><span id="登录分析">登录分析</span></h2><p>点击签到后，会跳转到用户登录页面：<a href="https://wechatx.34580.com/mart/#/sign/in，输入登录信息后，点击登录，同时关注开发调试栏的网络交互信息。" target="_blank" rel="noopener">https://wechatx.34580.com/mart/#/sign/in，输入登录信息后，点击登录，同时关注开发调试栏的网络交互信息。</a></p>
-<p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/picgo/1533012605702.jpg" alt="登录"></p>
+<p><img src="http://hoxis.ibetalife.com/md/2019-10-23-1571793396899.png" alt="登录"></p>
 <p>可以发现，登录的请求地址是：<a href="https://wechatx.34580.com/sz/Sign/SignInV2，并且会在请求时带着登录信息：" target="_blank" rel="noopener">https://wechatx.34580.com/sz/Sign/SignInV2，并且会在请求时带着登录信息：</a></p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"SourceType"</span>: <span class="string">"9"</span>,</span><br><span class="line">	<span class="attr">"Phone"</span>: <span class="string">"18800000000"</span>,</span><br><span class="line">	<span class="attr">"PassWord"</span>: <span class="string">"98a53578bd74e150"</span>,</span><br><span class="line">	<span class="attr">"ZhuGeDeviceMd5"</span>: <span class="string">"164edd53b71674-02922cef4808a-47e1039-e1000-164edd53b7222e"</span>,</span><br><span class="line">	<span class="attr">"DeviceId"</span>: <span class="string">""</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>现在，还无法确定哪些字段是必填的，哪些是可以不传的。</p>
