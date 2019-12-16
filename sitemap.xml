@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hoxis.github.io/video-speed-controller.html</loc>
+    
+    <lastmod>2019-12-16T04:56:56.431Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hoxis.github.io/goodthings-finalshell.html</loc>
+    
+    <lastmod>2019-12-16T04:54:45.249Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://hoxis.github.io/ansible-facts-cache.html</loc>
+    
+    <lastmod>2019-12-16T02:56:23.169Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hoxis.github.io/everything-quick-start.html</loc>
     
     <lastmod>2019-11-27T05:34:20.263Z</lastmod>
@@ -1423,13 +1444,6 @@
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/ansible-facts-cache.html</loc>
-    
-    <lastmod>2019-07-30T06:20:15.849Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://hoxis.github.io/ansible-dynamic-inventory.html</loc>
     
     <lastmod>2019-07-30T06:20:15.843Z</lastmod>
@@ -1584,14 +1598,14 @@
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/resources/index.html</loc>
+    <loc>https://hoxis.github.io/tags/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.534Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://hoxis.github.io/tags/index.html</loc>
+    <loc>https://hoxis.github.io/resources/index.html</loc>
     
     <lastmod>2019-04-08T13:46:26.534Z</lastmod>
     

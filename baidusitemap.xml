@@ -4,6 +4,66 @@
 
     
   <url>
+    <loc>https://hoxis.github.io/video-speed-controller.html</loc>
+    <lastmod>2019-12-16T04:56:56.431Z</lastmod>
+    <data>
+        <display>
+        <title>倍速播放任一网站的视频！</title>
+        <pubTime>2019-12-11T04:56:28.000Z</pubTime>
+        
+        <tag>浏览器插件</tag>
+         
+         
+           
+             
+              <breadCrumb title="好物分享" url="https://hoxis.github.io/categories/%E5%A5%BD%E7%89%A9%E5%88%86%E4%BA%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hoxis.github.io/goodthings-finalshell.html</loc>
+    <lastmod>2019-12-16T04:54:45.249Z</lastmod>
+    <data>
+        <display>
+        <title>没想到，这款国产的终端工具这么好用</title>
+        <pubTime>2019-12-13T04:52:56.000Z</pubTime>
+        
+        <tag>终端工具</tag>
+         
+         
+           
+             
+              <breadCrumb title="好物分享" url="https://hoxis.github.io/categories/%E5%A5%BD%E7%89%A9%E5%88%86%E4%BA%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://hoxis.github.io/ansible-facts-cache.html</loc>
+    <lastmod>2019-12-16T02:56:23.169Z</lastmod>
+    <data>
+        <display>
+        <title>Ansible 进阶 | facts 缓存</title>
+        <pubTime>2018-07-30T07:47:39.000Z</pubTime>
+        
+        <tag>ansible</tag>
+         
+         
+           
+             
+              <breadCrumb title="Ansible" url="https://hoxis.github.io/categories/Ansible/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hoxis.github.io/everything-quick-start.html</loc>
     <lastmod>2019-11-27T05:34:20.263Z</lastmod>
     <data>
@@ -4157,26 +4217,6 @@
         <display>
         <title>【Ansible学习】- 常用文件操作模块之copy模块</title>
         <pubTime>2018-01-12T03:29:10.000Z</pubTime>
-        
-        <tag>ansible</tag>
-         
-         
-           
-             
-              <breadCrumb title="Ansible" url="https://hoxis.github.io/categories/Ansible/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://hoxis.github.io/ansible-facts-cache.html</loc>
-    <lastmod>2019-07-30T06:20:15.849Z</lastmod>
-    <data>
-        <display>
-        <title>Ansible 进阶 | facts 缓存</title>
-        <pubTime>2018-07-30T07:47:39.000Z</pubTime>
         
         <tag>ansible</tag>
          
