@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hoxis.github.io/kubernetes-runasuser.html</loc>
+    
+    <lastmod>2019-12-27T03:21:33.750Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hoxis.github.io/python-shsx.html</loc>
     
     <lastmod>2019-12-16T04:59:03.273Z</lastmod>

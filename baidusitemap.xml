@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://hoxis.github.io/kubernetes-runasuser.html</loc>
+    <lastmod>2019-12-27T03:21:33.750Z</lastmod>
+    <data>
+        <display>
+        <title>Kubernetes：如何修改容器服务的运行用户？</title>
+        <pubTime>2019-07-24T04:25:22.000Z</pubTime>
+        
+        <tag>Kubernetes</tag>
+         
+         
+           
+             
+              <breadCrumb title="容器" url="https://hoxis.github.io/categories/%E5%AE%B9%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hoxis.github.io/python-shsx.html</loc>
     <lastmod>2019-12-16T04:59:03.273Z</lastmod>
     <data>

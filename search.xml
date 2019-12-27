@@ -300,6 +300,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Kubernetes：如何修改容器服务的运行用户？]]></title>
+    <url>%2Fkubernetes-runasuser.html</url>
+    <content type="text"><![CDATA[Kubernetes：如何修改容器服务的运行用户 背景我们的产品是使用 k8s 进行编排运行的。 项目上线后，容器产生的日志都是 root 用户的权限，而现场运维人员只有普通用户权限。 这就导致运维人员无法对日志进行操作，比如增删，或者分割等。 解决方法Google 了一圈，在官网看到一个参数：runAsUser 很像！ 官方提供的配置方法如下： 123456789101112131415161718192021apiVersion: v1kind: Podmetadata: name: security-context-demospec: securityContext: runAsUser: 1000 runAsGroup: 3000 fsGroup: 2000 volumes: - name: sec-ctx-vol emptyDir: &#123;&#125; containers: - name: sec-ctx-demo image: busybox command: [ "sh", "-c", "sleep 1h" ] volumeMounts: - name: sec-ctx-vol mountPath: /data/demo securityContext: allowPrivilegeEscalation: false 测试1、设置日志目录的父目录权限为普通用户，删除日志目录，重新启动服务 生成的日志文件权限仍然是 root 查看进程状态： 可以看出是 root 用户启动的 2、新增配置 123securityContext: runAsUser: 1002 runAsGroup: 1000 日志目录权限仍保持 root，重启服务 启动失败 应该是没有读写日志目录（root）的权限 PS：查看用户 uid 和 gid 12id -u usernameid -g username 3、删除日志目录，重启服务 生成的日志目录权限变为普通用户 服务启动成功 查看进程状态： 可以看到进程变成了普通用户启动的 问题若每个机器上，同一个用户的 uid 不一致？Pod 漂移时如何处理呢？ 我们继续测试 为了系统安全，我们不使用已有的用户进行测试 1、新建用户机器 1 上： 1useradd liuhao -u 1024 机器 2 上： 1useradd liuhao -u 1023 2、停止服务，清理日志3、修改配置，重启服务这里我们在配置文件里将服务启动节点设定在节点 1 上。 123securityContext: runAsUser: 1024 runAsGroup: 1024 4、查看生成日志权限 服务状态 所属用户是 liuhao 5、修改启动节点修改启动节点为节点 2 启动成功 日志权限直接使用 uid（1024）： 服务进程所属用户也是 1024： 6、修改节点2用户的uid1usermod -u 1024 liuhao 7、重新启动启动成功 生成的日志权限： 服务进程状态： 总结1、可以使用 runAsUser 控制 k8s 容器的启动用户； 2、需要注意不同节点的用户 uid 要一致，否则日志权限会直接是 uid； 3、注意日志目录的权限，启动用户是否可读写； 参考： https://kubernetes.io/zh/docs/concepts/policy/pod-security-policy/#runasuser https://kubernetes.io/docs/tasks/configure-pod-container/security-context/]]></content>
+      <categories>
+        <category>容器</category>
+      </categories>
+      <tags>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[linux shell 中判断字符串为空的正确方法]]></title>
     <url>%2Flinux-shell-string-is-null.html</url>
     <content type="text"><![CDATA[Linux 下判断字符串是否为空，有一个大坑！ 首先想到的两个参数： -z：判断 string 是否是空串-n：判断 string 是否是非空串 常规错误做法123456789#!/bin/shSTRING=if [ -z $STRING ]; then echo "STRING is empty" fiif [ -n $STRING ]; then echo "STRING is not empty" fi 看上去没毛病，但是！ 输出错误结果：123root@james-desktop:~# ./zerostring.sh STRING is empty STRING is not empty 发现使用 -n 判断时，竟然出现错误！ 正确做法12345678910#!/bin/shSTRING=if [ -z "$STRING" ]; then echo "STRING is empty" fiif [ -n "$STRING" ]; then echo "STRING is not empty" fi 12root@james-desktop:~# ./zerostring.sh STRING is empty 这里，我们得出一个道理，在进行字符串比较时，用引号将字符串界定起来，是一个非常好的习惯！ 参考： https://www.cnblogs.com/cute/archive/2011/08/26/2154137.html]]></content>
