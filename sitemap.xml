@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hoxis.github.io/weixin-revoke-msg.html</loc>
+    
+    <lastmod>2020-01-15T04:28:09.875Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hoxis.github.io/kubernetes-runasuser.html</loc>
     
     <lastmod>2019-12-27T03:21:33.750Z</lastmod>
