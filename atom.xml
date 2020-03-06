@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hoxis.github.io/"/>
-  <updated>2020-03-06T08:19:17.598Z</updated>
+  <updated>2020-03-06T19:11:52.391Z</updated>
   <id>https://hoxis.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker存储目录迁移的坑：一个参数引发的血案！</title>
+    <link href="https://hoxis.github.io/docker-mv-path.html"/>
+    <id>https://hoxis.github.io/docker-mv-path.html</id>
+    <published>2020-03-06T19:09:01.000Z</published>
+    <updated>2020-03-06T19:11:52.391Z</updated>
+    
+    <content type="html"><![CDATA[<p>背景：项目需要，需要对 Docker 的存储目录进行迁移。</p><a id="more"></a><p>迁移的步骤大致如下：</p><p>1、停 docker 服务；</p><p>2、修改 docker 配置；</p><p>这里直接修改的 <code>/etc/docker/daemon.json</code>，在其中添加：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"data-root"</span>: <span class="string">"/home/data/docker"</span>,</span><br><span class="line">    <span class="attr">"pidfile"</span>: <span class="string">"/home/run/docker/docker.pid"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>3、迁移原数据目录到新目录下；</p><p>4、重启 docker 服务；</p><p>一般来说，经过以上 4 步，之前的 docker 服务都能继续正常运行。</p><h1><span id="问题">问题</span></h1><p>项目中有些是使用 docker-compose 进行管理的，其中就包括 ELK。</p><p>发现在目录迁移后，ELK 的服务无法正常启动：</p><p><img src="https://qiniu.ibetalife.com/md/7-1583520969486.png" alt></p><p>其中，elasticsearch 报错信息如下：</p><p><img src="https://qiniu.ibetalife.com/md/7-1583521011028.png" alt></p><p>logstash 的报错信息：</p><p><img src="https://qiniu.ibetalife.com/md/7-1583521055602.png" alt></p><h1><span id="解决过程">解决过程</span></h1><p>网上进行了一些检索。</p><p>有人提到，尝试<strong>重新导入镜像</strong>。</p><p><img src="https://qiniu.ibetalife.com/md/7-1583521100911.png" alt></p><p>该方法在前几个环境，均能解决问题。</p><p>但是在一些环境，不管怎么导，都无法解决问题。</p><p>我们尝试了目录的回退。</p><p><strong>发现回退后，服务又可以正常运行。</strong></p><p>很明显，是<strong>目录迁移后，权限发生了变化。</strong></p><p>那么问题到底出在哪里呢？</p><p>我找出了操作步骤，其中迁移目录的命令是：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -R /var/lib/docker /home/data/</span><br></pre></td></tr></table></figure><p><code>-R</code> 是什么含义呢？</p><p>查阅 <code>cp</code> 命令的帮助文档：</p><p><img src="https://qiniu.ibetalife.com/md/7-1583521427929.png" alt></p><p>发现 <code>-R</code> 是递归的含义，也就是说会进行递归复制。</p><p><strong>但是复制后的文件权限有办法保证吗？</strong></p><p>我们发现了 <code>-p</code> 参数：</p><p><img src="https://qiniu.ibetalife.com/md/7-1583521580823.png" alt></p><p>它可以保留源文件的属性。</p><h1><span id="解决方法">解决方法</span></h1><p>将之前拷贝的目录进行备份（或者直接删除），重新拷贝源 docker 数据目录到新的目录下。</p><p>这次使用命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -rp /var/lib/docker /home/data/</span><br></pre></td></tr></table></figure><p>再重启 docker。</p><p>再去观察 ELK 服务的状态：</p><p><img src="https://qiniu.ibetalife.com/md/7-1583521362947.png" alt></p><p>一切恢复正常。</p><p>参考：</p><ul><li><a href="https://www.cnblogs.com/klvchen/p/9098745.html" target="_blank" rel="noopener">https://www.cnblogs.com/klvchen/p/9098745.html</a></li><li><a href="https://www.cnblogs.com/lipijin/p/3833117.html" target="_blank" rel="noopener">https://www.cnblogs.com/lipijin/p/3833117.html</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;背景：项目需要，需要对 Docker 的存储目录进行迁移。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="容器" scheme="https://hoxis.github.io/categories/%E5%AE%B9%E5%99%A8/"/>
+    
+    
+      <category term="Docker" scheme="https://hoxis.github.io/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>能倍速播放百度云盘视频，还能高速下载！</title>
@@ -464,31 +486,6 @@
     
     
       <category term="Markdown" scheme="https://hoxis.github.io/tags/Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用gogs搭建git私有仓库</title>
-    <link href="https://hoxis.github.io/build-a-private-git-repository-with-gogs.html"/>
-    <id>https://hoxis.github.io/build-a-private-git-repository-with-gogs.html</id>
-    <published>2019-09-04T08:36:19.000Z</published>
-    <updated>2019-09-05T01:14:39.647Z</updated>
-    
-    <content type="html"><![CDATA[<p>本来想在 Github 上建一个私仓，但是发现只能设置 3 个贡献者。</p><p>国内的码云也只能设置 5 个。</p><p>无意间看到了使用 gogs 可以搭建私服，正好手头有空闲的服务器，于是开干！</p><p><a href="https://gogs.io/" target="_blank" rel="noopener">https://gogs.io/</a></p><a id="more"></a><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-4-1567583679956.png" alt="gogs"></p><h1><span id="1-安装-git">1、安装 git</span></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure><h1><span id="2-安装mysql">2、安装MySQL</span></h1><p>安装过程省略。</p><p>安装后登录 MySQL 进行如下配置：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> gogs <span class="keyword">default</span> <span class="built_in">character</span> <span class="keyword">set</span> utf8mb4 <span class="keyword">collate</span> utf8mb4_unicode_ci;</span><br><span class="line"></span><br><span class="line"># 这里我新建了一个用户用来访问gogs数据库</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'pig'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'xxxx'</span>;</span><br><span class="line"><span class="keyword">GRANT</span> ALL <span class="keyword">ON</span> gogs.* <span class="keyword">TO</span> <span class="string">'pig'</span>@<span class="string">'%'</span>;</span><br></pre></td></tr></table></figure><h1><span id="3-安装gogs">3、安装gogs</span></h1><h2><span id="31-创建git用户">3.1 创建git用户</span></h2><p>建议使用 git 用户，因为 gogs 配置文件默认使用的 git 用户。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd git</span><br><span class="line">passwd git设置密码</span><br></pre></td></tr></table></figure><h2><span id="32-下载解压gogs">3.2 下载解压gogs</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">su git</span><br><span class="line"><span class="built_in">cd</span> </span><br><span class="line"></span><br><span class="line">wget https://dl.gogs.io/0.11.29/linux_amd64.zip</span><br><span class="line"><span class="comment"># unzip 命令不可用的话需先安装</span></span><br><span class="line">unzip linux_amd64.zip</span><br></pre></td></tr></table></figure><h2><span id="33-配置gogs">3.3 配置gogs</span></h2><p><code>vim /home/git/gogs/scripts/init/debian/gogs</code></p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">PATH</span>=/sbin:/usr/sbin:/bin:/usr/bin</span><br><span class="line"><span class="attr">DESC</span>=<span class="string">"GoGs Git Service"</span></span><br><span class="line"><span class="attr">NAME</span>=gogs</span><br><span class="line"><span class="attr">SERVICEVERBOSE</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">PIDFILE</span>=/var/run/<span class="variable">$NAME</span>.pid</span><br><span class="line"><span class="attr">SCRIPTNAME</span>=/etc/init.d/<span class="variable">$NAME</span></span><br><span class="line"><span class="attr">WORKINGDIR</span>=/home/git/gogs #根据自己的目录修改</span><br><span class="line"><span class="attr">DAEMON</span>=<span class="variable">$WORKINGDIR</span>/<span class="variable">$NAME</span></span><br><span class="line"><span class="attr">DAEMON_ARGS</span>=<span class="string">"web"</span></span><br><span class="line"><span class="attr">USER</span>=git  #修改对应用户</span><br></pre></td></tr></table></figure><h2><span id="34-切回root拷贝文件和服务">3.4 切回root，拷贝文件和服务</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#拷贝到init.d下</span></span><br><span class="line">cp /home/git/gogs/scripts/init/debian/gogs /etc/init.d/</span><br><span class="line"><span class="comment">#添加可执行权限</span></span><br><span class="line">chmod +x /etc/init.d/gogs</span><br><span class="line"><span class="comment">#拷贝service</span></span><br><span class="line">cp /home/git/gogs/scripts/systemd/gogs.service /etc/systemd/system/</span><br></pre></td></tr></table></figure><h2><span id="35-启动">3.5 启动</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start gogs.service</span><br></pre></td></tr></table></figure><h1><span id="4-配置-gogs">4、配置 gogs</span></h1><p>此时，使用 <code>ip:3000</code> 就可以访问了</p><h2><span id="ps-阿里云的坑">P.S. 阿里云的坑</span></h2><p>阿里云的主机默认是无法访问 3000 端口的，解决方法</p><p>① 登录到阿里云控制台，进入到自己的云主机管理页面</p><p>② 点击『防火墙』</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-4-1567584179874.png" alt="防火墙"></p><p>③ 添加 3000 端口的访问规则</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-4-1567584241711.png" alt="添加访问规则"></p><p>确定，然后就可以继续访问之前的页面了。</p><p>第一次访问 Gogs，浏览器进入安装页面，如图所示填写字段</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-4-1567584390734.png" alt="数据库配置"></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-4-1567584527797.png" alt="其他配置"></p><p>点击 install gogs，安装成功以后会直接进入 gogs 首页，在这里可以注册或者登录，完全像是一个正常的网站。</p><p>若在安装页面没有配置管理员，那么第一个注册的用户默认自动变成管理员，之后注册的用户都是普通用户。</p><h2><span id="配置文件详解">配置文件详解</span></h2><p>配置文件位于：</p><p><code>/home/git/gogs/custom/conf/app.ini</code></p><p>其中参数的详细解释可以看官网：<a href="https://gogs.io/docs/advanced/configuration_cheat_sheet" target="_blank" rel="noopener">https://gogs.io/docs/advanced/configuration_cheat_sheet</a></p><p><strong>禁止用户注册</strong></p><p>为了系统安全性，考虑禁止用户注册，只能由管理员创建帐号。</p><p>将参数 DISABLE_REGISTRATION 设置为 true。</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">DISABLE_REGISTRATION</span> = <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>此时需要在页面进行创建账号：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-4-1567586100197.png" alt="管理面板"></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-4-1567586133960.png" alt="创建账号"></p><p>至此，基于 gogs 的 Git 私仓搭建基本完毕。</p><hr><p>参考：</p><p><a href="https://www.jianshu.com/p/63206dad0afa" target="_blank" rel="noopener">https://www.jianshu.com/p/63206dad0afa</a><br><a href="https://blog.csdn.net/qq_22638399/article/details/80658196" target="_blank" rel="noopener">https://blog.csdn.net/qq_22638399/article/details/80658196</a><br><a href="https://zhuanlan.zhihu.com/p/30798837" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/30798837</a><br><a href="https://www.jianshu.com/p/28e8aa8f9ec4" target="_blank" rel="noopener">https://www.jianshu.com/p/28e8aa8f9ec4</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本来想在 Github 上建一个私仓，但是发现只能设置 3 个贡献者。&lt;/p&gt;
-&lt;p&gt;国内的码云也只能设置 5 个。&lt;/p&gt;
-&lt;p&gt;无意间看到了使用 gogs 可以搭建私服，正好手头有空闲的服务器，于是开干！&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://gogs.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://gogs.io/&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="奇技淫巧" scheme="https://hoxis.github.io/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
-    
-    
-      <category term="Git" scheme="https://hoxis.github.io/tags/Git/"/>
     
   </entry>
   

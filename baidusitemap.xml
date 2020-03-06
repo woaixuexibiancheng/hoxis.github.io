@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://hoxis.github.io/docker-mv-path.html</loc>
+    <lastmod>2020-03-06T19:11:52.391Z</lastmod>
+    <data>
+        <display>
+        <title>Docker存储目录迁移的坑：一个参数引发的血案！</title>
+        <pubTime>2020-03-06T19:09:01.000Z</pubTime>
+        
+        <tag>Docker</tag>
+         
+         
+           
+             
+              <breadCrumb title="容器" url="https://hoxis.github.io/categories/%E5%AE%B9%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hoxis.github.io/wan-neng-lian-bo.html</loc>
     <lastmod>2020-03-06T08:19:17.598Z</lastmod>
     <data>
