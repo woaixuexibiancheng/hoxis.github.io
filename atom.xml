@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hoxis.github.io/"/>
-  <updated>2020-02-18T07:10:46.625Z</updated>
+  <updated>2020-03-06T08:19:17.598Z</updated>
   <id>https://hoxis.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>能倍速播放百度云盘视频，还能高速下载！</title>
+    <link href="https://hoxis.github.io/wan-neng-lian-bo.html"/>
+    <id>https://hoxis.github.io/wan-neng-lian-bo.html</id>
+    <published>2020-03-06T08:19:00.000Z</published>
+    <updated>2020-03-06T08:19:17.598Z</updated>
+    
+    <content type="html"><![CDATA[<p>自从发了那个介绍 baidupcs-web 文章后，一大波读者后台说不好用了。</p><p>这个，我觉得吧，我真是无能为力。</p><a id="more"></a><p>首先这个软件不是小编制作的；</p><p>再者，小编本人实在太菜，后台小伙伴发的图，真看不懂；</p><p><img src="https://qiniu.ibetalife.com/md/4-1583329972866.png" alt="▲ 菜狗本菜"></p><p>再再者，小编最近真的很忙，你看发文频率完全能感受的出来。</p><p>以前，一天一次。</p><p>现在，一月一次。</p><p>唉，没办法，毕竟年纪大了，身体不如从前了。</p><p><img src="https://qiniu.ibetalife.com/md/4-Z7q4.gif" alt></p><p>不过，小编也没有忘了那些后台孜孜不倦的询问者，一直在寻找能高速下载的方法。</p><p>最近刚好碰到一个。</p><p><strong>丑话说在前，下多了照样限速，需求量大的，还是配一个 VIP 靠谱。</strong></p><p>下面开始我们的正文。</p><p>今天的主角是它：</p><p><img src="https://qiniu.ibetalife.com/md/5-1583382727407.png" alt="联播"></p><p>说实话，这个名字起的，真实</p><p><strong>高大上而又接地气</strong></p><p>抛开名字，我们来看下具体功能。</p><h1><span id="高速下载">高速下载</span></h1><p>安装完成并打开后</p><p>点击图中框框的地方</p><p><img src="https://qiniu.ibetalife.com/md/5-1583383655787.png" alt="▲ 软件首页"></p><p>然后就会弹出百度网盘的登录页面</p><p><img src="https://qiniu.ibetalife.com/md/5-1583383754071.png" alt="▲ 百度网盘登录页面"></p><p><strong>正常套路进行登录</strong>即可</p><p>登录后，可以看到页面 UI 有点丑</p><p>但是不影响我们使用</p><p><img src="https://qiniu.ibetalife.com/md/5-1583384064669.png" alt></p><p>访问网盘内的任一资源</p><p><strong>点击下载文件</strong></p><p>就阔以开始下载了</p><p><img src="https://qiniu.ibetalife.com/md/5-1583383946751.png" alt="▲ 网盘资源"></p><p>下载速度感受下</p><p><img src="https://qiniu.ibetalife.com/md/5-1583387489878.png" alt="▲ 下载速度"></p><p>还是那句话，要啥自行车！</p><p><strong>说下缺点</strong>：</p><p>1、<strong>用不了多久，账号同样会被限速</strong>，没有解决方法；</p><p>2、下载只能一个个点击，<strong>不支持批量操作</strong>；</p><h1><span id="在线播放">在线播放</span></h1><p>原生的百度网盘，也是支持在线播放的。</p><p><img src="https://qiniu.ibetalife.com/md/6-1583460979436.png" alt="▲ 百度网盘在线播放"></p><p>这里不得不加一个但是！</p><p>它是<strong>不支持倍速播放</strong>的。</p><p>想要倍速播放？</p><p>也很简单</p><p><strong>开通超级会员，尊享倍速播放</strong></p><p><img src="https://qiniu.ibetalife.com/md/6-1583461185367.png" alt="▲ 充钱"></p><p>纳尼？</p><p><img src="https://qiniu.ibetalife.com/md/6-1583461997358.png" alt></p><p>不过我们的联播神器，<strong>无需充钱，即刻倍速！</strong></p><p>浏览网盘文件中的视频文件</p><p><strong>点击在线播放</strong></p><p><img src="https://qiniu.ibetalife.com/md/6-1583462912689.png" alt></p><p><strong>如何倍速播放？</strong></p><p>播放页面右下角点击选择</p><p><img src="https://qiniu.ibetalife.com/md/6-1583465167707.png" alt="▲ 倍速播放"></p><p>或者通过快捷键：<strong>Ctrl + Up / Ctrl + Down</strong>进行控制</p><p><strong>支持 0.1-5.0 的倍速控制</strong></p><p>还<strong>支持 DLNA 投屏播放</strong></p><p><img src="https://qiniu.ibetalife.com/md/6-1583472561552.png" alt></p><p>还可以<strong>保存网盘文件的播放记录</strong></p><p>下次看时，可以直接进入</p><p>![(<a href="https://qiniu.ibetalife.com/md/6-1583472641672.png" target="_blank" rel="noopener">https://qiniu.ibetalife.com/md/6-1583472641672.png</a>)</p><p><strong>在线播放这么爽，还需要下载下来吗？</strong></p><h1><span id="文件互传">文件互传</span></h1><p>基于 WLAN 实现，需要手机端和电脑端连接同一个无线网络下。</p><p>手机端连接无线，并且打开客户端后。</p><p>电脑端会自动扫描出设备：</p><p><img src="https://qiniu.ibetalife.com/md/6-1583471647807.png" alt></p><p>可以实现<strong>电脑端快速传文件到手机端</strong></p><p><strong>电脑上也可以访问手机端的相册</strong></p><p><img src="https://qiniu.ibetalife.com/md/6-1583471904810.png" alt="▲ iOS相册"></p><p>可以直接下载手机端相册的文件，也可以上传文件。</p><h1><span id="总结">总结</span></h1><p>1、在线播放很赞，能倍速，能投屏，能记录；</p><p>2、高速下载，不能同时下载多个文件，用多了同样会限速；</p><p>3、和手机端协作的文件互传，按需使用；</p><p>还是那句话，现在没有很稳的，可以一直使用的，免费的高速下载的软件。</p><p><strong>真没有！</strong></p><p>另外，在线播放它不香吗？</p><p><img src="https://qiniu.ibetalife.com/md/6-cache_1583473789_9129.gif" alt></p><p>可以直接官网下载，或者后台回复【<strong>119</strong>】获取软件包。</p><p><img src="https://qiniu.ibetalife.com/md/6-1583473656884.png" alt="下回见"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;自从发了那个介绍 baidupcs-web 文章后，一大波读者后台说不好用了。&lt;/p&gt;
+&lt;p&gt;这个，我觉得吧，我真是无能为力。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="好物分享" scheme="https://hoxis.github.io/categories/%E5%A5%BD%E7%89%A9%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="百度" scheme="https://hoxis.github.io/tags/%E7%99%BE%E5%BA%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>阿里云服务器，免费领取全攻略</title>
@@ -466,36 +489,6 @@
     
     
       <category term="Git" scheme="https://hoxis.github.io/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>教大家几个白嫖百度文库的方法，亲测可用！建议收藏！</title>
-    <link href="https://hoxis.github.io/how-download-file-in-baidu-for-free.html"/>
-    <id>https://hoxis.github.io/how-download-file-in-baidu-for-free.html</id>
-    <published>2019-08-30T04:36:48.000Z</published>
-    <updated>2019-08-30T04:36:52.236Z</updated>
-    
-    <content type="html"><![CDATA[<p>后台经常有小伙伴问能不能下载百度文库的</p><p>于是，我就随手搜了一下百度文库下载</p><p>结果网上各种方法</p><p>但是其中<strong>靠谱的并不多</strong></p><p>要么就是需要<strong>充钱买点</strong></p><p>要么就是下载下来<strong>格式混乱</strong></p><p>我亲手试了十多款免费下载的方法</p><p>从中筛选出了几个靠谱的</p><p>分享给大家</p><a id="more"></a><h1><span id="1-baiduvvv">1 baiduvvv</span></h1><p>工具地址：<a href="http://wenku.baiduvvv.com/doc/" target="_blank" rel="noopener">http://wenku.baiduvvv.com/doc/</a> </p><p>该工具是 <a href="https://www.v2ex.com/t/552502" target="_blank" rel="noopener">V2EX</a> 网站上的大神发布的一款工具</p><p>大神对自己的工具是这么介绍的：</p><blockquote><p>可以将百度文库预览的内容提取转换成 word 或 pdf 文件，<strong>文字可编辑</strong>，包含图片，<strong>格式会有变化</strong>，但尽量保持原文档的格式。如果你对文档格式要求不高，可以用这个。</p></blockquote><p>工具的优缺点，已经说得很清楚：</p><p><strong>导出文件可编辑，但是格式会有变化</strong>。</p><p>效果到底如何，我们来测试一把吧</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565950977169.png" alt="网站首页"></p><p>网站首页也给出了详细说明：</p><blockquote><p>文档可转换为<strong>word、pdf或ppt</strong>形式导出，<strong>非源文件，但文字可编辑</strong>，包含图片，尽量保持原文档的格式。<br>支持原文档为 WORD，PDF、PPT（导出为pdf或ppt时文字也可编辑，导出为word时为图片）、TXT。<br>可以下载需要下载券的文档，付费文档只能下载到试读部分。</p></blockquote><h2><span id="11-试用">1.1 试用</span></h2><p><strong>网站直接使用</strong></p><p>在页面直接输入文库链接</p><p>选择要导出的文件格式</p><p>点击下载即可</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565951025570.png" alt="下载中"></p><p><strong>快捷使用</strong></p><p>在<strong>浏览器地址栏</strong>的网址 baidu 后面</p><p>加上 <strong>vvv</strong> 三个字母</p><p>就可以快捷下载。</p><p>比如：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-29-baiduvvv.png" alt="baiduvvv"></p><p>地址修改好然后回车</p><p>就会自动进入到下载页面进行下载</p><h2><span id="12-下载效果">1.2 下载效果</span></h2><p><strong>Excel 下载</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565946804987.png" alt="Excel文档"></p><p>首先尝试导出为 Word</p><p>结果上面的表格被保存成了<strong>图片格式 Word，无法复制、编辑</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565951160927.png" alt="成了图片"></p><p>保存为 PDF 时，效果一样</p><p>同样无法复制、编辑。</p><p><strong>Word 下载</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565951476717.png" alt="Word测试"></p><p>下载效果：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565951499394.png" alt="下载效果"></p><p>Word 格式的文件可以正常下载为 Word 格式</p><p>但是<strong>格式有所变化</strong>，并不是源文件</p><p><strong>PPT 下载</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565951662620.png" alt="PPT文件"></p><p>下载效果：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565951742277.png" alt="PPT下载效果"></p><p>下载下来后</p><p><strong>PPT 是可编辑格式，样式也与源文件基本一致，但是其中的文本是分散开来的，不利于二次编辑</strong>。</p><h2><span id="13-小结一下">1.3 小结一下</span></h2><p>1、无法下载源文件；</p><p>2、下载文件支持导出为 Word、PDF、PPT；</p><p>3、源文件是 Excel，下载成 Word、PDF 时，成了图片格式；</p><p>4、下载的 Word、PPT 可以保持原格式，但是格式会有变化；</p><p>5、无数量限制，不能下载收费文档；</p><p>6、有快捷使用方式</p><h1><span id="2-文库免费下">2 文库免费下</span></h1><p>工具地址：<a href="http://www.ebuymed.cn/" target="_blank" rel="noopener">http://www.ebuymed.cn/</a></p><h2><span id="21-试用">2.1 试用</span></h2><p>直接输入网址进入页面：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565950118316.png" alt="页面还是有点好看的"></p><p>页面直接输入链接后，提示<strong>需要关注公众号</strong>：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565950244774.png" alt="需要关注公众号"></p><p>关注后，相当于登录了网站</p><p>就可以进行下载了</p><h2><span id="22-下载效果">2.2 下载效果</span></h2><p>我们同样使用了上面提到的三个文档</p><p>经测试，『文库免费下』下载下来的文件是<strong>源文件</strong></p><p>并且可以进行复制、编辑等</p><h2><span id="23-数量限制">2.3 数量限制</span></h2><p>下载了 3 个后，再下载时</p><p>就提示了：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565946873515.png" alt="下载限制"></p><p>尝试换浏览器</p><p>需要重新扫描公众号二维码进行验证</p><p>还是不能继续下载</p><p>小编猜测应该关注后，<strong>根据微信信息进行数量校验</strong>的</p><p>结论就是：<strong>每天可下三篇</strong></p><p>并且下载失败的也记入总数量中</p><h2><span id="24-小结一下">2.4 小结一下</span></h2><p>1、需要关注公众号；</p><p>2、可以下载<strong>源文件</strong>；</p><p>3、下载限制：每天三篇，不能下载收费文档；</p><h1><span id="3-巴法下载">3 巴法下载</span></h1><p>工具地址：<a href="http://wenku.bemfa.com/" target="_blank" rel="noopener">http://wenku.bemfa.com/</a></p><h2><span id="31-使用">3.1 使用</span></h2><p>进入首页后显示要账号信息</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-29-1567055462928.png" alt="首页"></p><p>同时给出了账号获取办法，即关注公众号获取</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-29-1567055578634.png" alt="同样的套路"></p><p>关注后，回复『文库』</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565947180887.png" alt="关注"></p><p>果然有所谓的账号信息</p><p>但是点开后，却是另外的下载办法</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565947263262.png" alt="下载方法"></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-29-1567055764345.png" alt="又是套路"></p><p>抱着忐忑的心情，登录了它们给的地址</p><p>生怕会弹出什么不文明的网页</p><p>不过还好，是这样一个网页</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565947345453.png" alt="下载页面"></p><p>按文章里的提示，输入用户名、密码、下载链接</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565947406793.png" alt="下载"></p><p>点击下载后，源文档真的开始下载了</p><h2><span id="33-下载效果">3.3 下载效果</span></h2><p>小编尝试了 Excel、Word、PPT 等格式，发现均可以下载到<strong>源格式</strong>文件</p><p>可以进行复制、编辑等操作</p><h2><span id="34-次数限制">3.4 次数限制</span></h2><p>我们再试几个文档，看下<strong>是否有次数限制</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565949066513.png" alt="下载多个"></p><p>多次尝试后，发现大约下到第 6 个时，出现了限制：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565948294974.png" alt="下载过多"></p><p>但是当第二天小编再试时</p><p>发现下载了 10 个左右也没有出现限制</p><p>个人猜测这里使用的是共享账号</p><p>下载次数是多人公用的</p><p>如果下载次数用尽</p><p>也没关系</p><p>文章中不是给了好几个账号么</p><h2><span id="35-付费文档">3.5 付费文档</span></h2><p>找了一个付费的尝试下载</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565948505774.png" alt="付费文件无法下载"></p><p>很明显，<strong>付费的也是不能下载，只能下载用下载券的</strong></p><h2><span id="小结一下">小结一下</span></h2><p>总体来说，巴法下载还是不错的：</p><p>1、可以下载源文件；</p><p>2、下载文件个数比较多；</p><p>3、需要关注公众号，操作流程稍微复杂；</p><p><strong>巴法是如何运营的？</strong></p><p>通过上面测试用</p><p>可以看出其实下载是<a href="http://www.blpack.com/" target="_blank" rel="noopener">blpack.com/</a>提供的</p><p>巴法只是<strong>提供第三方共享账号下载</strong></p><p>通过低价购买网站的下载服务</p><p>然后给自己的公众号和网站引流</p><p>流量价值大于下载积分的价格</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565948609665.png" alt="账号价格"></p><p>这种服务能持续多久</p><p>要打一个问号？</p><h1><span id="4-冰点文库下载器">4 冰点文库下载器</span></h1><h2><span id="41-使用及效果">4.1 使用及效果</span></h2><p>与上面介绍的在线下载不同</p><p>冰点文库是个软件</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565949222361.png" alt="冰点页面"></p><p>使用起来很简单</p><p>只要将文库地址复制到软件页面</p><p>点击下载即可</p><p>下载完成后，<strong>源文件都是以可复制的 PDF 方式保存</strong>的</p><p>并<strong>不是源文件</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565949271105.png" alt="下载文件"></p><p>对于 Word 文件来说，用 PDF 还好</p><p>但是表格的话就很难在自己转化成 Excel 了</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-8-16-1565949831853.png" alt="PDF格式的表格"></p><h2><span id="42-小结一下">4.2 小结一下</span></h2><p>相比上面介绍的在线下载，冰点有下面的优势：</p><p>1、使用简单，无需关注公众号之类的操作；</p><p>2、下载应该无限制，没有进行大量测试，当然也不能下载收费文档；</p><p>3、无法下载源文件，不过下载下来的 PDF 是可编辑的，还有挽回的余地；</p><p>4、需要安装软件；</p><h1><span id="总结">总结</span></h1><p>如果你比较<strong>在意源格式文件</strong>：</p><p>巴法下载 &gt; 文库免费下</p><p>如果你不太在意文件格式：</p><p>baiduvvv &gt; 冰点 &gt; 巴法下载 &gt; 文库免费下</p><p>如果你要<strong>批量下载</strong>多个：</p><p>冰点 &gt; baiduvvv</p><p>上面几款下载工具</p><p>都是小编从网上乱七八糟的文章中试用筛选出来的</p><p>如果觉得有用</p><p>可以收藏、分享、转发一波</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;后台经常有小伙伴问能不能下载百度文库的&lt;/p&gt;
-&lt;p&gt;于是，我就随手搜了一下百度文库下载&lt;/p&gt;
-&lt;p&gt;结果网上各种方法&lt;/p&gt;
-&lt;p&gt;但是其中&lt;strong&gt;靠谱的并不多&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;要么就是需要&lt;strong&gt;充钱买点&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;要么就是下载下来&lt;strong&gt;格式混乱&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;我亲手试了十多款免费下载的方法&lt;/p&gt;
-&lt;p&gt;从中筛选出了几个靠谱的&lt;/p&gt;
-&lt;p&gt;分享给大家&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="好物分享" scheme="https://hoxis.github.io/categories/%E5%A5%BD%E7%89%A9%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="文件下载" scheme="https://hoxis.github.io/tags/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"/>
     
   </entry>
   
