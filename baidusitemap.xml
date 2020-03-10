@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://hoxis.github.io/ansible-vars-priority.html</loc>
+    <lastmod>2020-03-10T16:37:25.000Z</lastmod>
+    <data>
+        <display>
+        <title>Ansible，如何自定义主机组变量优先级？</title>
+        <pubTime>2020-03-10T11:22:30.000Z</pubTime>
+        
+        <tag>Ansible</tag>
+         
+        <tag>变量</tag>
+         
+         
+           
+             
+              <breadCrumb title="Ansible" url="https://hoxis.github.io/categories/Ansible/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://hoxis.github.io/docker-mv-path.html</loc>
     <lastmod>2020-03-06T19:11:52.391Z</lastmod>
     <data>

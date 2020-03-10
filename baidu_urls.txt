@@ -1,5 +1,5 @@
+https://hoxis.github.io/ansible-vars-priority.html
 https://hoxis.github.io/docker-mv-path.html
 https://hoxis.github.io/wan-neng-lian-bo.html
 https://hoxis.github.io/aliyun-free-ecs.html
 https://hoxis.github.io/free-service-from-big-platform.html
-https://hoxis.github.io/weixin-revoke-msg.html

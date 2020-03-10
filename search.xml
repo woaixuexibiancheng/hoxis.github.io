@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Ansible，如何自定义主机组变量优先级？]]></title>
+    <url>%2Fansible-vars-priority.html</url>
+    <content type="text"><![CDATA[一般情况下，Ansible 的变量加载顺序是固定的，那么在同一优先级下，如何指定某一变量的优先级呢？ 变量的默认加载顺序如下： roles defaults目录下的变量 组变量：inventory 文件 组变量：inventory/group_vars/all 组变量：playbook/group_vars/all 组变量：inventory/group_vars/* 组变量：playbook/group_vars/* 主机变量：inventory 文件 主机变量：inventory/group_vars/* 主机变量：playbook/group_vars/* facts变量 play变量：vars定义的 play变量：vars_prompt定义的 play变量：vars_files导入的 roles vars目录下的变量 block中task定义的变量 playbook中task定义的变量 include_vars导入的变量 set_facts/register注册的变量 使用roles/include_role/import_role语句时定义的变量 使用include语句（ansible旧版本）时定义的变量 命令行-e参数指定的额外变量（优先级最高） 可以看出，Ansible 的变量可以定义的地方居多！ 这里针对变量的顺序定义我们不再进行实验。 我们只说一种场景，一个主机 host1，即属于主机组 a_group，又属于 b_group。 好巧不巧，两个主机组定义了同一个变量： 1234a_group: testvar: ab_group: testvar: b 默认情况下，最后一个加载的组的变量，会覆盖之前的，也就是默认情况下，此时 testvar 应该为 a。 我们做下实验。 实验定义清单文件： 1234567891011121314151617node1 ansible_host=110.182.137.8[a_group]node1[a_group:vars]testvar=a[b_group]node1[b_group:vars]testvar=b[all:vars]ansible_ssh_user=testansible_ssh_pass=test 运行测试命令： 12345$ ansible -i tests node1 -m debug -a "var=testvar"node1 | SUCCESS =&gt; &#123; "changed": false, "testvar": "b"&#125; 可以看出，后加载的 b_group 的变量，覆盖了 a_group 的变量。 那么，主机组加载顺序是否和在文件中定义的顺序有关呢？ 我们修改一下清单文件，将 a_group 的位置放在后面： 1234567891011121314151617node1 ansible_host=110.182.137.8[b_group]node1[b_group:vars]testvar=b[a_group]node1[a_group:vars]testvar=a[all:vars]ansible_ssh_user=testansible_ssh_pass=test 再次运行测试命令： 12345$ ansible -i tests node1 -m debug -a "var=testvar"node1 | SUCCESS =&gt; &#123; "changed": false, "testvar": "b"&#125; 可以看出，仍然是 b_group 的优先级较高。 也就是说，主机组是安装字母顺序进行加载的（猜测结论）。 这里，如果，我们想要提高 a_group 的优先级，该如何处理呢？ 这里就需要 ansible_group_priority 变量出厂了。 默认情况下，ansible_group_priority 的权重都是 1，那么只要将某个主机组的 ansible_group_priority 大于 1，即可提升其优先级。 比如： 123456789101112131415161718node1 ansible_host=110.182.137.8[b_group]node1[b_group:vars]testvar=b[a_group]node1[a_group:vars]testvar=aansible_group_priority=2[all:vars]ansible_ssh_user=testansible_ssh_pass=test 再次运行测试命令： 12345$ ansible -i tests node1 -m debug -a "var=testvar"node1 | SUCCESS =&gt; &#123; "changed": false, "testvar": "a"&#125; 可以看出，此时 a_group 的变量覆盖掉了 b_group 的变量。 结论可以使用变量 ansible_group_priority 来设置某个主机组变量的优先级，ansible_group_priority 默认为 1，数值越大，代表优先级越高。 参考： https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#how-we-merge https://www.cnblogs.com/mauricewei/p/10054300.html]]></content>
+      <categories>
+        <category>Ansible</category>
+      </categories>
+      <tags>
+        <tag>Ansible</tag>
+        <tag>变量</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Docker存储目录迁移的坑：一个参数引发的血案！]]></title>
     <url>%2Fdocker-mv-path.html</url>
     <content type="text"><![CDATA[背景：项目需要，需要对 Docker 的存储目录进行迁移。 迁移的步骤大致如下： 1、停 docker 服务； 2、修改 docker 配置； 这里直接修改的 /etc/docker/daemon.json，在其中添加： 1234&#123; "data-root": "/home/data/docker", "pidfile": "/home/run/docker/docker.pid"&#125; 3、迁移原数据目录到新目录下； 4、重启 docker 服务； 一般来说，经过以上 4 步，之前的 docker 服务都能继续正常运行。 问题项目中有些是使用 docker-compose 进行管理的，其中就包括 ELK。 发现在目录迁移后，ELK 的服务无法正常启动： 其中，elasticsearch 报错信息如下： logstash 的报错信息： 解决过程网上进行了一些检索。 有人提到，尝试重新导入镜像。 该方法在前几个环境，均能解决问题。 但是在一些环境，不管怎么导，都无法解决问题。 我们尝试了目录的回退。 发现回退后，服务又可以正常运行。 很明显，是目录迁移后，权限发生了变化。 那么问题到底出在哪里呢？ 我找出了操作步骤，其中迁移目录的命令是： 1cp -R /var/lib/docker /home/data/ -R 是什么含义呢？ 查阅 cp 命令的帮助文档： 发现 -R 是递归的含义，也就是说会进行递归复制。 但是复制后的文件权限有办法保证吗？ 我们发现了 -p 参数： 它可以保留源文件的属性。 解决方法将之前拷贝的目录进行备份（或者直接删除），重新拷贝源 docker 数据目录到新的目录下。 这次使用命令： 1cp -rp /var/lib/docker /home/data/ 再重启 docker。 再去观察 ELK 服务的状态： 一切恢复正常。 参考： https://www.cnblogs.com/klvchen/p/9098745.html https://www.cnblogs.com/lipijin/p/3833117.html]]></content>
