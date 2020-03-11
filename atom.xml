@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hoxis.github.io/"/>
-  <updated>2020-03-10T16:37:25.000Z</updated>
+  <updated>2020-03-11T15:38:58.100Z</updated>
   <id>https://hoxis.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Typora如何集成PicGo？</title>
+    <link href="https://hoxis.github.io/typora-picgo.html"/>
+    <id>https://hoxis.github.io/typora-picgo.html</id>
+    <published>2020-03-11T07:04:40.000Z</published>
+    <updated>2020-03-11T15:38:58.100Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前推荐过一波自用的 Markdown 编辑器，当时提到了 <strong>Typora</strong>，缺点就是<strong>无法集成图床</strong>。</p><p>其中一个折中的办法就是手动使用 PicGo 上传到图床，然后将地址粘贴到 Typora。</p><p><strong>那么 Typora 中能不能直接粘贴图片后，就自动上传到图床呢？</strong></p><a id="more"></a><p>网上搜索时，给出的解决方案大都是 Mac 下的：Typora+iPic。</p><p>可惜矮矬穷的小编用的是 Windows。</p><p><img src="http://hoxis.ibetalife.com/picgo/image-20200310160814909.png" alt></p><p>今天无意间打开 Typora，检测更新时，发现这一幕！</p><p><img src="http://hoxis.ibetalife.com/picgo/image-20200310114800425.png" alt="▲ 更新日志"></p><p>没想到啊，没想到</p><p><strong>浓眉大眼的 Typora 和 PicGo 竟然勾结在一起了！</strong></p><p><img src="http://hoxis.ibetalife.com/picgo/MQ85J.gif" alt></p><p>小编当即试用了一把，感觉还不错，后面可以考虑将 Typora 作为主力 Markdown 编辑器了。</p><p><strong>毕竟颜值高！</strong></p><p>下面分享下 Typora + PicGo 的设置步骤。</p><p>当然，<strong>只是针对 Windows 版。</strong></p><h1><span id="picgo设置">PicGo设置</span></h1><h2><span id="版本要求">版本要求</span></h2><p>PicGo 2.2.0 及以上。</p><p>图床的设置这里不说了，不会的，自行百度。</p><p><img src="http://hoxis.ibetalife.com/picgo/baidu.gif" alt></p><h2><span id="激活picgo-server">激活PicGo-Server</span></h2><p>2.2.0 版本之后，<strong>PicGo 内部会默认开启一个小型的服务器，用于配合其他应用来调用 PicGo 进行上传。</strong></p><p><strong>如何设置呢？</strong></p><p>打开 PicGo 详细页面，进入 <strong>PicGo 设置–设置Server</strong></p><p>参考下图进行设置即可。</p><p><img src="http://hoxis.ibetalife.com/picgo/image-20200310115750500.png" alt></p><h1><span id="typora设置">Typora设置</span></h1><p>下面是 Typora 的设置。</p><h2><span id="版本要求">版本要求</span></h2><p>Typora 0.9.84 及以上。</p><h2><span id="设置">设置</span></h2><p><strong>文件–偏好设置–图像</strong></p><p>参考图片中的进行配置。</p><p><img src="http://hoxis.ibetalife.com/picgo/image-20200310125429866.png" alt></p><p>选择本机 PicGo 的路径。</p><h2><span id="验证图片上传">验证图片上传</span></h2><p>这里还可以<strong>验证图片上传功能</strong>。</p><p>验证成功会返回下图结果：</p><p><img src="http://hoxis.ibetalife.com/picgo/image-20200310120930142.png" alt="▲ 验证上传"></p><h1><span id="使用">使用</span></h1><p>上面的设置完成后，在 Typora 里写字时，就可以自动上传图片到图床啦。</p><h2><span id="拖拽">拖拽</span></h2><p>可以直接选择图片，然后拖拽到编辑页面。</p><p><img src="http://hoxis.ibetalife.com/picgo/20200310130302.gif" alt="▲ 拖拽上传"></p><h2><span id="编辑器内插入">编辑器内插入</span></h2><p>使用快捷键 <strong>Ctrl + Shift + I</strong>，可以调出插入图片的功能。</p><p><img src="http://hoxis.ibetalife.com/picgo/20200310134112.gif" alt="▲ 编辑器内插入"></p><h2><span id="复制粘贴">复制粘贴</span></h2><p>也可以直接复制图片，然后再编辑器中直接粘贴。</p><p>或者<strong>截图后直接粘贴</strong>（比如 Snipaste）。</p><p><img src="http://hoxis.ibetalife.com/picgo/20200310151034.gif" alt="▲ 截图后直接粘贴"></p><p>这里需要多一个点击<strong>上传图片</strong>的操作。</p><p>然后图片就可以上传到图床了。</p><p>另外，还可以看到<strong>所有的上传在 PicGo 的相册里都能找到：</strong></p><p><img src="http://hoxis.ibetalife.com/picgo/image-20200310135701855.png" alt></p><h1><span id="说在后面">说在后面</span></h1><p>Typora+PicGo，终于安排上了！</p><p>真香啊！</p><p>昨天我还在 Github 上找相关项目的，还好我眼尖，哈哈哈~</p><p>另外，Typora+PicGo 的安装包貌似都不太好下。</p><p>速度有点慢的说。</p><p>不过，小编都打包好了啦，后台回复【<strong>120</strong>】即可获取啦！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前推荐过一波自用的 Markdown 编辑器，当时提到了 &lt;strong&gt;Typora&lt;/strong&gt;，缺点就是&lt;strong&gt;无法集成图床&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;其中一个折中的办法就是手动使用 PicGo 上传到图床，然后将地址粘贴到 Typora。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;那么 Typora 中能不能直接粘贴图片后，就自动上传到图床呢？&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="奇技淫巧" scheme="https://hoxis.github.io/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+    
+    
+      <category term="编辑器" scheme="https://hoxis.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>Ansible，如何自定义主机组变量优先级？</title>
@@ -465,28 +489,6 @@
     
     
       <category term="redis" scheme="https://hoxis.github.io/tags/redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>手把手教你如何用Fiddler抓取手机数据包（iOS+Android）</title>
-    <link href="https://hoxis.github.io/capture-packets-with-fiddler-on-the-phone.html"/>
-    <id>https://hoxis.github.io/capture-packets-with-fiddler-on-the-phone.html</id>
-    <published>2019-09-12T07:30:06.000Z</published>
-    <updated>2019-09-12T07:30:50.164Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文主要教你如何通过 Fiddler 来抓取手机端的数据包，包括 iOS 和 Android 端的配置和抓取。</p><a id="more"></a><h1><span id="一-fiddler下载安装">一、Fiddler下载安装</span></h1><p>访问 Fiddler 官网：<a href="https://www.telerik.com/download/fiddler" target="_blank" rel="noopener">https://www.telerik.com/download/fiddler</a></p><p>这里会要求填写一些东西，随便填写一些即可</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568211409619.png" alt="下载页面"></p><p>下载完成后，傻瓜式安装即可</p><h1><span id="二-电脑端配置">二、电脑端配置</span></h1><h2><span id="1-https配置">1、https配置</span></h2><p><code>Tools--&gt;Options--&gt;HTTPS</code> 进入配置页面</p><p>参考下图进行配置</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568211699708.png" alt="https配置"></p><h2><span id="2-证书配置">2、证书配置</span></h2><p>点击上述页面的 <code>Actions</code> 按钮，选择第二个选项，将安全证书导出到桌面</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568211864834.png" alt="导出安全证书"></p><p>导出后会在页面出现这么一个东东</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568211946682.png" alt="安全证书"></p><p>双击它，进行证书安装</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568212056663.png" alt="证书安装"></p><p>直接下一步–&gt;下一步进行安装</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568212075083.png" alt="下一步"></p><p>安装成功后，会有提示：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568212100442.png" alt="安装成功"></p><h2><span id="3-连接配置">3、连接配置</span></h2><p><code>Tools--&gt;Options--&gt;Connections</code> 进入配置页面</p><p>参考如下截图进行配置</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568212267647.png" alt="连接配置"></p><p><strong>配置完成后，重启 Fiddler</strong> </p><h1><span id="三-手机端配置">三、手机端配置</span></h1><h2><span id="1-查看电脑网络ip地址">1、查看电脑网络IP地址</span></h2><p>打开 CMD 窗口，输入 <code>ipconfig</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[liuhao.haha] ➤ ipconfig</span><br><span class="line"></span><br><span class="line">Windows IP 配置</span><br><span class="line"></span><br><span class="line">以太网适配器 VMware Network Adapter VMnet1:</span><br><span class="line"></span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . :</span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::601b:2a02:aea2:7a4b%33</span><br><span class="line">   IPv4 地址 . . . . . . . . . . . . : 192.168.22.1</span><br><span class="line">   子网掩码  . . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   默认网关. . . . . . . . . . . . . :</span><br><span class="line"></span><br><span class="line">以太网适配器 VMware Network Adapter VMnet8:</span><br><span class="line"></span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . :</span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::b07b:19b2:6d5f:25d3%29</span><br><span class="line">   IPv4 地址 . . . . . . . . . . . . : 192.168.233.1</span><br><span class="line">   子网掩码  . . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   默认网关. . . . . . . . . . . . . :</span><br><span class="line"></span><br><span class="line">无线局域网适配器 WLAN 2:</span><br><span class="line"></span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . : lan</span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::e1b8:429f:6251:3b44%35</span><br><span class="line">   IPv4 地址 . . . . . . . . . . . . : 192.168.2.238</span><br><span class="line">   子网掩码  . . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   默认网关. . . . . . . . . . . . . : 192.168.2.1</span><br></pre></td></tr></table></figure><p>如果像我这样，出现很多结果</p><p>不知道哪个才是本机电脑网络怎么办？</p><p>打开控制面板，搜索<strong>适配器</strong>：</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568212682297.png" alt="控制面板"></p><p>打开<strong>查看网络链接</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568212733168.png" alt="网络链接"></p><p>这里即可以看到，连接的无线的名称对应的网络是：<strong>WLAN 2</strong></p><p>那么，本地的 IP 地址就是对应的：<strong>192.168.2.238</strong></p><h2><span id="2-手机设置android">2、手机设置（Android）</span></h2><p><strong>2.1 网络代理设置</strong></p><p>打开手机设置里的 WLAN，长按所连接的无线网络</p><p>选择修改网络</p><p>然后勾选高级选项</p><p>选择代理为<strong>手动</strong>，填入代理服务器为自己电脑 IP，端口填入刚刚设置的 8888</p><p>完成</p><p><strong>2.2 证书下载安装</strong></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568213496927.png" alt="Android配置"></p><p>打开手机浏览器，访问 <strong>192.168.2.238:8888</strong></p><p>正常情况下可以进入到如下页面</p><p>点击最下方的链接，下载证书</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568213947902.png" alt="证书下载页面"></p><p>证书下载后，会弹出安装页面</p><p>安装时，名称可以随便填写</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568214025919.png" alt="安装证书"></p><p>需要注意的是，这里的用途是一个下拉框</p><p>我不清楚有什么区别，我们可以在相同的页面下载两次</p><p>分别为两个用途各安装一个，名称用不同的</p><p>至此，手机端设置完毕</p><p>不同手机的操作流程可能会有所偏差</p><p>但是大同小异</p><h2><span id="3-手机设置ios">3、手机设置（iOS）</span></h2><p><strong>3.1 网络代理设置</strong></p><p>iOS 设备进入手机设置：<strong>无线局域网</strong></p><p>点击已连接的无线网最右侧的符号，进入网络设置</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568213671417.png" alt="无线局域网"></p><p>同样的，选择手动配置代理</p><p>并输入 IP 和端口</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568213749483.png" alt="手动配置代理"></p><p><strong>3.2 证书下载</strong></p><p>设置完成后，同样的打开浏览器，访问 <strong>192.168.2.238:8888</strong></p><p>正常情况下可以进入到如下页面</p><p>点击最下方的链接，下载证书</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568214237624.png" alt="下载证书"></p><p>与 Android 不同的是，iOS 这里只是下载，安装还需要再到手机设置里面进行</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568214312420.png" alt="下载完成"></p><p><strong>3.3 证书安装</strong></p><p>设置–&gt;通用–&gt;描述文件与设备管理</p><p>这时就会看到下载的证书了</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568214536779.png" alt="证书安装"></p><p>点击进行，根据提示进行安装即可</p><p><strong>3.4 证书完全信任（重要）</strong></p><p>设置–&gt;通用–&gt;关于本机–&gt;证书信任设置</p><p>将 Fidder 的证书设置为完全信任</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568215774316.png" alt="完全信任"></p><p>若缺少这一步设置，会导致一些 APP 无法联网</p><h1><span id="四-抓包">四、抓包</span></h1><p>经过了这么多配置，终于可以开始抓包了</p><p>此时，通过手机浏览器访问百度首页</p><p>我们就可以在 Fiddler 上看到很多请求数据包了</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-11-1568214705572.png" alt="数据包"></p><h1><span id="总结">总结</span></h1><p>至此，打完收工。</p><p>可以看出，iOS 上的设置要比 Android 上复杂一些，也反映出 iOS 更安全一些。</p><p>本文主要是教你如何通过 Fiddler 抓取手机端的数据包。</p><p>至于数据包如何解析，或者 Fiddler 如何使用，就不是本文所要讨论的内容了。</p><p><strong>参考</strong></p><p>1、<a href="https://blog.csdn.net/qq_36350532/article/details/79848686" target="_blank" rel="noopener">https://blog.csdn.net/qq_36350532/article/details/79848686</a><br>2、<a href="https://testerhome.com/topics/15200" target="_blank" rel="noopener">https://testerhome.com/topics/15200</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文主要教你如何通过 Fiddler 来抓取手机端的数据包，包括 iOS 和 Android 端的配置和抓取。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="奇技淫巧" scheme="https://hoxis.github.io/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
-    
-    
-      <category term="抓包" scheme="https://hoxis.github.io/tags/%E6%8A%93%E5%8C%85/"/>
     
   </entry>
   

@@ -110,7 +110,7 @@
 
 
 
-  <meta name="keywords" content="source,shell">
+  <meta name="keywords" content="Typora,PicGo,图床">
 
 
 
@@ -123,18 +123,30 @@
 
 
 
-<meta name="description" content="区别大部分人都知道，但是你试过吗？">
-<meta name="keywords" content="source,shell">
+<meta name="description" content="之前推荐过一波自用的 Markdown 编辑器，当时提到了 Typora，缺点就是无法集成图床。 其中一个折中的办法就是手动使用 PicGo 上传到图床，然后将地址粘贴到 Typora。 那么 Typora 中能不能直接粘贴图片后，就自动上传到图床呢？">
+<meta name="keywords" content="Typora,PicGo,图床">
 <meta property="og:type" content="article">
-<meta property="og:title" content="执行 shell 脚本时，「source」、「. 」和「.&#x2F;」的区别">
-<meta property="og:url" content="https://hoxis.github.io/linux-run-shell.html">
+<meta property="og:title" content="Typora如何集成PicGo？">
+<meta property="og:url" content="https://hoxis.github.io/typora-picgo.html">
 <meta property="og:site_name" content="hoxis&#39; blog">
-<meta property="og:description" content="区别大部分人都知道，但是你试过吗？">
+<meta property="og:description" content="之前推荐过一波自用的 Markdown 编辑器，当时提到了 Typora，缺点就是无法集成图床。 其中一个折中的办法就是手动使用 PicGo 上传到图床，然后将地址粘贴到 Typora。 那么 Typora 中能不能直接粘贴图片后，就自动上传到图床呢？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-30T06:20:16.329Z">
+<meta property="og:image" content="http://hoxis.ibetalife.com/picgo/image-20200310160814909.png">
+<meta property="og:image" content="http://hoxis.ibetalife.com/picgo/image-20200310114800425.png">
+<meta property="og:image" content="http://hoxis.ibetalife.com/picgo/MQ85J.gif">
+<meta property="og:image" content="http://hoxis.ibetalife.com/picgo/baidu.gif">
+<meta property="og:image" content="http://hoxis.ibetalife.com/picgo/image-20200310115750500.png">
+<meta property="og:image" content="http://hoxis.ibetalife.com/picgo/image-20200310125429866.png">
+<meta property="og:image" content="http://hoxis.ibetalife.com/picgo/image-20200310120930142.png">
+<meta property="og:image" content="http://hoxis.ibetalife.com/picgo/20200310130302.gif">
+<meta property="og:image" content="http://hoxis.ibetalife.com/picgo/20200310134112.gif">
+<meta property="og:image" content="http://hoxis.ibetalife.com/picgo/20200310151034.gif">
+<meta property="og:image" content="http://hoxis.ibetalife.com/picgo/image-20200310135701855.png">
+<meta property="og:updated_time" content="2020-03-11T15:38:58.100Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="执行 shell 脚本时，「source」、「. 」和「.&#x2F;」的区别">
-<meta name="twitter:description" content="区别大部分人都知道，但是你试过吗？">
+<meta name="twitter:title" content="Typora如何集成PicGo？">
+<meta name="twitter:description" content="之前推荐过一波自用的 Markdown 编辑器，当时提到了 Typora，缺点就是无法集成图床。 其中一个折中的办法就是手动使用 PicGo 上传到图床，然后将地址粘贴到 Typora。 那么 Typora 中能不能直接粘贴图片后，就自动上传到图床呢？">
+<meta name="twitter:image" content="http://hoxis.ibetalife.com/picgo/image-20200310160814909.png">
 
 
 
@@ -164,7 +176,7 @@
 
 
 
-  <link rel="canonical" href="https://hoxis.github.io/linux-run-shell.html">
+  <link rel="canonical" href="https://hoxis.github.io/typora-picgo.html">
 
 
 
@@ -181,7 +193,7 @@
   </script>
 
 
-  <title>执行 shell 脚本时，「source」、「. 」和「./」的区别 | hoxis' blog</title>
+  <title>Typora如何集成PicGo？ | hoxis' blog</title>
   
 
 
@@ -397,7 +409,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hoxis.github.io/linux-run-shell.html">
+    <link itemprop="mainEntityOfPage" href="https://hoxis.github.io/typora-picgo.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="hoxis">
@@ -414,7 +426,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">执行 shell 脚本时，「source」、「. 」和「./」的区别</h2>
+          <h2 class="post-title" itemprop="name headline">Typora如何集成PicGo？</h2>
         
 
         <div class="post-meta">
@@ -426,8 +438,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-25T15:00:16+08:00">
-                2018-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-11T15:04:40+08:00">
+                2020-03-11
               </time>
             
 
@@ -449,8 +461,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/奇技淫巧/" itemprop="url" rel="index">
+                    <span itemprop="name">奇技淫巧</span>
                   </a>
                 </span>
 
@@ -467,8 +479,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/linux-run-shell.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/linux-run-shell.html" itemprop="commentCount"></span>
+                <a href="/typora-picgo.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/typora-picgo.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -476,7 +488,7 @@
 
           
           
-             <span id="/linux-run-shell.html" class="leancloud_visitors" data-flag-title="执行 shell 脚本时，「source」、「. 」和「./」的区别">
+             <span id="/typora-picgo.html" class="leancloud_visitors" data-flag-title="Typora如何集成PicGo？">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -501,7 +513,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  677
+                  633
                 </span>
               
 
@@ -517,7 +529,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  2
                 </span>
               
             </div>
@@ -538,36 +550,57 @@
       
 
       
-        <p>区别大部分人都知道，但是你试过吗？</p>
+        <p>之前推荐过一波自用的 Markdown 编辑器，当时提到了 <strong>Typora</strong>，缺点就是<strong>无法集成图床</strong>。</p>
+<p>其中一个折中的办法就是手动使用 PicGo 上传到图床，然后将地址粘贴到 Typora。</p>
+<p><strong>那么 Typora 中能不能直接粘贴图片后，就自动上传到图床呢？</strong></p>
 <a id="more"></a>
-<p>通过网上的查询，我们很容易知道三者的区别大致如下：</p>
-<ul>
-<li><code>source script.sh</code> 会在当前进程下执行脚本，并且脚本中设置的变量在脚本执行完毕后会保存下来。</li>
-<li><code>. script.sh</code> 和 <code>source script.sh</code> 是一样的，在一些环境下有一些细微差别的，如 <code>source</code> 不是 POSIX 所要求的。</li>
-<li><code>./script.sh</code> 则是会在单独的子进程中执行，脚本中设置的变量在脚本执行完毕后不会保存。但是若 <code>script.sh</code> 脚本不是以 <code>#!/bin/bash</code> 开头，那么也不会在子进程中执行。</li>
-</ul>
-<p>我们可以做个简单的测试：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cat test.sh </span></span><br><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="built_in">test</span>=1234</span><br><span class="line"></span><br><span class="line"><span class="comment"># ./test.sh </span></span><br><span class="line"><span class="comment"># echo $test</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># . test.sh</span></span><br><span class="line"><span class="comment"># echo $test</span></span><br><span class="line">1234</span><br><span class="line"></span><br><span class="line"><span class="comment"># cat test.sh </span></span><br><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="built_in">test</span>=123</span><br><span class="line"></span><br><span class="line"><span class="comment"># source test.sh</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$test</span></span><br><span class="line">123</span><br></pre></td></tr></table></figure>
-<p>可以看出只有用 <code>./</code> 执行后变量没有保存在当前环境变量中。</p>
-<hr>
-<p>那关于是否是在子进程运行的区别又有什么影响呢？下面我们来做另外一个测试。</p>
-<p>下面有一个检测进程 PID 的脚本 <code>check_process.sh</code>，请问运行 <code>./check_process.sh gmond</code> 和 <code>source check_process.sh gmond</code> 输出会有什么不同？（假设已存在 1 个 gmond 进程，pid 为 17255）</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line">process=<span class="variable">$1</span></span><br><span class="line">pid=$(ps x | grep <span class="variable">$process</span> | grep -v grep | awk <span class="string">'&#123;print $1&#125;'</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$pid</span></span><br></pre></td></tr></table></figure>
-<p>运行测试：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ./check_process.sh gmond</span></span><br><span class="line">17255 25930 25931</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">source</span> check_process.sh gmond</span></span><br><span class="line">17255</span><br></pre></td></tr></table></figure>
-<p><span class="github-emoji" title="scream" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f631.png?v8">&#x1f631;</span> 结果是不是有点奇怪，gmond 明明只有一个进程啊，为什么会出来三个进程 pid？</p>
-<p>我们在脚本里加个 <code>sleep</code>，然后从另外窗口看下多出的进程 pid 是谁？ <span class="github-emoji" title="eyes" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f440.png?v8">&#x1f440;</span></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line">process=<span class="variable">$1</span></span><br><span class="line">pid=$(ps x | grep <span class="variable">$process</span> | grep -v grep | awk <span class="string">'&#123;print $1&#125;'</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$pid</span></span><br><span class="line">sleep 100</span><br></pre></td></tr></table></figure>
-<p>再运行：</p>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ./check_process.sh gmond</span></span><br><span class="line">8215<span class="number"> 8216 </span>17255</span><br><span class="line"></span><br><span class="line"><span class="comment"># ps -ef|grep gmond|grep -v grep</span></span><br><span class="line">root     <span class="number"> 8215 </span>17611 <span class="number"> 0 </span>14:26 pts/8    00:00:00 /bin/bash ./check_process.sh gmond</span><br><span class="line">root    <span class="number"> 17255 </span>   <span class="number"> 1 </span><span class="number"> 5 </span>Feb02 ?        5-15:08:55 /usr/sbin/gmond</span><br></pre></td></tr></table></figure>
-<p>发现 pid 为 8215 的进程就是我们执行脚本本身的进程。同时也可以看到，<code>./</code> 最终调用执行的是 <code>/bin/bash</code>。</p>
-<p>所以，我们用 shell 脚本来获取进程 pid 时一定要对进程本身进程过滤，可以用 <code>grep -v bash</code>：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line">process=<span class="variable">$1</span></span><br><span class="line">pid=$(ps x | grep <span class="variable">$process</span> | grep -v grep |grep -v bash| awk <span class="string">'&#123;print $1&#125;'</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$pid</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p>遗留的问题，若脚本中不加 <code>#! /bin/bash</code>，又会是什么结果呢？</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">process=<span class="variable">$1</span></span><br><span class="line">pid=$(ps x | grep <span class="variable">$process</span> | grep -v grep | awk <span class="string">'&#123;print $1&#125;'</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$pid</span></span><br></pre></td></tr></table></figure>
-<p>此时可以发现，三种运行方式的结果都是正常的  <span class="github-emoji" title="hushed" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62f.png?v8">&#x1f62f;</span></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ./check_process.sh gmond</span></span><br><span class="line">17255</span><br><span class="line"><span class="meta">#</span><span class="bash"> . check_process.sh gmond</span></span><br><span class="line">17255</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">source</span> check_process.sh gmond</span></span><br><span class="line">17255</span><br></pre></td></tr></table></figure>
+<p>网上搜索时，给出的解决方案大都是 Mac 下的：Typora+iPic。</p>
+<p>可惜矮矬穷的小编用的是 Windows。</p>
+<p><img src="http://hoxis.ibetalife.com/picgo/image-20200310160814909.png" alt></p>
+<p>今天无意间打开 Typora，检测更新时，发现这一幕！</p>
+<p><img src="http://hoxis.ibetalife.com/picgo/image-20200310114800425.png" alt="▲ 更新日志"></p>
+<p>没想到啊，没想到</p>
+<p><strong>浓眉大眼的 Typora 和 PicGo 竟然勾结在一起了！</strong></p>
+<p><img src="http://hoxis.ibetalife.com/picgo/MQ85J.gif" alt></p>
+<p>小编当即试用了一把，感觉还不错，后面可以考虑将 Typora 作为主力 Markdown 编辑器了。</p>
+<p><strong>毕竟颜值高！</strong></p>
+<p>下面分享下 Typora + PicGo 的设置步骤。</p>
+<p>当然，<strong>只是针对 Windows 版。</strong></p>
+<h1><span id="picgo设置">PicGo设置</span></h1><h2><span id="版本要求">版本要求</span></h2><p>PicGo 2.2.0 及以上。</p>
+<p>图床的设置这里不说了，不会的，自行百度。</p>
+<p><img src="http://hoxis.ibetalife.com/picgo/baidu.gif" alt></p>
+<h2><span id="激活picgo-server">激活PicGo-Server</span></h2><p>2.2.0 版本之后，<strong>PicGo 内部会默认开启一个小型的服务器，用于配合其他应用来调用 PicGo 进行上传。</strong></p>
+<p><strong>如何设置呢？</strong></p>
+<p>打开 PicGo 详细页面，进入 <strong>PicGo 设置–设置Server</strong></p>
+<p>参考下图进行设置即可。</p>
+<p><img src="http://hoxis.ibetalife.com/picgo/image-20200310115750500.png" alt></p>
+<h1><span id="typora设置">Typora设置</span></h1><p>下面是 Typora 的设置。</p>
+<h2><span id="版本要求">版本要求</span></h2><p>Typora 0.9.84 及以上。</p>
+<h2><span id="设置">设置</span></h2><p><strong>文件–偏好设置–图像</strong></p>
+<p>参考图片中的进行配置。</p>
+<p><img src="http://hoxis.ibetalife.com/picgo/image-20200310125429866.png" alt></p>
+<p>选择本机 PicGo 的路径。</p>
+<h2><span id="验证图片上传">验证图片上传</span></h2><p>这里还可以<strong>验证图片上传功能</strong>。</p>
+<p>验证成功会返回下图结果：</p>
+<p><img src="http://hoxis.ibetalife.com/picgo/image-20200310120930142.png" alt="▲ 验证上传"></p>
+<h1><span id="使用">使用</span></h1><p>上面的设置完成后，在 Typora 里写字时，就可以自动上传图片到图床啦。</p>
+<h2><span id="拖拽">拖拽</span></h2><p>可以直接选择图片，然后拖拽到编辑页面。</p>
+<p><img src="http://hoxis.ibetalife.com/picgo/20200310130302.gif" alt="▲ 拖拽上传"></p>
+<h2><span id="编辑器内插入">编辑器内插入</span></h2><p>使用快捷键 <strong>Ctrl + Shift + I</strong>，可以调出插入图片的功能。</p>
+<p><img src="http://hoxis.ibetalife.com/picgo/20200310134112.gif" alt="▲ 编辑器内插入"></p>
+<h2><span id="复制粘贴">复制粘贴</span></h2><p>也可以直接复制图片，然后再编辑器中直接粘贴。</p>
+<p>或者<strong>截图后直接粘贴</strong>（比如 Snipaste）。</p>
+<p><img src="http://hoxis.ibetalife.com/picgo/20200310151034.gif" alt="▲ 截图后直接粘贴"></p>
+<p>这里需要多一个点击<strong>上传图片</strong>的操作。</p>
+<p>然后图片就可以上传到图床了。</p>
+<p>另外，还可以看到<strong>所有的上传在 PicGo 的相册里都能找到：</strong></p>
+<p><img src="http://hoxis.ibetalife.com/picgo/image-20200310135701855.png" alt></p>
+<h1><span id="说在后面">说在后面</span></h1><p>Typora+PicGo，终于安排上了！</p>
+<p>真香啊！</p>
+<p>昨天我还在 Github 上找相关项目的，还好我眼尖，哈哈哈~</p>
+<p>另外，Typora+PicGo 的安装包貌似都不太好下。</p>
+<p>速度有点慢的说。</p>
+<p>不过，小编都打包好了啦，后台回复【<strong>120</strong>】即可获取啦！</p>
 
       
     </div>
@@ -631,7 +664,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://hoxis.github.io/linux-run-shell.html" title="执行 shell 脚本时，「source」、「. 」和「./」的区别">https://hoxis.github.io/linux-run-shell.html</a>
+    <a href="https://hoxis.github.io/typora-picgo.html" title="Typora如何集成PicGo？">https://hoxis.github.io/typora-picgo.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -649,7 +682,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/shell/" rel="tag"><i class="fa fa-tag"></i> shell</a>
+            <a href="/tags/编辑器/" rel="tag"><i class="fa fa-tag"></i> 编辑器</a>
           
         </div>
       
@@ -662,8 +695,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/python-get-pic-state.html" rel="next" title="Python 实现监控所有物理网卡状态">
-                <i class="fa fa-chevron-left"></i> Python 实现监控所有物理网卡状态
+              <a href="/ansible-vars-priority.html" rel="next" title="Ansible，如何自定义主机组变量优先级？">
+                <i class="fa fa-chevron-left"></i> Ansible，如何自定义主机组变量优先级？
               </a>
             
           </div>
@@ -671,10 +704,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/python-picture-to-ascii.html" rel="prev" title="Python 将图片转为字符画">
-                Python 将图片转为字符画 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -760,8 +789,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -902,6 +940,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">PicGo设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">版本要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">激活PicGo-Server</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Typora设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">版本要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">验证图片上传</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">拖拽</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">编辑器内插入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-text">复制粘贴</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">说在后面</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

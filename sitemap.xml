@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hoxis.github.io/typora-picgo.html</loc>
+    
+    <lastmod>2020-03-11T15:38:58.100Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hoxis.github.io/ansible-vars-priority.html</loc>
     
     <lastmod>2020-03-10T16:37:25.000Z</lastmod>
