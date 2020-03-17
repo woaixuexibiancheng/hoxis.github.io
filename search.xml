@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[rabbitmq问题解决：404 NOT_FOUND]]></title>
+    <url>%2Frabbitmq-mirror-queue.html</url>
+    <content type="text"><![CDATA[问题背景项目中使用了 rabbitmq 集群，工程代码用 SpringBoot 对 rabbitmq 集群进行了集成。 配置方式如下： 12345spring.rabbitmq.host=110.16.17.8,110.16.17.9,110.16.17.10spring.rabbitmq.port=5672spring.rabbitmq.username=testspring.rabbitmq.password=testspring.rabbitmq.virtual-host=test-vhost 但是当 rabbitmq 集群中的一个节点挂掉时，却出现了如下异常： 解决过程首先怀疑的是不是我们的使用方式有问题。 由于对这块代码不是很熟悉，所以质问了负责这块的人，也咨询了几个了解 rabbitmq 的，但是没有得到理想的答案。 网上搜索了一下，发现了下面一段： 2.1.1 场景集群环境下(节点A、B、C)，节点A宕机(QueueA所属节点)，客户端在剩余节点上声明持久化队列QueueA（非镜像队列），服务端响应404 NOT_FOUND。注意：消费者客户端收到404报错后，默认自动关闭，需编写监听器重连或重启应用恢复。 2.1.2 解决方案 恢复节点A，消费者客户端所在应用重启。 声明QueueA为高可用镜像队列。 解决方案，有两个。 要么恢复 rabbitmq 集群，重启应用。 我们是想解决问题的，重启不能解决根本问题！ 第二个方案，对我来说有点看不懂，镜像队列？ 是个啥？ 镜像队列默认情况下，rabbitmq 集群中的队列内容是仅在集群中的一个节点上的，也就是创建该队列的节点上。 如果该队列所在节点 down 了，那么这个队列中的内容就会丢失。 说好的集群呢？说好的高可用呢？ 这种尴尬的情况下，镜像队列就应运而生了。 镜像队列机制，能够将当前节点的队列镜像到集群中的其他节点上，并且当前节点队列内容的有关操作，都会广播给其他节点。 所有对镜像队列主拷贝的操作，都会通过GM同步到各个slave节点，Coodinator负责组播结果的确认。GM是一种可靠的组播通信协议，该协议能够保证组播消息的原子性，即保证组内的存活节点要么都收到消息要么都收不到。 这样，通过镜像队列，就实现了队列的高可用。 解决如何设置镜像队列？ 既然镜像队列这么好，我又跑去问负责 rabbitmq 的同事，得到的答复是默认是配了镜像队列的。 那么，问什么我们的服务还是会挂掉呢？ 检查镜像队列是否生效 123$ rabbitmqctl list_queues name policy pid slave_pids -p test-vhostListing queues ...test.alarm.queue &lt;rabbit@tesh-node1.1.318.0&gt; 这里我们指定了 vhost。 命令结果来看，队列现在只在 node1 上，并没有镜像队列产生。 设置镜像队列 1rabbitmqctl set_policy ha-all "^test." '&#123;"ha-mode":"all"&#125;' 设置完成后，再次查询队列是否镜像了，仍然没有生效。 是否对已经存在的队列不生效，新建的队列才可以？ 又新建队列进行测试，镜像仍然未生效。 经过长时间的尝试，发现设置镜像队列时，需要指定 vhost，否则默认只对 / 下的队列生效。 指定 vhost 设置镜像队列 1rabbitmqctl set_policy ha-all "^test." '&#123;"ha-mode":"all"&#125;' -p test-vhost 设置后，对已有的队列是立即生效的。 用命令再查看 123$ rabbitmqctl list_queues name policy pid slave_pids -p test-vhostListing queues ...test.alarm.queue ha-all &lt;rabbit@tesh-node1.1.318.0&gt; [&lt;rabbit@tesh-node2.1.30326.58&gt;, &lt;rabbit@tesh-node3.2.373.0&gt;] 同样可以看出镜像队列已生效。 此时再看我们的代码，也恢复正常了，这里就不贴图了。 总结通过本次事件，大致了解了 rabbitmq 高可用的方案，及其问题排查过程，也知道了不同 vhost 直接的配置是互相隔离的，需要不同的设置才可以。 学到老活到老啊。 参考： 1、https://www.jianshu.com/p/1c4c42ff5114 2、http://hecenjie.cn/2019/05/08/RabbitMQ%EF%BC%9A%E9%95%9C%E5%83%8F%E9%98%9F%E5%88%97%E3%80%81/]]></content>
+      <categories>
+        <category>绊脚石</category>
+      </categories>
+      <tags>
+        <tag>消息队列</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Typora如何集成PicGo？]]></title>
     <url>%2Ftypora-picgo.html</url>
     <content type="text"><![CDATA[之前推荐过一波自用的 Markdown 编辑器，当时提到了 Typora，缺点就是无法集成图床。 其中一个折中的办法就是手动使用 PicGo 上传到图床，然后将地址粘贴到 Typora。 那么 Typora 中能不能直接粘贴图片后，就自动上传到图床呢？ 网上搜索时，给出的解决方案大都是 Mac 下的：Typora+iPic。 可惜矮矬穷的小编用的是 Windows。 今天无意间打开 Typora，检测更新时，发现这一幕！ 没想到啊，没想到 浓眉大眼的 Typora 和 PicGo 竟然勾结在一起了！ 小编当即试用了一把，感觉还不错，后面可以考虑将 Typora 作为主力 Markdown 编辑器了。 毕竟颜值高！ 下面分享下 Typora + PicGo 的设置步骤。 当然，只是针对 Windows 版。 PicGo设置版本要求PicGo 2.2.0 及以上。 图床的设置这里不说了，不会的，自行百度。 激活PicGo-Server2.2.0 版本之后，PicGo 内部会默认开启一个小型的服务器，用于配合其他应用来调用 PicGo 进行上传。 如何设置呢？ 打开 PicGo 详细页面，进入 PicGo 设置–设置Server 参考下图进行设置即可。 Typora设置下面是 Typora 的设置。 版本要求Typora 0.9.84 及以上。 设置文件–偏好设置–图像 参考图片中的进行配置。 选择本机 PicGo 的路径。 验证图片上传这里还可以验证图片上传功能。 验证成功会返回下图结果： 使用上面的设置完成后，在 Typora 里写字时，就可以自动上传图片到图床啦。 拖拽可以直接选择图片，然后拖拽到编辑页面。 编辑器内插入使用快捷键 Ctrl + Shift + I，可以调出插入图片的功能。 复制粘贴也可以直接复制图片，然后再编辑器中直接粘贴。 或者截图后直接粘贴（比如 Snipaste）。 这里需要多一个点击上传图片的操作。 然后图片就可以上传到图床了。 另外，还可以看到所有的上传在 PicGo 的相册里都能找到： 说在后面Typora+PicGo，终于安排上了！ 真香啊！ 昨天我还在 Github 上找相关项目的，还好我眼尖，哈哈哈~ 另外，Typora+PicGo 的安装包貌似都不太好下。 速度有点慢的说。 不过，小编都打包好了啦，后台回复【120】即可获取啦！]]></content>
