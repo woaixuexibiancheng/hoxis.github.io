@@ -123,23 +123,21 @@
 
 
 
-<meta name="description" content="问题背景项目中使用了 rabbitmq 集群，工程代码用 SpringBoot 对 rabbitmq 集群进行了集成。 配置方式如下： 12345spring.rabbitmq.host=110.16.17.8,110.16.17.9,110.16.17.10spring.rabbitmq.port=5672spring.rabbitmq.username=testspring.rabbitmq.">
 <meta name="keywords" content="rabbitmq,404,镜像队列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rabbitmq问题解决：404 NOT_FOUND">
 <meta property="og:url" content="https://hoxis.github.io/rabbitmq-mirror-queue.html">
 <meta property="og:site_name" content="hoxis&#39; blog">
-<meta property="og:description" content="问题背景项目中使用了 rabbitmq 集群，工程代码用 SpringBoot 对 rabbitmq 集群进行了集成。 配置方式如下： 12345spring.rabbitmq.host=110.16.17.8,110.16.17.9,110.16.17.10spring.rabbitmq.port=5672spring.rabbitmq.username=testspring.rabbitmq.">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://hoxis.ibetalife.com/picgo/image-20200312001905732.png">
 <meta property="og:image" content="http://hoxis.ibetalife.com/picgo/image-20200312001905732.png">
 <meta property="og:image" content="http://hoxis.ibetalife.com/picgo/20200313132757.jpg">
 <meta property="og:image" content="http://hoxis.ibetalife.com/picgo/20200313152829.png">
 <meta property="og:image" content="http://hoxis.ibetalife.com/picgo/20200313155339.png">
 <meta property="og:image" content="http://hoxis.ibetalife.com/picgo/20200313161157.jpg">
-<meta property="og:updated_time" content="2020-03-17T04:35:48.023Z">
+<meta property="og:updated_time" content="2020-03-17T15:49:14.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rabbitmq问题解决：404 NOT_FOUND">
-<meta name="twitter:description" content="问题背景项目中使用了 rabbitmq 集群，工程代码用 SpringBoot 对 rabbitmq 集群进行了集成。 配置方式如下： 12345spring.rabbitmq.host=110.16.17.8,110.16.17.9,110.16.17.10spring.rabbitmq.port=5672spring.rabbitmq.username=testspring.rabbitmq.">
 <meta name="twitter:image" content="http://hoxis.ibetalife.com/picgo/image-20200312001905732.png">
 
 
@@ -544,7 +542,9 @@
       
 
       
-        <h1><span id="问题背景">问题背景</span></h1><p>项目中使用了 rabbitmq 集群，工程代码用 SpringBoot 对 rabbitmq 集群进行了集成。</p>
+        <p><img src="http://hoxis.ibetalife.com/picgo/image-20200312001905732.png" alt="▲ 代码异常"></p>
+<a id="more"></a>
+<h1><span id="问题背景">问题背景</span></h1><p>项目中使用了 rabbitmq 集群，工程代码用 SpringBoot 对 rabbitmq 集群进行了集成。</p>
 <p>配置方式如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">spring.rabbitmq.host=110.16.17.8,110.16.17.9,110.16.17.10</span><br><span class="line">spring.rabbitmq.port=5672</span><br><span class="line">spring.rabbitmq.username=test</span><br><span class="line">spring.rabbitmq.password=test</span><br><span class="line">spring.rabbitmq.virtual-host=test-vhost</span><br></pre></td></tr></table></figure>
 <p>但是当 rabbitmq 集群中的一个节点挂掉时，却出现了如下异常：</p>
