@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hoxis.github.io/"/>
-  <updated>2020-03-17T15:49:14.615Z</updated>
+  <updated>2020-03-17T16:52:23.453Z</updated>
   <id>https://hoxis.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>摸鱼神器，千万别让老板看见</title>
+    <link href="https://hoxis.github.io/fake-update.html"/>
+    <id>https://hoxis.github.io/fake-update.html</id>
+    <published>2020-03-17T16:51:35.000Z</published>
+    <updated>2020-03-17T16:52:23.453Z</updated>
+    
+    <content type="html"><![CDATA[<p>经常在电脑上认真工作（moyu）的同学，总是少不了一些伪装。</p><p>今天给大家介绍一款摸鱼神器，<strong>无需下载无需安装，安心可靠，使用简单</strong>，岁月静好……</p><p>用它，可以<strong>假装你的电脑在重启、在更新，或者被勒索。</strong></p><a id="more"></a><p>这样就可以暂时打发一些你不想理的人或事。</p><h1><span id="使用方法">使用方法</span></h1><p>浏览器输入网址：<a href="http://fakeupdate.net/" target="_blank" rel="noopener">http://fakeupdate.net/</a></p><p><img src="https://qiniu.ibetalife.com//picgo/image-20200317124528227.png" alt="▲ 选择主题"></p><p>可以看到，<strong>支持种类非常丰富。</strong></p><p><strong>Windows98、Windows XP、Win7、Win8、Win10，甚至还有 Mac 和 StreamOS。</strong></p><p>最后一个就是<strong>比特币勒索页面</strong>。</p><blockquote><p>Linux阵营再次被遗忘</p></blockquote><p>这里，我们选中一个 Win10 的升级页面。</p><p>进入后，就开始<del>假模假样</del>有模有样的升级起来了</p><p>此时<strong>按下 F11 就可以全屏了</strong></p><p><img src="https://qiniu.ibetalife.com//picgo/20200317124838.gif" alt></p><p>勒索病毒版：</p><p><img src="https://qiniu.ibetalife.com//picgo/image-20200317125118748.png" alt="image-20200317125118748"></p><p>还有<strong>更刺激的</strong></p><p>在升级页面，<strong>按下 Enter，就会进入蓝屏页面</strong>了。</p><p><img src="http://ww4.sinaimg.cn/large/006APoFYjw1fa9048hirtj308c07q75h.jpg" alt></p><p><strong>各种蓝屏，应有尽有！</strong></p><p><img src="https://qiniu.ibetalife.com//picgo/image-20200317125424107.png" alt="▲ Win10蓝屏"></p><p><img src="https://qiniu.ibetalife.com//picgo/image-20200317125439228.png" alt="▲ Win7蓝屏"></p><p><img src="https://qiniu.ibetalife.com//picgo/image-20200317125723370.png" alt="▲ Mac蓝屏"></p><blockquote><p>Mac也能蓝屏？</p></blockquote><h1><span id="说在后面">说在后面</span></h1><p>再整理一下步骤：</p><p>1、打开网页：<a href="http://fakeupdate.net/" target="_blank" rel="noopener">http://fakeupdate.net/</a></p><p>2、点击选择一个喜欢的主题</p><p>3、按下 F11，进入全屏</p><p>4、按下 Enter，进入蓝屏（可选）</p><p><strong>其实，我有点担心，同事看到这些画面后，会不会在热心驱动下，给我把电脑硬重启了……</strong></p><p>好了，今天就到这，不想自己输网址的，后台回复【<strong>121</strong>】获取。</p><hr><p><strong>说点别的</strong></p><p>最近的股市，有没有上车？😃</p><p><img src="http://image.dbbqb.com/2jE0q" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;经常在电脑上认真工作（moyu）的同学，总是少不了一些伪装。&lt;/p&gt;
+&lt;p&gt;今天给大家介绍一款摸鱼神器，&lt;strong&gt;无需下载无需安装，安心可靠，使用简单&lt;/strong&gt;，岁月静好……&lt;/p&gt;
+&lt;p&gt;用它，可以&lt;strong&gt;假装你的电脑在重启、在更新，或者被勒索。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="奇技淫巧" scheme="https://hoxis.github.io/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+    
+    
+      <category term="神网站" scheme="https://hoxis.github.io/tags/%E7%A5%9E%E7%BD%91%E7%AB%99/"/>
+    
+  </entry>
   
   <entry>
     <title>rabbitmq问题解决：404 NOT_FOUND</title>
@@ -462,33 +486,6 @@
     
     
       <category term="Ansible进阶" scheme="https://hoxis.github.io/tags/Ansible%E8%BF%9B%E9%98%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>周董新歌搞崩QQ，抓取20W评论看看歌迷在说啥</title>
-    <link href="https://hoxis.github.io/jay-chou-qqmusic.html"/>
-    <id>https://hoxis.github.io/jay-chou-qqmusic.html</id>
-    <published>2019-09-17T15:17:52.590Z</published>
-    <updated>2019-09-19T05:56:06.242Z</updated>
-    
-    <content type="html"><![CDATA[<p>9 月 16 日晚间，周董在朋友圈发布了最新单曲《说好不哭》</p><p>发布后，真的让一波人哭了</p><p>一群想抢鲜听的小伙伴直接泪奔</p><p>因为 QQ 音乐直接被搞崩了</p><a id="more"></a><p>没想到干翻 QQ 音乐的不是网易云音乐</p><p>也不是虾米音乐</p><p>而是周董！</p><p>周董成成功地凭一己之力干翻了 QQ 音乐</p><p>那么听过周董新歌后的小伙伴都是怎么评价的呢？</p><p>这里，我们获取了 QQ 音乐的近 20W 条评论数据进行分析</p><p>看看其中有哪些有趣的东西</p><h1><span id="一-数据获取">一、数据获取</span></h1><h2><span id="1-请求分析">1、请求分析</span></h2><p>在 QQ 网页版直接搜索『说好不哭』</p><p>很容易就能找到单曲页面</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-17-1568729192077.png" alt="说好不哭"></p><p>拉到页面最下方</p><p>可以看到评论的分页查看按钮</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-17-1568729296440.png" alt="分页查看"></p><p>按下 F12 点击第二页</p><p>在请求流中就可以看到对应的请求</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-17-1568729509877.png" alt="评论请求"></p><p>其中可以看到两个重要参数：<strong>pagenum</strong> 和 <strong>pagesize</strong></p><p>将请求 copy 到 Postman 中进行测试</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-17-1568729635332.png" alt="Postman测试"></p><p>发现可以直接获取到数据</p><p>连 Header 都不需要添加</p><p>这里尝试对请求参数进行了精简</p><p>最终只需要如下几个参数即可</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-17-1568729896048.png" alt="参数精简"></p><p>从 Postman 中可以直接获取到对应的代码</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">"https://c.y.qq.com/base/fcgi-bin/fcg_global_comment_h5.fcg"</span></span><br><span class="line"></span><br><span class="line">querystring = &#123;<span class="string">"biztype"</span>:<span class="string">"1"</span>,<span class="string">"topid"</span>:<span class="string">"237773700"</span>,<span class="string">"cmd"</span>:<span class="string">"8"</span>,<span class="string">"pagenum"</span>:<span class="string">"1"</span>,<span class="string">"pagesize"</span>:<span class="string">"25"</span>&#125;</span><br><span class="line"></span><br><span class="line">response = requests.request(<span class="string">"GET"</span>, url, params=querystring)</span><br><span class="line"></span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure><p>这里是单页评论的获取</p><p>所有评论的获取只需递增 pagenum 即可</p><h2><span id="2-数据解析">2、数据解析</span></h2><p>返回数据中有很多暂时不需要的字段</p><p>这里我们只取其中的用户名、评论时间、评论内容、点赞数</p><p>对应如下字段</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"nick"</span>: <span class="string">"丨那壹刻永遠消失\"\""</span>,</span><br><span class="line">    <span class="attr">"praisenum"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"rootcommentcontent"</span>: <span class="string">"越听越好听怎么回事！"</span>,</span><br><span class="line">    <span class="attr">"time"</span>: <span class="number">1568729836</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>由于数据量较大<br>这里我们暂时将数据存放在 Excel 中</p><p>一来无须依赖外部数据库</p><p>二来可以使用 Excel 对数据进行二次处理</p><p>数据存储代码如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">file_do</span><span class="params">(list_info, file_name)</span>:</span></span><br><span class="line">    <span class="comment"># 获取文件大小</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(file_name):</span><br><span class="line">        wb = openpyxl.Workbook()</span><br><span class="line">        page = wb.active</span><br><span class="line">        page.title = <span class="string">'jay'</span></span><br><span class="line">        page.append([<span class="string">'昵称'</span>,<span class="string">'时间'</span>,<span class="string">'点赞数'</span>,<span class="string">'评论'</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        wb = openpyxl.load_workbook(file_name)</span><br><span class="line">        page = wb.active</span><br><span class="line">    <span class="keyword">for</span> info <span class="keyword">in</span> list_info:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            page.append(info)</span><br><span class="line">        <span class="keyword">except</span> Exception:</span><br><span class="line">            print(info)</span><br><span class="line">    wb.save(filename=file_name)</span><br></pre></td></tr></table></figure><h1><span id="二-数据可视化">二、数据可视化</span></h1><h2><span id="1-各时段的评论数">1、各时段的评论数</span></h2><p>首先我们对评论按小时区间进行汇总</p><p>由于时间粒度比较小，这里对时间粒度进行了一些处理</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-18-评价人数走势图.png" alt="评价人数走势图"></p><p>周董的新曲是在 9.16 号 23 点准时发布的</p><p>可以看出在发布后的一个小时内（23:00-24:00）</p><p>评论数量达到了高峰</p><p>占了总评论数的一半以上</p><p>另外看了一眼 9.16 23 点之前的评论也很有意思</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-18-1568795161733.png" alt></p><p>一种搬好小板凳嗑着瓜子坐等的既视感</p><h2><span id="2-大家都在说什么">2、大家都在说什么</span></h2><p>词云生成的方法有很多</p><p>可以用代码生成</p><p>也可以用一些在线工具</p><p>这里我就使用了在线词云工具：wordart</p><p>后续可以给大家单独再普及一下</p><p>生成效果如下</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-18-1568789722559.png" alt="词云"></p><p>周杰伦、杰伦字眼很明显</p><p>还有大量跑来『打卡』的</p><p>『好听』、『来了』、『哭了』、『爱了』</p><p>其中少不了的还有『青春』</p><p>另外『阿信』的出现估计给了很多人惊喜</p><h2><span id="3-大家都点赞了哪些评论">3、大家都点赞了哪些评论</span></h2><p>我们以点赞数对评论进行了排序</p><p>排名靠前的评论是如下一些</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-18-1568783270631.png" alt="评论排名"></p><p>另外，QQ 音乐官方也会放出精彩评论</p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-18-1568783445395.png" alt="热心网友昀恺丶"></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-18-1568783468616.png" alt="凉城"></p><p><img src="https://blog-1254259578.cos.ap-shanghai.myqcloud.com/md/2019-9-18-1568783510921.png" alt="蜗牛.."></p><p>对比下可以看出和我们获取到的数据是比较一致的</p><p>只不过官方并不是按点赞个数进行排名的</p><p>看得出来这些排名靠前的大都是在回忆青春</p><p>这些评论之所以能够得到大家的共鸣</p><p>也许他们的青春里都有一个周杰伦吧</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;9 月 16 日晚间，周董在朋友圈发布了最新单曲《说好不哭》&lt;/p&gt;
-&lt;p&gt;发布后，真的让一波人哭了&lt;/p&gt;
-&lt;p&gt;一群想抢鲜听的小伙伴直接泪奔&lt;/p&gt;
-&lt;p&gt;因为 QQ 音乐直接被搞崩了&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="https://hoxis.github.io/categories/Python/"/>
-    
-    
-      <category term="数据爬取" scheme="https://hoxis.github.io/tags/%E6%95%B0%E6%8D%AE%E7%88%AC%E5%8F%96/"/>
-    
-      <category term="数据可视化" scheme="https://hoxis.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
   </entry>
   
