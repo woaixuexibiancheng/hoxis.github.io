@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hoxis.github.io/"/>
-  <updated>2020-03-17T16:52:23.453Z</updated>
+  <updated>2020-04-16T10:09:29.046Z</updated>
   <id>https://hoxis.github.io/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ansible执行k8s命令报错</title>
+    <link href="https://hoxis.github.io/k8s-ansible-error.html"/>
+    <id>https://hoxis.github.io/k8s-ansible-error.html</id>
+    <published>2020-04-16T10:08:41.000Z</published>
+    <updated>2020-04-16T10:09:29.046Z</updated>
+    
+    <content type="html"><![CDATA[<p>在服务器上，收到使用 k8s 命令正常。</p><p>使用 ansible shell 模块执行命令时，异常。</p><a id="more"></a><h1><span id="现象">现象</span></h1><p>在服务器上，收到使用 k8s 命令正常：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo kubectl get svc</span><br><span class="line">NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE</span><br><span class="line">kubernetes   ClusterIP   10.233.0.1   &lt;none&gt;        443/TCP   14d</span><br></pre></td></tr></table></figure><p>使用 ansible shell 模块执行命令时，异常：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ansible -i  hosts NODE1 -m shell -a <span class="string">'sudo kubectl get svc'</span></span><br><span class="line"> [WARNING]: Consider using <span class="string">'become'</span>, <span class="string">'become_method'</span>, and <span class="string">'become_user'</span> rather than running sudo</span><br><span class="line"></span><br><span class="line">NODE1 | FAILED | rc=1 &gt;&gt;</span><br><span class="line">The connection to the server localhost:8080 was refused - did you specify the right host or port?non-zero <span class="built_in">return</span> code</span><br></pre></td></tr></table></figure><h1><span id="解决过程">解决过程</span></h1><p>直接搜索异常，解决方案如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="variable">$HOME</span>/.kube</span><br><span class="line">sudo cp -i /etc/kubernetes/admin.conf <span class="variable">$HOME</span>/.kube/config</span><br><span class="line">sudo chown $(id -u):$(id -g) <span class="variable">$HOME</span>/.kube/config</span><br></pre></td></tr></table></figure><p>但是，手动执行命令是正常的，所以不是这个问题。</p><p>在 so 上看到了这个方法：</p><p><img src="https://qiniu.ibetalife.com/picgo/image-20200416180549776.png" alt></p><h1><span id="解决方法">解决方法</span></h1><p>执行命令时，指定配置文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ansible -i  hosts NODE1 -m shell -a <span class="string">'sudo kubectl get svc --kubeconfig=/opt/conf/kubernetes/admin.conf'</span></span><br></pre></td></tr></table></figure><p>配置路径修改为自己的配置文件路径即可。</p><hr><p>参考：</p><ul><li><a href="https://blog.csdn.net/M82_A1/article/details/99671934" target="_blank" rel="noopener">https://blog.csdn.net/M82_A1/article/details/99671934</a></li><li><a href="https://stackoverflow.com/questions/49847165/ansible-shell-module-execute-kubectl-error-connection-to-localhost-refused" target="_blank" rel="noopener">https://stackoverflow.com/questions/49847165/ansible-shell-module-execute-kubectl-error-connection-to-localhost-refused</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在服务器上，收到使用 k8s 命令正常。&lt;/p&gt;
+&lt;p&gt;使用 ansible shell 模块执行命令时，异常。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="绊脚石" scheme="https://hoxis.github.io/categories/%E7%BB%8A%E8%84%9A%E7%9F%B3/"/>
+    
+    
+      <category term="ansible" scheme="https://hoxis.github.io/tags/ansible/"/>
+    
+      <category term="k8s" scheme="https://hoxis.github.io/tags/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>百度网盘最新高速下载方法，应急专属！和几KB说再见</title>
+    <link href="https://hoxis.github.io/pdown.html"/>
+    <id>https://hoxis.github.io/pdown.html</id>
+    <published>2020-04-15T10:08:41.000Z</published>
+    <updated>2020-04-16T10:11:07.846Z</updated>
+    
+    <content type="html"><![CDATA[<p>百度开始出面整治了。</p><p>方法很简单粗暴，发现使用加速工具下载的，<strong>直接对账号进行限速</strong>。</p><a id="more"></a><h1><span id="说在前面">说在前面</span></h1><p>之前，我们分享过很多百度网盘的高速下载工具。</p><p>比如 PanDownload、BaiduPCS、网盘助手插件等等，各种工具。</p><p>刚开始，这些工具都很好用，动不动几 MB/s 的下载速度。</p><p>但是，百度也要恰饭的呀，大家都这么搞，百度怎么玩啊？</p><p>现在能相对来说自由分享文件的网盘已经不多了。</p><p>这么弄下去，百度网盘早晚凉凉。</p><p>于是，百度开始出面整治了。</p><p>方法很简单粗暴，发现使用加速工具下载的，<strong>直接对账号进行限速</strong>。</p><p>而且，他们有人一直<strong>盯着市面上比较流行的加速工具，竭尽脑汁想办法对其限速。</strong></p><p><strong>就行爬虫和反爬虫，斗智斗勇，难分高下。</strong></p><p><img src="http://hoxis.ibetalife.com/picgo/20200406222447.gif" alt></p><p>不过，现在百度的限速貌似占据上风，小编的几个百度账号基本上全都被限速了。</p><p>下载个东西，这速度……</p><p><img src="https://qiniu.ibetalife.com/picgo/image-20200408082749789.png" alt></p><p>刚开始还能到 40 多KB，后来直接掉到了 20KB/s。</p><p>再后来，直接到了 5KB。。。</p><p><img src="https://qiniu.ibetalife.com/picgo/image-20200408091835560.png" alt></p><p><img src="http://hoxis.ibetalife.com/picgo/20200406223221.png" alt></p><p><strong>下载速度估计还比不上我看书的速度</strong></p><h1><span id="新发现">新发现</span></h1><p>在一个月黑风高的夜晚</p><p>小编在网上漫游时</p><p>又发现了一款工具：<strong>PDown</strong></p><p>据最新消息，该工具是作者<strong>作为毕业设计立项，为了方便宿舍下载试验资料。 现在分享出来希望可以帮助到更多的人</strong>。</p><blockquote><p> 这里让我不由得感慨：人和人之间的差距怎么就这么大呢！</p><p>人家毕业立项都能做出这么优秀的工具，我毕业立项简直就是活泥巴。</p></blockquote><p><img src="https://qiniu.ibetalife.com/picgo/ewMA9.gif" alt></p><h2><span id="加速原理">加速原理</span></h2><p>PDown<strong>无须登陆账号就能加速</strong>，也就是可以规避账号限速的问题。</p><p>其加速原理如下：</p><p><strong>提交链接 –&gt; 作者用百度VIP去下载 –&gt; 下载好传给你</strong></p><p>所以可能你的任务会长时间一直在拉取（尤其是大文件），要耐心等着。</p><p>其实就是作者用自己的会员账号，把用户需要的文件拉取下载到服务器，再把服务器的文件分发给用户。</p><p>这时下载速度就只取决于服务器的速度了，而不是度盘的速度。</p><p>是不是原理是不是很简单？</p><h2><span id="使用方法">使用方法</span></h2><p>软件是单文件.exe。 </p><p><img src="https://qiniu.ibetalife.com/picgo/image-20200408085248963.png" alt></p><p><strong>无需安装，下载后双击直接运行。</strong></p><p>运行后，在 PDown下载界面<strong>新建下载</strong>。</p><p>直接粘贴完整的度盘分享链接和提取码就可以下载了，<strong>不需要登录度盘账号</strong>。</p><p>总有人只粘贴分享链接不包括提取码，应该像这样粘贴<strong>完整的链接+提取码</strong>。</p><p>示例链接：<a href="https://pan.baidu.com/s/1jxP5vznx3_XvHrPKv1yhKg" target="_blank" rel="noopener">https://pan.baidu.com/s/1jxP5vznx3_XvHrPKv1yhKg</a> 提取码：97zc</p><p>下面是作者给出的<strong>使用效果图</strong>：</p><p><img src="https://qiniu.ibetalife.com/picgo/down600.gif" alt></p><h2><span id="加速效果实测">加速效果实测</span></h2><p>下面是小编进行实测的图：</p><p><img src="https://qiniu.ibetalife.com/picgo/image-20200408082719083.png" alt></p><p>对比已经限速的效果，还是不错的。</p><p><img src="https://qiniu.ibetalife.com/picgo/oq6YB" alt></p><h2><span id="使用限制">使用限制</span></h2><p><strong>重点来了！</strong></p><p>说了它的好，就要说它的缺点。</p><p>由于是<strong>个人维护</strong>的项目，所以<strong>不一定持久</strong>。</p><p>同样由于个人精力和经济因素，作者对文件大小和个数也有限制。</p><p><strong>单个文件体积最大100MB，链接内所有文件的总体积最大500MB</strong>（因为大文件会导致其他人长时间等待）。</p><p>因为用的人太多，超过了作者能力了。所以<strong>限速了</strong>。 </p><blockquote><p>100kb/s 每个文件，最多3个文件同时，总和是300kb/s。</p><p>另外对10MB以内，20MB以内，100MB以内文件都有<strong>不同的限速值</strong>。</p><p>小文件还会快一点。具体的限速值我也在不断调整</p></blockquote><p>同时使用的人很多时，要排队拉取，你<strong>可能需要等待很长时间，才能拉取成功</strong>。</p><p>总之一句话，自己使用一下才知道。</p><h2><span id="作者的qampa">作者的Q&amp;A</span></h2><blockquote><p>以下第一人称是工具作者。</p></blockquote><p><strong>Q:什么时候会收费？</strong></p><p><strong>个人项目，永久免费。</strong>没钱我会去寻求捐赠，实在没钱我会关掉项目。所以永远免费。</p><p><strong>Q:文件版权纠纷?</strong></p><p>我一直在监管版权问题，并且提供了醒目的举报入口，欢迎大家和我们一起维护版权，打击各种违规文件。只要举报无条件封杀</p><p>因为只有小文件（电影什么的不可能有），加上是个人项目并没有很多人在用。实际上也很难有所谓版权纠纷。</p><p>但如果确实涉及到您的版权请及时联系我。我会立即清理</p><p><strong>Q:有问题怎么联系？</strong></p><p>github上发Issue吧，我会不定时的来看看的，看到了就会回复你</p><p><strong>Q:会开源吗？用的什么技术？</strong></p><p>客户端是c++，用到了SOUI3，SQLite，Curl，GoogleBase，等等，界面都是我自己设计后用PS贴图<br>具体的代码因为是个人项目，又乱又杂，还有一堆BUG。实在羞于出手。等以后项目稳定了会考虑开源客户端的部分代码，因为SOUI就是开源的</p><h1><span id="说在后面">说在后面</span></h1><p>相比官方客户端的几十 KB 每秒，稳稳地以 400-500KB/s 的速度下载也不错了。</p><p>同时 PDown 也有无需登录即可下载，下载速度稳定等优点。</p><p>虽然文件大小、文件个数、下载速度有些限制，但是作者承担着高额的服务器带宽费，以这种方式贡献出来自己的资源，是值得点赞的！</p><p><img src="https://qiniu.ibetalife.com/picgo/image-20200408090832938.png" alt="▲ 作者的话"></p><p>如果你的账号被限速了，又急需下载一些文档或者小文件，PDwon 是个可以考虑的选择。</p><blockquote><p>P.S. 该项目属于开源项目，使用问题可以到 Github 上提 issue，小编不负责解答。</p></blockquote><p>工具获取方式，后台回复【<strong>125</strong>】即可获取。</p><p>点击原文，可以访问该项目的 Github 地址。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;百度开始出面整治了。&lt;/p&gt;
+&lt;p&gt;方法很简单粗暴，发现使用加速工具下载的，&lt;strong&gt;直接对账号进行限速&lt;/strong&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="奇技淫巧" scheme="https://hoxis.github.io/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+    
+    
+      <category term="百度网盘" scheme="https://hoxis.github.io/tags/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/"/>
+    
+  </entry>
   
   <entry>
     <title>摸鱼神器，千万别让老板看见</title>
@@ -434,58 +482,6 @@
     
     
       <category term="百度云" scheme="https://hoxis.github.io/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>『神网站』文档处理、文档转换、语音识别、图片文字识别、论文查重，它都行！</title>
-    <link href="https://hoxis.github.io/xunjiepdf.html"/>
-    <id>https://hoxis.github.io/xunjiepdf.html</id>
-    <published>2019-10-09T04:19:04.000Z</published>
-    <updated>2020-03-27T03:58:59.672Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>神网站系列第 1 篇。</p></blockquote><p>之前需要将一段录音文件转化为文字</p><p>刚开始想的是使用百度的 API 接口</p><p>但是觉得麻烦</p><p>还要写代码</p><p>后来简单搜索了一下</p><p>没想到发现了一个宝藏</p><a id="more"></a><h2><span id="文档转换">文档转换</span></h2><p>支持 PDF、Office、WPS</p><p>甚至还支持电子书、CAD、CAJ</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-9-1570598491811.png" alt="文档转换"></p><h2><span id="文档处理">文档处理</span></h2><p>可以<strong>在线翻译</strong>文档</p><p>PDF 的操作合辑</p><p>在线压缩、编辑文件</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-9-1570598588489.png" alt="文档处理"></p><h2><span id="图片文字识别">图片文字识别</span></h2><p>图片文字、扫描 PDF、票据</p><p>这些统统都能搞定</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-9-1570598807523.png" alt="图片文字识别"></p><p>识别时还可以设置一些参数</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-9-1570599055704.png" alt="设置参数"></p><h2><span id="语音识别">语音识别</span></h2><p><img src="http://hoxis.ibetalife.com/md/2019-10-9-1570599018325.png" alt="语音识别"></p><p>支持多种格式</p><p>还支持批量识别</p><p>一般用户 20M 大小也足够使用</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-9-1570599092038.png" alt="语音识别"></p><p>同样支持文字转语音</p><p>也可以设置各种目标参数</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-9-1570599161699.png" alt="文字转语音"></p><h2><span id="音视频转换">音视频转换</span></h2><p>这些功能现在用的不是很多</p><p>不过可备不时之需</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-9-1570598747146.png" alt="音视频转换"></p><h2><span id="论文查重">论文查重</span></h2><p>免费的论文查重</p><p>最多只能 10000 字</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-9-1570599215805.png" alt="论文查重"></p><h2><span id="思维导图流程图">思维导图/流程图</span></h2><p>还可以在线制作思维导图和流程图</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-9-1570599277981.png" alt="思维导图/流程图"></p><p>思维导图和以前介绍的百度脑图差不多</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-9-1570599393642.png" alt="思维导图"></p><p>流程图提供了各种模板</p><p>可以满足基本的绘图要求</p><p>使用起来比较流畅</p><p><img src="http://hoxis.ibetalife.com/md/2019-10-9-1570599524227.png" alt="流程图"></p><hr><p>好了</p><p>主要功能介绍的差不多了</p><p>扫描下方二维码，回复【<strong>108</strong>】即可获取网站直达地址</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;神网站系列第 1 篇。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;之前需要将一段录音文件转化为文字&lt;/p&gt;
-&lt;p&gt;刚开始想的是使用百度的 API 接口&lt;/p&gt;
-&lt;p&gt;但是觉得麻烦&lt;/p&gt;
-&lt;p&gt;还要写代码&lt;/p&gt;
-&lt;p&gt;后来简单搜索了一下&lt;/p&gt;
-&lt;p&gt;没想到发现了一个宝藏&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="好物分享" scheme="https://hoxis.github.io/categories/%E5%A5%BD%E7%89%A9%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="在线工具" scheme="https://hoxis.github.io/tags/%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ansible 只查看错误输出信息</title>
-    <link href="https://hoxis.github.io/ansible-only-show-errors.html"/>
-    <id>https://hoxis.github.io/ansible-only-show-errors.html</id>
-    <published>2019-09-29T03:23:39.000Z</published>
-    <updated>2019-09-29T03:24:30.354Z</updated>
-    
-    <content type="html"><![CDATA[<p>Ansible 如何只输出错误信息？</p><a id="more"></a><p>有时主机较多时，我们只想关注有问题的主机。</p><p>Ansible callback 插件中有一个 <code>actionable</code>，官方描述为：</p><blockquote><p>actionable - shows only items that need attention</p></blockquote><p>即只输出需要关注的部分。</p><p>但是 callback 插件只对 playbook 生效，如何对 Ad-hoc 起作用呢？</p><p>参考文档：<a href="https://docs.ansible.com/ansible/2.6/plugins/callback.html#managing-adhoc" target="_blank" rel="noopener">https://docs.ansible.com/ansible/2.6/plugins/callback.html#managing-adhoc</a></p><p>可以通过修改配置文件</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[defaults]</span><br><span class="line">bin_ansible_callbacks=True</span><br></pre></td></tr></table></figure><p>或者修改环境变量来实现</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export ANSIBLE_LOAD_CALLBACK_PLUGINS=1</span><br></pre></td></tr></table></figure><p>这里我们通过环境变量的方式来进行，这样比较轻量，无需修改文件</p><p>在运行 Ad-hoc 命令时，前面加上两个参数即可：</p><p><code>ANSIBLE_LOAD_CALLBACK_PLUGINS=1 ANSIBLE_STDOUT_CALLBACK=actionable</code></p><p>完整命令如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ANSIBLE_LOAD_CALLBACK_PLUGINS=1 ANSIBLE_STDOUT_CALLBACK=actionable ansible all -m ping</span><br></pre></td></tr></table></figure><p>另外，ansible 环境变量汇总见页面：<a href="https://docs.ansible.com/ansible/2.6/reference_appendices/config.html#ansible-configuration-settings" target="_blank" rel="noopener">https://docs.ansible.com/ansible/2.6/reference_appendices/config.html#ansible-configuration-settings</a></p><p>参考：</p><ul><li><a href="https://stackoverflow.com/questions/40239150/how-can-i-make-ansible-show-only-errors-in-execution" target="_blank" rel="noopener">https://stackoverflow.com/questions/40239150/how-can-i-make-ansible-show-only-errors-in-execution</a></li><li><a href="https://docs.ansible.com/ansible/2.6/plugins/callback.html#callback-plugins" target="_blank" rel="noopener">https://docs.ansible.com/ansible/2.6/plugins/callback.html#callback-plugins</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Ansible 如何只输出错误信息？&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Ansible" scheme="https://hoxis.github.io/categories/Ansible/"/>
-    
-    
-      <category term="Ansible进阶" scheme="https://hoxis.github.io/tags/Ansible%E8%BF%9B%E9%98%B6/"/>
     
   </entry>
   
